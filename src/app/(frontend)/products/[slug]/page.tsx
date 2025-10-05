@@ -21,7 +21,8 @@ type Props = {
 // Server Component для отображения детальной страницы
 export default async function ProductDetailPage({ params }: Props) {
   // ИСПРАВЛЕНИЕ: Просто деструктурируем slug из params, поскольку он уже готов.
-  const { slug: productSlug } = params // <-- ИСПРАВЛЕНО
+  console.log(params)
+  const { slug: productSlug } = await params // <-- ИСПРАВЛЕНО
 
   // Ваш код получения Payload:
   const payloadConfig = await config
@@ -144,7 +145,7 @@ export async function generateStaticParams() {
 // Задаем метаданные для конкретной страницы
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // ИСПРАВЛЕНО
-  const { slug: productSlug } = params
+  const { slug: productSlug } = await params
 
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
