@@ -6,7 +6,7 @@ import { Payload } from 'payload'
 import { Product } from '@/payload-types' // Предполагаем, что у вас есть тип Product
 
 // Базовый URL для сборки полных URL изображений
-const PAYLOAD_BASE_URL = 'http://localhost:3030'
+const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3030' // Ваш Payload CMS
 
 /**
  * Серверный Компонент для отображения списка товаров.

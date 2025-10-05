@@ -9,7 +9,7 @@ import { sofiaSans } from '../../fonts'
 import styles from './ProductPage.module.css'
 
 // Используем тот же базовый URL для Payload
-const PAYLOAD_BASE_URL = 'http://localhost:3030'
+const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3030' // Ваш Payload CMS
 
 // Тип для параметров, которые Next.js передает в динамический маршрут
 // type Props = {
