@@ -21,7 +21,7 @@ type Props = {
 // Server Component для отображения детальной страницы
 export default async function ProductDetailPage({ params }: Props) {
   // ИСПРАВЛЕНИЕ: Просто деструктурируем slug из params, поскольку он уже готов.
-  console.log(params)
+  // console.log(params)
   const { slug: productSlug } = await params // <-- ИСПРАВЛЕНО
 
   // Ваш код получения Payload:
