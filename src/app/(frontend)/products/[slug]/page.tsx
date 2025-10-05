@@ -12,17 +12,18 @@ import styles from './ProductPage.module.css'
 const PAYLOAD_BASE_URL = 'http://localhost:3030'
 
 // Тип для параметров, которые Next.js передает в динамический маршрут
-type Props = {
-  params: {
-    slug: string
-  }
-}
+// type Props = {
+//   params: {
+//     slug: string
+//   }
+// }
 
 // Server Component для отображения детальной страницы
-export default async function ProductDetailPage({ params }: Props) {
-  // ИСПРАВЛЕНИЕ: Просто деструктурируем slug из params, поскольку он уже готов.
-  // console.log(params)
-  const { slug: productSlug } = await params // <-- ИСПРАВЛЕНО
+export default async function ProductDetailPage({ params }: any) {
+  // ИЛИ: export default async function ProductDetailPage({ params }: { params: { slug: string } }) {
+
+  // Здесь оставляем await, как требует Next.js для динамических пропсов
+  const { slug: productSlug } = await params // <-- ОСТАВИТЬ await
 
   // Ваш код получения Payload:
   const payloadConfig = await config
@@ -143,8 +144,8 @@ export async function generateStaticParams() {
 }
 
 // Задаем метаданные для конкретной страницы
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // ИСПРАВЛЕНО
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  // Здесь также оставляем await
   const { slug: productSlug } = await params
 
   const payloadConfig = await config
