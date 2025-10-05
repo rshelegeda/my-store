@@ -20,10 +20,10 @@ type Props = {
 
 // Server Component для отображения детальной страницы
 export default async function ProductDetailPage({ params }: Props) {
-  // ИСПРАВЛЕНИЕ: Деструктурируем slug из params.
-  // Добавление "await" для гарантии асинхронного извлечения и устранения ошибки синхронизации Next.js.
-  const { slug: productSlug } = await params // 1. Инициализация Payload
+  // ИСПРАВЛЕНИЕ: Просто деструктурируем slug из params, поскольку он уже готов.
+  const { slug: productSlug } = params // <-- ИСПРАВЛЕНО
 
+  // Ваш код получения Payload:
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
@@ -143,8 +143,9 @@ export async function generateStaticParams() {
 
 // Задаем метаданные для конкретной страницы
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // ИСПРАВЛЕНИЕ: Деструктурируем slug из params. Добавление "await" для устранения ошибки синхронизации.
-  const { slug: productSlug } = await params
+  // ИСПРАВЛЕНО
+  const { slug: productSlug } = params
+
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
