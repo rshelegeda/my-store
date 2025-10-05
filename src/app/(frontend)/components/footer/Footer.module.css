@@ -1,0 +1,172 @@
+.footer {
+    background-color: #006e41;
+    color: #f0f0f0;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.brandInfo {
+    flex: 1;
+    min-width: 250px;
+}
+
+.logoWrapper {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.logoImage {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    opacity: 1;
+    font-family: "Sofia Sans", sans-serif;
+    letter-spacing: 0.5px;
+    margin: 10px 0 20px;
+    font-weight: 500;
+    color: #b0e0a0;
+    line-height: 1.4;
+    text-transform: none;
+}
+
+.navTitle {
+    font-family: "Sofia Sans", sans-serif;
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background-color: #b0e0a0;
+    border-radius: 1px;
+    transition: width 0.3s ease;
+}
+
+.footerNav {
+    flex: 0.8;
+    min-width: 150px;
+    font-family: "Sofia Sans", sans-serif;
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navItem {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    transition: color 0.2s ease;
+}
+
+.navItem:hover {
+    color: #b0e0a0;
+}
+
+.contactInfo {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contactInfo p {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.contactLink {
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    border-bottom: 1px dashed rgba(240, 240, 240, 0.4);
+}
+
+.contactLink:hover {
+    color: #b0e0a0;
+    border-bottom-color: #b0e0a0;
+}
+
+.socials {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.socialIconLink {
+    color: #f0f0f0;
+    font-size: 2rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.socialIconLink:hover {
+    color: #b0e0a0;
+    transform: translateY(-3px) scale(1.1);
+}
+
+.footerBottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    text-align: center;
+}
+
+.footerBottom p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .footerContent {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 20px;
+    }
+
+    .brandInfo, .footerNav, .contactInfo {
+        min-width: 100%;
+    }
+
+    .brandInfo {
+        text-align: center;
+    }
+
+    .logoWrapper {
+        margin-bottom: 5px;
+    }
+
+    .tagline {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .navTitle::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

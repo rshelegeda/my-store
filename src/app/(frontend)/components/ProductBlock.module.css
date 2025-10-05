@@ -1,0 +1,141 @@
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 240px;
+    height: 350px;
+    transition: transform 0.3s ease;
+    margin-bottom: 130px; /* Увеличено с 10px до 20px */
+}
+
+.block:hover {
+    transform: translateY(-10px);
+}
+
+.leaves {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.block:hover .leaves {
+    animation: floatHover 2s ease-in-out infinite;
+    transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-8px) rotate(2deg);
+    }
+}
+
+@keyframes floatHover {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px) rotate(0deg) scale(1.1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-12px) rotate(3deg) scale(1.1);
+    }
+}
+
+.bottle {
+    position: relative;
+    z-index: 2;
+    margin-bottom: -80px;
+    transition: all 0.3s ease;
+    animation: gentleSway 4s ease-in-out infinite;
+}
+
+.block:hover .bottle {
+    transform: scale(1.05) rotate(2deg);
+    animation: bottleHover 2s ease-in-out infinite;
+}
+
+@keyframes gentleSway {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-3px) rotate(0.5deg);
+    }
+    75% {
+        transform: translateY(3px) rotate(-0.5deg);
+    }
+}
+
+@keyframes bottleHover {
+    0%, 100% {
+        transform: scale(1.05) translateY(0px) rotate(2deg);
+    }
+    50% {
+        transform: scale(1.05) translateY(-5px) rotate(3deg);
+    }
+}
+
+.infoBox {
+    background: #f8a616;
+    color: white;
+    padding: 4rem 1.5rem 2rem;
+    border-radius: 0 0 100% 100%/50px;
+    min-height: 200px;
+    min-width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.block:hover .infoBox {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.infoBox h2 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.block:hover .infoBox h2 {
+    transform: scale(1.02);
+}
+
+.infoBox h2::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 1.5px;
+    background: white;
+    margin: 8px auto 0;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.block:hover .infoBox h2::after {
+    width: 70%;
+}
+
+.infoBox p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    font-style: italic;
+    transition: all 0.3s ease;
+}
+
+.block:hover .infoBox p {
+    transform: scale(1.05);
+}

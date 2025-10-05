@@ -1,0 +1,292 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: "Sofia Sans", sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(0);
+}
+
+.headerHidden {
+    transform: translateY(-100%);
+    box-shadow: none;
+}
+
+.headerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    --header-height: 90px;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logoLink:hover {
+    transform: scale(1.05);
+}
+
+.logoImage {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navigation {
+    display: block;
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.navLink {
+    color: #004d30;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #b0e0a0;
+    transition: width 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.navLink:hover::after,
+.navLink:focus::after {
+    width: 100%;
+}
+
+.ctaButton {
+    background: linear-gradient(135deg, #006e41 0%, #004d30 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 110, 65, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 110, 65, 0.5);
+    background: linear-gradient(135deg, #004d30 0%, #006e41 100%);
+}
+
+.ctaButton:active {
+    transform: translateY(0);
+}
+
+.cartIcon {
+    width: 18px;
+    height: 18px;
+    stroke: white;
+}
+
+.burgerButton {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.burgerButton:hover {
+    transform: scale(1.1);
+}
+
+.burgerButton:active {
+    transform: scale(0.95);
+}
+
+.burgerSvg {
+    width: 30px;
+    height: 30px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.burgerSvg line {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mobileNavigation {
+    top: var(--header-height);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    padding: 0;
+    overflow: hidden;
+    animation: slideDown 0.3s ease-out;
+}
+
+.mobileNavList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mobileNavItem {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobileNavLink {
+    display: block;
+    padding: 15px 30px;
+    color: #004d30;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.mobileNavLink:hover {
+    background-color: #f5fff5;
+    color: #006e41;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .headerContent {
+        padding: 10px 20px;
+        max-width: none;
+        --header-height: 70px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .burgerButton {
+        display: flex;
+    }
+
+    .rightSection {
+        gap: 10px;
+    }
+
+    .logoImage {
+        width: 50px;
+    }
+
+    .ctaButton {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        width: auto;
+        height: auto;
+        justify-content: center;
+        min-width: 80px;
+    }
+
+    .ctaText {
+        display: block;
+        font-size: 0.8rem;
+    }
+
+    .cartIcon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ctaButton {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+
+    .ctaText {
+        font-size: 0.75rem;
+    }
+
+    .cartIcon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .rightSection {
+        gap: 8px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .mobileNavigation {
+        display: none;
+    }
+
+    .burgerButton {
+        display: none;
+    }
+
+    .ctaButton {
+        font-size: 1rem;
+        width: auto;
+        height: auto;
+    }
+
+    .ctaText {
+        display: block;
+    }
+}

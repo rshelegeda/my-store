@@ -1,0 +1,100 @@
+.sliderWrapper {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.sliderContainer {
+    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+}
+
+.slidesSection {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.slide {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.slideContentArea {
+    position: relative;
+    margin: 0 auto;
+    width: 95%;
+    height: 95%;
+    top: 2.5%;
+}
+
+@media (min-width: 768px) {
+    .slideContentArea {
+        width: 80%;
+        height: 80%;
+        top: 10%;
+    }
+}
+
+.slideFigure {
+    z-index: 10;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.slideImageDiv {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.slideHeader {
+    z-index: 20;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.titleWrapper {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.slideTitle {
+    color: #006838;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Sofia Sans", Arial;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .slideTitle {
+        font-size: 4.5rem;
+        line-height: 1;
+    }
+}
+
+.titleLine {
+    display: block;
+    overflow: hidden;
+}
+
+.titleLineSpan {
+    display: inline-block;
+}

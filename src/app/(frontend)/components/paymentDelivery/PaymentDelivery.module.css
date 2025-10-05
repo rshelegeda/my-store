@@ -1,0 +1,326 @@
+/* components/PaymentDelivery/PaymentDelivery.module.css */
+
+.about {
+    display: flex;
+    /* ИСПРАВЛЕНИЕ: Заменено 100vw на 100% */
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin-top: 100px;
+    position: relative;
+    /* Добавлено для предотвращения горизонтального скролла */
+    overflow-x: hidden;
+}
+
+/* Левая часть */
+.leftSection {
+    flex: 0 0 50%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    z-index: 2;
+    /* Скрывает псевдоэлемент, который выходит за границы, предотвращая скролл */
+    overflow: hidden;
+}
+
+.leftSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50px; /* Сохранено для визуального эффекта */
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, #ffffff 100%);
+    z-index: 1;
+}
+
+.textContent {
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #006838 0%, #4CAF50 100%);
+    border-radius: 50%;
+    color: white;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0, 104, 56, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.title {
+    font-size: 48px;
+    font-family: "Sofia Sans", sans-serif;
+    font-weight: 900;
+    color: #006838;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.titleUnderline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #006838, #4CAF50);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* ЕДИНАЯ КАРТОЧКА: ОБЩИЕ СТИЛИ */
+.combinedCard {
+    margin-bottom: 40px;
+    padding: 35px;
+    background: rgba(76, 175, 80, 0.05);
+    border-radius: 24px;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.combinedCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #006838, #4CAF50);
+}
+
+.combinedCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(76, 175, 80, 0.15);
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 104, 56, 0.2);
+    margin: 30px 0;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.sectionHeader svg {
+    color: #006838;
+    width: 32px;
+    height: 32px;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #006838;
+    margin: 0;
+}
+
+/* СТИЛИ ДЛЯ ВЫДЕЛЕННОГО ТЕКСТА (strong) */
+.deliveryText strong,
+.paymentText strong {
+    font-weight: 700;
+    color: #006838;
+}
+
+/* СТИЛИ ДЛЯ ДОСТАВКИ */
+.deliveryText {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.deliveryText:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* СТИЛИ ДЛЯ ОПЛАТЫ */
+.paymentText {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.ibanContainer {
+    position: relative;
+}
+
+.ibanBox {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 18px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ibanBox:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+.ibanText {
+    flex: 1;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: #006838;
+    letter-spacing: 1px;
+}
+
+.copyButton {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+.copyButton:active {
+    transform: scale(0.95);
+}
+
+/* Правая часть */
+.rightSection {
+    flex: 0 0 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.7s ease;
+}
+
+.rightSection:hover .image {
+    transform: scale(1.05);
+}
+
+.imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 104, 56, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+    z-index: 1;
+}
+
+/* Медиа-запросы */
+@media (max-width: 1024px) {
+    .about {
+        margin-top: 60px;
+        width: 100%;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .leftSection {
+        padding: 60px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        min-height: auto;
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .leftSection,
+    .rightSection {
+        flex: none;
+    }
+
+    .leftSection {
+        min-height: auto;
+        padding: 60px 30px;
+        overflow: visible; /* Отключаем скрытие на мобильных устройствах, так как псевдоэлемента нет */
+    }
+
+    .leftSection::before {
+        display: none;
+    }
+
+    .rightSection {
+        height: 50vh;
+        order: -1;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .combinedCard {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .leftSection {
+        padding: 40px 20px;
+    }
+
+    .combinedCard {
+        padding: 20px;
+    }
+
+    .ibanText {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    .ibanBox {
+        padding: 15px 18px;
+    }
+}

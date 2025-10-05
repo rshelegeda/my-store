@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  labels: {
+    singular: 'Медіа Файли',
+    plural: 'Медіа Файли',
+  },
   access: {
     read: () => true,
   },
