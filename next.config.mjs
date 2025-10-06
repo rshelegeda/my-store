@@ -7,10 +7,16 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 'localhost',
-        port: '3030', // Указываем правильный порт Payload
-        pathname: '/**', // !!! ИЗМЕНЕНИЕ: Разрешаем любой путь на этом хосте/порте !!!
+        hostname: '207.154.243.12', // Используем публичный IP
+        port: '', // ОЧЕНЬ ВАЖНО: Убираем порт, т.к. Nginx работает на порту 80
+        pathname: '/**',
       },
+      // {
+      //   protocol: 'http',
+      //   hostname: 'localhost',
+      //   port: '3030', // Указываем правильный порт Payload
+      //   pathname: '/**', // !!! ИЗМЕНЕНИЕ: Разрешаем любой путь на этом хосте/порте !!!
+      // },
     ],
   },
 
