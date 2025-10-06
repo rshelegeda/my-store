@@ -52,4 +52,16 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+
+  //Добавил это для ДИДЖИТАЛ ОКЕАН
+
+  serverURL: process.env.PAYLOAD_BASE_URL, // http://207.154.243.12
+  // ...
+  // Убедитесь, что эта секция выглядит так:
+  // <-- ДОБАВЛЕНО УТВЕРЖДЕНИЕ ТИПА
+  cors: [
+    process.env.PAYLOAD_BASE_URL, // Разрешает публичный адрес
+    'http://localhost:3030', // Разрешает внутренний адрес
+    'http://127.0.0.1:3030', // Локальный адрес для Nginx
+  ].filter(Boolean) as string[],
 })
