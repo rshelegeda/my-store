@@ -15,9 +15,9 @@ export default function Footer() {
   ]
 
   const socialLinks = [
-    { icon: FaInstagram, href: 'ВАША_ССЫЛКА_НА_INSTAGRAM' },
-    { icon: FaFacebookF, href: 'ВАША_ССЫЛКА_НА_FACEBOOK' },
-    { icon: FaTelegramPlane, href: 'ВАША_ССЫЛКА_НА_TELEGRAM' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/domashniy_yabluchnyy_otset/' },
+    { icon: FaFacebookF, href: 'https://www.facebook.com/profile.php?id=100063654803541' },
+    { icon: FaTelegramPlane, href: 'https://t.me/applecidervinegarukraine' },
   ]
 
   return (
@@ -54,14 +54,14 @@ export default function Footer() {
           <h3 className={styles.navTitle}>Зв&apos;яжіться з нами</h3>
           <p>
             Email:{' '}
-            <a href="mailto:info@example.com" className={styles.contactLink}>
-              info@example.com
+            <a href="mailto:applecidervinegar@ukr.net" className={styles.contactLink}>
+              applecidervinegar@ukr.net
             </a>
           </p>
           <p>
             Телефон:{' '}
-            <a href="tel:+380XXXXXXXXX" className={styles.contactLink}>
-              +380 (XX) XXX XX XX
+            <a href="tel:+380999058530" className={styles.contactLink}>
+              +380 (99) 905-85-30
             </a>
           </p>
 

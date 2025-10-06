@@ -15,7 +15,9 @@ import Gallery from './components/gallery/Gallery'
 import PaymentDelivery from './components/paymentDelivery/PaymentDelivery'
 import ProductsList from './components/ProductsList'
 
-const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3030' // Ваш Payload CMS
+// const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3030' // Ваш Payload CMS
+
+const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL
 
 // ИСХОДНЫЕ URL-ы
 const initialImages = [

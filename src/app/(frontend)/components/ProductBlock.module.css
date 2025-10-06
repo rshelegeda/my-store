@@ -1,17 +1,30 @@
+/* ProductBlock.module.css */
+
 .block {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    width: 240px;
-    height: 350px;
+    
+    /* --- КРИТИЧЕСКИЕ ИСПРАВЛЕНИЯ ДЛЯ GRID --- */
+    /* 1. Занимаем всю ширину колонки Grid (1fr) */
+    width: 100%; 
+    /* 2. Занимаем 100% высоты Grid-ячейки для одинаковой высоты */
+    height: 100%; 
+    /* 3. Минимальная высота для визуальной стабильности */
+    min-height: 480px; 
+    
     transition: transform 0.3s ease;
-    margin-bottom: 130px; /* Увеличено с 10px до 20px */
+    text-decoration: none;
+    color: inherit;
+    /* УДАЛЕНО: margin-bottom: 130px; */
 }
 
 .block:hover {
     transform: translateY(-10px);
 }
+
+/* --- Декоративные элементы (Листья) --- */
 
 .leaves {
     position: absolute;
@@ -47,10 +60,13 @@
     }
 }
 
+/* --- Декоративные элементы (Бутылка) --- */
+
 .bottle {
     position: relative;
     z-index: 2;
-    margin-bottom: -80px;
+    /* Отрицательный margin, чтобы бутылка перекрывала infoBox */
+    margin-bottom: -50px; 
     transition: all 0.3s ease;
     animation: gentleSway 4s ease-in-out infinite;
 }
@@ -81,18 +97,26 @@
     }
 }
 
+/* --- Информационный блок --- */
+
 .infoBox {
     background: #f8a616;
     color: white;
     padding: 4rem 1.5rem 2rem;
     border-radius: 0 0 100% 100%/50px;
     min-height: 200px;
-    min-width: 100%;
+    width: 100%; /* Заполняем 100% ширины родителя */
     box-sizing: border-box;
     z-index: 1;
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: Flexbox для вертикального растягивания --- */
+    flex-grow: 1; /* Занимает все оставшееся вертикальное пространство */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределяем содержимое (цену, кнопку) */
 }
 
 .block:hover .infoBox {
@@ -108,6 +132,9 @@
     text-transform: uppercase;
     padding-bottom: 10px;
     transition: all 0.3s ease;
+    /* Чтобы текст не растягивал блок, если он слишком длинный */
+    hyphens: auto; 
+    word-wrap: break-word;
 }
 
 .block:hover .infoBox h2 {
@@ -138,4 +165,41 @@
 
 .block:hover .infoBox p {
     transform: scale(1.05);
+}
+
+/* --- Стили для цены и кнопки (добавлены в JSX) --- */
+.priceSection {
+    margin-top: auto; /* Прижимает цену к низу */
+    margin-bottom: 10px;
+}
+
+.priceValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.addToCartBtn {
+    background-color: #fff;
+    color: #006e41;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    width: 80%;
+    max-width: 200px;
+}
+
+.addToCartBtn:hover:not(:disabled) {
+    background-color: #eee;
+    transform: scale(1.05);
+}
+
+.addToCartBtn:disabled {
+    background-color: #d4edda;
+    color: #006e41;
+    cursor: not-allowed;
+    opacity: 0.8;
 }

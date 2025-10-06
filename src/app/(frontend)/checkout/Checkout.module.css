@@ -1,0 +1,663 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 80px 20px;
+    min-height: 100vh;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.backButton {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #006e41;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.backButton:hover {
+    color: #004d30;
+}
+
+.header h1 {
+    color: #006e41;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.checkoutContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.orderSummary {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    height: fit-content;
+}
+
+.orderSummary h2 {
+    color: #006e41;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.cartItems {
+    margin-bottom: 20px;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 15px;
+}
+
+.itemImage {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.itemInfo {
+    flex: 1;
+}
+
+.itemInfo h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.itemInfo p {
+    margin: 0 0 10px 0;
+    color: #666;
+    font-weight: 600;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantityBtn {
+    background: #006e41;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.quantityBtn:hover {
+    background: #004d30;
+}
+
+.removeBtn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.removeBtn:hover {
+    background: #cc3333;
+}
+
+.totalPrice {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #006e41;
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border: 2px solid #006e41;
+}
+
+.orderForm {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.orderForm h2 {
+    color: #006e41;
+    margin-bottom: 25px;
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.formGroup {
+    margin-bottom: 25px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: #006e41;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.radioLabel:hover {
+    border-color: #006e41;
+}
+
+.radioLabel input[type="radio"] {
+    width: auto;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.submitButton {
+    width: 100%;
+    background: #006e41;
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 30px;
+}
+
+.submitButton:hover:not(:disabled) {
+    background: #004d30;
+}
+
+.submitButton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.successPage {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.successIcon {
+    margin-bottom: 30px;
+    animation: successPulse 2s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.successTitle {
+    color: #006838;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.successMessage {
+    margin-bottom: 40px;
+}
+
+.mainMessage {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.nextSteps {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.nextSteps h3 {
+    color: #006e41;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.nextSteps ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nextSteps li {
+    padding: 8px 0;
+    color: #555;
+    position: relative;
+    padding-left: 25px;
+}
+
+.nextSteps li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.contactInfo {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.contactInfo h3 {
+    color: #006e41;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.contactIcon {
+    font-size: 1.2rem;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primaryButton {
+    background: linear-gradient(135deg, #006e41 0%, #004d30 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 110, 65, 0.3);
+}
+
+.primaryButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 110, 65, 0.4);
+}
+
+.secondaryButton {
+    background: white;
+    color: #006e41;
+    text-decoration: none;
+    padding: 15px 30px;
+    border: 2px solid #006e41;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+.textContent {
+    /* УДАЛИТЕ: max-width: 520px; */ /* Это мешает центрированию всего контента */
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    /* Убедитесь, что эта часть осталась */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    /* Добавьте auto-маржины для центрирования самого textContent, если его родитель не flex */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #006838 0%, #4CAF50 100%);
+    border-radius: 50%;
+    color: white;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0, 104, 56, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.title {
+    font-size: 48px;
+    font-family: "Sofia Sans", sans-serif;
+    font-weight: 900;
+    color: #006838;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.titleUnderline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #006838, #4CAF50);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* ЕДИНАЯ КАРТОЧКА: ОБЩИЕ СТИЛИ */
+.combinedCard {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto 40px auto;
+    padding: 35px;
+    background: rgba(76, 175, 80, 0.05);
+    border-radius: 24px;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.combinedCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #006838, #4CAF50);
+}
+
+.combinedCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(76, 175, 80, 0.15);
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 104, 56, 0.2);
+    margin: 30px 0;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.sectionHeader svg {
+    color: #006838;
+    width: 32px;
+    height: 32px;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #006838;
+    margin: 0;
+}
+
+/* СТИЛИ ДЛЯ ВЫДЕЛЕННОГО ТЕКСТА (strong) */
+.deliveryText strong,
+.paymentText strong {
+    font-weight: 700;
+    color: #006838;
+}
+
+/* СТИЛИ ДЛЯ ДОСТАВКИ */
+.deliveryText {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.deliveryText:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* СТИЛИ ДЛЯ ОПЛАТЫ */
+.paymentText {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.ibanContainer {
+    position: relative;
+}
+
+.ibanBox {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 18px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ibanBox:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+.ibanText {
+    flex: 1;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: #006838;
+    letter-spacing: 1px;
+}
+
+.copyButton {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+.copyButton:active {
+    transform: scale(0.95);
+}
+.secondaryButton:hover {
+    background: #006e41;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.emptyCartIcon {
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.emptyCart {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.emptyCart h1 {
+    color: #006e41;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.emptyCart p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.backToProducts {
+    display: inline-block;
+    background: #006e41;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.backToProducts:hover {
+    background: #004d30;
+}
+
+@media (max-width: 768px) {
+    /* ... Ваш існуючий код ... */
+    
+    .checkoutContent {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* ... Ваш існуючий код ... */
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* 👇👇👇 ДОДАЙТЕ ЦІ СТИЛІ ДЛЯ АДАПТИВНОСТІ IBAN 👇👇👇 */
+
+    .ibanBox {
+        /* Зберігаємо вертикальне розташування для адаптивності */
+        flex-direction: column; 
+        align-items: stretch; 
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .ibanText {
+        word-break: break-all; 
+        /* Збільшуємо шрифт на мобільних (порівняно з попередніми 14px) */
+        font-size: 17px; 
+        text-align: center;
+        letter-spacing: 0.5px;
+    }
+    
+    .copyButton {
+        /* Зберігаємо ширину 100% для зручності натискання на мобільних */
+        width: 40%; 
+        padding: 12px; /* Трохи більший padding, ніж на десктопі, для зручності */
+    }
+    
+    
+    .combinedCard {
+        padding: 30px 20px; /* Трохи зменшуємо внутрішній відступ картки */
+    }
+}

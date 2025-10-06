@@ -1,3 +1,5 @@
+/* Slider.module.css */
+
 .sliderWrapper {
     position: relative;
     width: 100%;
@@ -24,12 +26,15 @@
     width: 100%;
 }
 
+/* --- ИЗМЕНЕНИЯ ДЛЯ МОБИЛЬНЫХ (ПО УМОЛЧАНИЮ) --- */
 .slideContentArea {
     position: relative;
     margin: 0 auto;
-    width: 95%;
-    height: 95%;
-    top: 2.5%;
+    /* Увеличиваем область на мобильных до 100% ширины */
+    width: 100%; 
+    /* Увеличиваем высоту на мобильных для большего вертикального пространства */
+    height: 100%; 
+    top: 0; /* Прижимаем к верху */
 }
 
 @media (min-width: 768px) {
@@ -37,6 +42,23 @@
         width: 80%;
         height: 80%;
         top: 10%;
+    }
+    
+    .slideImageDiv {
+        height: 100vh; /* Возвращаем полную высоту для десктопа */
+    }
+    
+    .slideHeader {
+        align-items: center; /* Центрируем по вертикали на десктопе */
+    }
+    
+    .slideTitle {
+        font-size: 4.5rem; 
+        line-height: 1;
+    }
+    
+    .titleWrapper {
+        padding: 1.5rem 2rem; 
     }
 }
 
@@ -70,7 +92,8 @@
 .titleWrapper {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(4px);
-    padding: 1.5rem 2rem;
+    /* УВЕЛИЧИВАЕМ отступы для мобильных устройств */
+    padding: 2rem 1.5rem; 
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
@@ -81,12 +104,20 @@
     text-transform: uppercase;
     font-family: "Sofia Sans", Arial;
     overflow: hidden;
+    /* УВЕЛИЧИВАЕМ размер шрифта для мобильных (по умолчанию) */
+    font-size: 2rem; 
+    line-height: 1.1;
 }
 
 @media (min-width: 768px) {
     .slideTitle {
-        font-size: 4.5rem;
+        font-size: 4.5rem; 
         line-height: 1;
+    }
+    
+    /* Уменьшаем отступ обратно для десктопа */
+    .titleWrapper {
+        padding: 1.5rem 2rem; 
     }
 }
 
