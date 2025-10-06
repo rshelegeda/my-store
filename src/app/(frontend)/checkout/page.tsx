@@ -220,7 +220,7 @@ export default function CheckoutPage() {
               <h3>Що далі?</h3>
               <ul>
                 <li>Здійсніть оплату на рахунок IBAN</li>
-                <li>Наш менеджер зв'яжеться з вами протягом 30 хвилин</li>
+                <li>Наш менеджер зв&apos;яжеться з вами протягом 30 хвилин</li>
                 <li>Ми підтвердимо наявність товарів та деталі доставки</li>
                 <li>Ви отримаєте SMS з номером відстеження</li>
                 <li>Товари будуть відправлені найближчим часом</li>
@@ -228,7 +228,7 @@ export default function CheckoutPage() {
             </div>
 
             <div className={styles.contactInfo}>
-              <h3>Контакти для зв'язку</h3>
+              <h3>Контакти для зв&apos;язку</h3>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}>📞</span>
                 <span>+380 (99) 905-85-30</span>
@@ -333,7 +333,7 @@ export default function CheckoutPage() {
 
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
-              <label htmlFor="firstName">Ім'я *</label>
+              <label htmlFor="firstName">Ім&apos;я *</label>
               <input
                 type="text"
                 id="firstName"
