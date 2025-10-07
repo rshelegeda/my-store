@@ -1,17 +1,48 @@
+'use client' // КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: Это делает компонент клиентским, позволяя использовать хуки и onClick
+
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Footer.module.css'
 import { FaInstagram, FaFacebookF, FaTelegramPlane } from 'react-icons/fa'
 
+// -----------------------------------------------------------
+// НОВЫЙ ХУК ДЛЯ ПЛАВНОЙ ПРОКРУТКИ
+// Этот хук отвечает за перехват клика и плавный скролл к ID
+// -----------------------------------------------------------
+const useSmoothScroll = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Проверяем, является ли ссылка якорной (начинается с #)
+    if (href.startsWith('#')) {
+      e.preventDefault() // Отменяем стандартное поведение Link
+
+      const targetId = href.substring(1) // Получаем ID без символа #
+      const targetElement = document.getElementById(targetId)
+
+      if (targetElement) {
+        // Используем scrollIntoView для плавной прокрутки
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start', // Прокручиваем так, чтобы элемент был вверху экрана
+        })
+      }
+    }
+  }
+  return handleClick
+}
+// -----------------------------------------------------------
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
+  // Инициализируем хук прокрутки
+  const handleScrollClick = useSmoothScroll()
+
+  // ЯКОРНЫЕ ССЫЛКИ, которые соответствуют ID на главной странице (page.tsx)
   const navLinks = [
-    { title: 'Про нас', href: '/about' },
-    { title: 'Контакти', href: '/contact' },
-    { title: 'Наша продукція', href: '/products' },
-    { title: 'Доставка та оплата', href: '/delivery-payment' },
-    { title: 'Публічна оферта', href: '/oferta' },
+    { title: 'Про нас', href: '#about-section' },
+    { title: 'Наша продукція', href: '#products-section' },
+    { title: 'Доставка та оплата', href: '#delivery-payment-section' },
+    { title: 'Контакти', href: '#contact-section' },
   ]
 
   const socialLinks = [
@@ -21,6 +52,7 @@ export default function Footer() {
   ]
 
   return (
+    // Обязательно добавляем ID для секции "Контакти"
     <footer className={styles.footer} id="contact-section">
       <div className={styles.footerContent}>
         <div className={styles.brandInfo}>
@@ -42,7 +74,12 @@ export default function Footer() {
           <ul className={styles.navList}>
             {navLinks.map((link) => (
               <li key={link.title}>
-                <Link href={link.href} className={styles.navItem}>
+                {/* ИЗМЕНЕНИЕ: Используем handleScrollClick для плавной прокрутки */}
+                <Link
+                  href={link.href}
+                  className={styles.navItem}
+                  onClick={(e) => handleScrollClick(e, link.href)} // УДАЛЕНА setIsMenuOpen(false)
+                >
                   {link.title}
                 </Link>
               </li>
@@ -79,6 +116,10 @@ export default function Footer() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className={styles.copyright}>
+        &copy; {currentYear} Apple Cider Vinegar. Усі права захищені.
       </div>
     </footer>
   )
