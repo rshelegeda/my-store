@@ -55,11 +55,11 @@ export default async function ProductDetailPage({ params }: any) {
   }
 
   // 3. Подготовка данных для отображения (включая URL)
-  const relativeUrl = product?.images?.[0]?.image?.url
-  const imageUrl = relativeUrl ? `${PAYLOAD_BASE_URL}${relativeUrl}` : null
-
-  const leavesRelativeUrl = product?.leaves?.url
-  const leavesUrl = leavesRelativeUrl ? `${PAYLOAD_BASE_URL}${leavesRelativeUrl}` : null
+  // ИСПРАВЛЕНИЕ: Мы передаем ЧИСТЫЙ URL, который Payload уже сгенерировал.
+  // Payload (благодаря настройке serverURL) возвращает полный URL,
+  // поэтому ручное добавление PAYLOAD_BASE_URL вызывает дублирование.
+  const imageUrl = product?.images?.[0]?.image?.url || null
+  const leavesUrl = product?.leaves?.url || null
 
   // Рендерим Клиентский Компонент, передавая ему данные
   return <ProductDetailsClient product={product} imageUrl={imageUrl} leavesUrl={leavesUrl} />
