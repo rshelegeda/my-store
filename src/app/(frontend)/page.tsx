@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { getPayload } from 'payload'
@@ -56,6 +58,9 @@ export default async function HomePage() {
       },
       // Это свойство функционально работает в Next.js, но не типизировано в Payload
       cache: 'no-store',
+      next: {
+        revalidate: 0,
+      },
     }
 
     const productData = await payload.find(findOptions as any)
