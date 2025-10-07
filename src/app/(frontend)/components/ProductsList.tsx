@@ -8,9 +8,9 @@ import { Payload } from 'payload'
 import { Product } from '@/payload-types'
 import styles from './ProductsList.module.css'
 
-// Базовый URL для сборки полных URL изображений
-// const PAYLOAD_BASE_URL = 'http://localhost:3030'
-const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL
+// Удалена константа PAYLOAD_BASE_URL — она больше не нужна, т.к. Payload
+// уже генерирует полный URL на сервере.
+
 /**
  * Серверный Компонент для отображения списка товаров.
  */
@@ -59,14 +59,16 @@ export default async function ProductsList() {
       <div className={styles.productsGrid}>
         {products.map((product) => {
           const firstImage = product.images?.[0]?.image
+
+          // ИСПРАВЛЕНИЕ: Передаем ЧИСТЫЙ URL, который уже сгенерировал Payload (с полным префиксом)
           const imageUrl =
             typeof firstImage === 'object' && firstImage?.url
-              ? `${PAYLOAD_BASE_URL}${firstImage.url}`
+              ? firstImage.url // <-- УДАЛЕНО: ${PAYLOAD_BASE_URL}
               : '/placeholder-image.png'
 
           const leavesUrl =
             typeof product.leaves === 'object' && product.leaves?.url
-              ? `${PAYLOAD_BASE_URL}${product.leaves.url}`
+              ? product.leaves.url // <-- УДАЛЕНО: ${PAYLOAD_BASE_URL}
               : '/apple-front-opti.png'
 
           const safeSlug = product.slug ?? product.id.toString()
@@ -74,8 +76,8 @@ export default async function ProductsList() {
           const safeBlockColor = product.blockColor ?? '#f8a616'
 
           return (
-            <ProductBlock // <-- Теперь ProductBlock является прямым элементом Grid
-              key={safeSlug} // <-- key должен быть здесь
+            <ProductBlock
+              key={safeSlug}
               id={product.id as string}
               title={product.title}
               subtitle={safeSubtitle}
