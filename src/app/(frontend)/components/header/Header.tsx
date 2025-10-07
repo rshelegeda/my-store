@@ -98,6 +98,31 @@ const saveCartItems = (items: CartItem[]) => {
   localStorage.setItem('cart', JSON.stringify(items))
 }
 
+// -----------------------------------------------------------
+// НОВЫЙ ХУК ДЛЯ ПЛАВНОЙ ПРОКРУТКИ
+// -----------------------------------------------------------
+const useSmoothScroll = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Проверяем, является ли ссылка якорной (начинается с #)
+    if (href.startsWith('#')) {
+      e.preventDefault() // Отменяем стандартное поведение Link
+
+      const targetId = href.substring(1) // Получаем ID без символа #
+      const targetElement = document.getElementById(targetId)
+
+      if (targetElement) {
+        // Используем scrollIntoView для плавной прокрутки
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start', // Прокручиваем так, чтобы элемент был вверху экрана
+        })
+      }
+    }
+  }
+  return handleClick
+}
+// -----------------------------------------------------------
+
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -105,11 +130,16 @@ export default function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 
+  // Инициализируем хук прокрутки
+  const handleScrollClick = useSmoothScroll()
+
+  // ИЗМЕНЕНИЕ: Заменили пути на якорные ссылки (ID секций)
+  // ЕСЛИ ЭТО ОДНОСТРАНИЧНЫЙ САЙТ!
   const navLinks = [
-    { title: 'Про нас', href: '/about' },
-    { title: 'Наша продукція', href: '/products' },
-    { title: 'Доставка та оплата', href: '/delivery-payment' },
-    { title: 'Контакти', href: '/contact' },
+    { title: 'Про нас', href: '#about-section' }, // Допустим, ID секции "Про нас"
+    { title: 'Наша продукція', href: '#products-section' }, // Допустим, ID секции "Наша продукція"
+    { title: 'Доставка та оплата', href: '#delivery-payment-section' }, // Допустим, ID секции "Доставка та оплата"
+    { title: 'Контакти', href: '#contact-section' }, // Допустим, ID секции "Контакти"
   ]
 
   useEffect(() => {
@@ -227,7 +257,15 @@ export default function Header() {
             <ul className={styles.navList}>
               {navLinks.map((link) => (
                 <li key={link.title} className={styles.navItem}>
-                  <Link href={link.href} className={styles.navLink}>
+                  {/* ИЗМЕНЕНИЕ: Добавляем обработчик onClick для плавной прокрутки */}
+                  <Link
+                    href={link.href}
+                    className={styles.navLink}
+                    onClick={(e) => {
+                      handleScrollClick(e, link.href)
+                      setIsMenuOpen(false)
+                    }}
+                  >
                     {link.title}
                   </Link>
                 </li>
@@ -330,7 +368,10 @@ export default function Header() {
                 <Link
                   href={link.href}
                   className={styles.mobileNavLink}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    handleScrollClick(e, link.href)
+                    setIsMenuOpen(false)
+                  }}
                 >
                   {link.title}
                 </Link>

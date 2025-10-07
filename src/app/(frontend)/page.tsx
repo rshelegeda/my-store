@@ -69,17 +69,23 @@ export default async function HomePage() {
       <Slider></Slider>
 
       {/* 2. КАТАЛОГ ТОВАРОВ: передаем массив реальных данных */}
-      <ProductsList></ProductsList>
+      <section id="products-section" className="py-16 bg-white">
+        <ProductsList></ProductsList>
+      </section>
 
       {/* 3. О нас */}
-      <AboutUs></AboutUs>
+      <section id="about-section" className="py-16 bg-gray-50">
+        <AboutUs></AboutUs>
+      </section>
 
       {/* 4. Галерея */}
 
       <Gallery images={galleryData} />
 
       {/* 5. Доставка и Оплата (предположительно, этот компонент есть) */}
-      <PaymentDelivery></PaymentDelivery>
+      <section id="delivery-payment-section" className="py-16 bg-white">
+        <PaymentDelivery></PaymentDelivery>
+      </section>
     </div>
   )
 }

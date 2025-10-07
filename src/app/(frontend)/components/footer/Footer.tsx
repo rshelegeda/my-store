@@ -21,7 +21,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id="contact-section">
       <div className={styles.footerContent}>
         <div className={styles.brandInfo}>
           <Link href="/" className={styles.logoWrapper}>
