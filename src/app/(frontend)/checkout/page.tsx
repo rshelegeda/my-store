@@ -270,8 +270,8 @@ export default function CheckoutPage() {
           </div>
           <h1>Кошик порожній</h1>
           <p>Додайте товари до кошика, щоб оформити замовлення.</p>
-          <Link href="/products" className={styles.backToProducts}>
-            Перейти до товарів
+          <Link href="/" className={styles.backToProducts}>
+            Повернутися на головну
           </Link>
         </div>
       </div>
