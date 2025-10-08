@@ -29,6 +29,7 @@ export default async function ProductsList() {
           equals: true,
         },
       },
+      sort: 'sortOrder',
       limit: 100,
       depth: 2,
     })

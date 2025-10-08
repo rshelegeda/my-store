@@ -164,6 +164,10 @@ export interface Media {
  */
 export interface Product {
   id: string;
+  /**
+   * Введите число для определения порядка: меньшее число = выше в списке.
+   */
+  sortOrder?: number | null;
   title: string;
   /**
    * Краткая подпись, которая отобразится в ProductBlock под заголовком.
@@ -299,6 +303,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
+  sortOrder?: T;
   title?: T;
   subtitle?: T;
   slug?: T;

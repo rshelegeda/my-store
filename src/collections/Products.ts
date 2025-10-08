@@ -16,6 +16,19 @@ export const Products: CollectionConfig = {
   },
   fields: [
     {
+      name: 'sortOrder',
+      label: 'Порядок сортировки (Sort Order)',
+      type: 'number',
+      required: false, // Можно сделать необязательным
+      admin: {
+        position: 'sidebar', // Удобно разместить в сайдбаре
+        description: 'Введите число для определения порядка: меньшее число = выше в списке.',
+      },
+      // Дополнительное поле для индексации
+      index: true,
+    },
+
+    {
       name: 'title',
       label: 'Назва товару',
       type: 'text',
