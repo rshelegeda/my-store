@@ -10,6 +10,17 @@ export const Products: CollectionConfig = {
     singular: 'Товар',
     plural: 'Товари',
   },
+  admin: {
+    // Используем 'defaultColumns' для указания полей в списке
+    defaultColumns: [
+      'sortOrder', // Наше новое поле
+      'title', // Название товара
+      'price',
+      'showOnHomepage', // Чекбокс для главной страницы
+      'updatedAt', // Время последнего обновления
+    ],
+  },
+
   access: {
     // Разрешаем всем читать товары через API
     read: () => true,
