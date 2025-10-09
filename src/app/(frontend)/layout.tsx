@@ -38,18 +38,20 @@ export default async function RootLayout({
   let content: any = {}
   try {
     content = await getPageContent()
-    // !!! ГЛАВНЫЙ ШАГ ОТЛАДКИ !!!
-    console.log('--- Payload Global Content Received ---')
-    console.log(JSON.stringify(content, null, 2))
-    console.log('---------------------------------------')
+    // // !!! ГЛАВНЫЙ ШАГ ОТЛАДКИ !!!
+    // console.log('--- Payload Global Content Received ---')
+    // console.log(JSON.stringify(content, null, 2))
+    // console.log('---------------------------------------')
   } catch (error) {
     console.error('Ошибка при загрузке глобального контента в layout:', error)
   }
 
   // 3. Извлекаем нужные простые надписи
-  const phone = content.contactPhone || 'Ошибка данных'
-  const email = content.contactEmail || 'Ошибка данных'
-  const slogan = content.headerSlogan || 'Ошибка данных'
+  // 3. Извлекаем нужные простые надписи с заглушками
+  const phone = content.contactPhone || '+380 (00) 000-00-00'
+  const email = content.contactEmail || 'contact@example.com'
+  // const slogan = content.headerSlogan || 'Натуральні продукти'
+  const visitorCount = content.visitorCount || 0
 
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
@@ -58,7 +60,7 @@ export default async function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         {/* 5. Передаем данные в Footer */}
-        <Footer />
+        <Footer phone={phone} email={email} visitorCount={visitorCount} />
       </body>
     </html>
   )

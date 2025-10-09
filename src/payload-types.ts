@@ -365,7 +365,6 @@ export interface PageContent {
   id: string;
   contactPhone?: string | null;
   contactEmail?: string | null;
-  headerSlogan?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -376,7 +375,6 @@ export interface PageContent {
 export interface PageContentSelect<T extends boolean = true> {
   contactPhone?: T;
   contactEmail?: T;
-  headerSlogan?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

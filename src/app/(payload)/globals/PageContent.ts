@@ -19,11 +19,11 @@ export const PageContent: GlobalConfig = {
       type: 'email',
     },
     // Если вы использовали 'headerSlogan', убедитесь, что он тоже здесь
-    {
-      name: 'headerSlogan',
-      label: 'Слоган в шапке',
-      type: 'text',
-    },
+    // {
+    //   name: 'headerSlogan',
+    //   label: 'Слоган в шапке',
+    //   type: 'text',
+    // },
     // ... (добавьте другие простые поля, если нужно)
   ],
 }

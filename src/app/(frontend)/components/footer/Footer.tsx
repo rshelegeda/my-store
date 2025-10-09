@@ -9,6 +9,7 @@ import { FaInstagram, FaFacebookF, FaTelegramPlane } from 'react-icons/fa'
 interface FooterProps {
   phone: string
   email: string
+  visitorCount: number // Добавлено поле счетчика
 }
 
 // -----------------------------------------------------------
@@ -37,7 +38,7 @@ const useSmoothScroll = () => {
 }
 // -----------------------------------------------------------
 
-export default function Footer() {
+export default function Footer({ phone, email, visitorCount }: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   // Инициализируем хук прокрутки
@@ -96,15 +97,15 @@ export default function Footer() {
         <div className={styles.contactInfo}>
           <h3 className={styles.navTitle}>Зв&apos;яжіться з нами</h3>
           <p>
-            Email:{' '}
-            <a href="mailto:applecidervinegar@ukr.net" className={styles.contactLink}>
-              applecidervinegar@ukr.net
+            Email: {/* ИСПОЛЬЗУЕМ ПРОПС email ИЗ PAYLOAD CMS */}
+            <a href={`mailto:${email}`} className={styles.contactLink}>
+              {email}
             </a>
           </p>
           <p>
-            Телефон:{' '}
-            <a href="tel:+380999058530" className={styles.contactLink}>
-              +380 (99) 905-85-30
+            Телефон: {/* ИСПОЛЬЗУЕМ ПРОПС phone ИЗ PAYLOAD CMS */}
+            <a href={`tel:${phone.replace(/[()-\s]/g, '')}`} className={styles.contactLink}>
+              {phone}
             </a>
           </p>
 
@@ -122,6 +123,19 @@ export default function Footer() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* НОВАЯ СЕКЦИЯ СЧЕТЧИКА ПОСЕЩЕНИЙ */}
+      {/* Вам нужно добавить стили для .counterSection, .counterText и .counterNumber 
+        в файл Footer.module.css
+      */}
+      <div className={styles.counterSection}>
+        <p className={styles.counterText}>
+          Counter:{' '}
+          <span className={styles.counterNumber}>
+            {visitorCount ? visitorCount.toLocaleString('uk-UA') : null}
+          </span>
+        </p>
       </div>
 
       <div className={styles.copyright}>
