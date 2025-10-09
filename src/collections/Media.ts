@@ -8,6 +8,7 @@ export const Media: CollectionConfig = {
   },
   access: {
     read: () => true,
+    delete: ({ req }) => !!req.user,
   },
   fields: [
     {
