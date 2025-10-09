@@ -9,7 +9,6 @@ import { FaInstagram, FaFacebookF, FaTelegramPlane } from 'react-icons/fa'
 interface FooterProps {
   phone: string
   email: string
-  visitorCount: number // Добавлено поле счетчика
 }
 
 // -----------------------------------------------------------
@@ -38,7 +37,7 @@ const useSmoothScroll = () => {
 }
 // -----------------------------------------------------------
 
-export default function Footer({ phone, email, visitorCount }: FooterProps) {
+export default function Footer({ phone, email }: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   // Инициализируем хук прокрутки
@@ -131,10 +130,7 @@ export default function Footer({ phone, email, visitorCount }: FooterProps) {
       */}
       <div className={styles.counterSection}>
         <p className={styles.counterText}>
-          Counter:{' '}
-          <span className={styles.counterNumber}>
-            {visitorCount ? visitorCount.toLocaleString('uk-UA') : null}
-          </span>
+          Counter: <span className={styles.counterNumber}></span>
         </p>
       </div>
 

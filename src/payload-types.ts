@@ -365,7 +365,6 @@ export interface PageContent {
   id: string;
   contactPhone?: string | null;
   contactEmail?: string | null;
-  visitorCount?: number | null;
   /**
    * Массив IP-адресов с временем последнего посещения. Записи старше 1 часа будут удаляться при помощи Route Handler Next.js.
    */
@@ -386,7 +385,6 @@ export interface PageContent {
 export interface PageContentSelect<T extends boolean = true> {
   contactPhone?: T;
   contactEmail?: T;
-  visitorCount?: T;
   visitIps?:
     | T
     | {

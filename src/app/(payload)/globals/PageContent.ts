@@ -6,7 +6,10 @@ import { GlobalConfig } from 'payload'
 export const PageContent: GlobalConfig = {
   slug: 'page-content',
   label: 'Контент Страниц и Контакты',
-  // ... access
+  access: {
+    read: () => true, // Разрешает любому (включая наш API) ЧТЕНИЕ счетчика
+    update: () => true, // Разрешает любому (включая наш API) ОБНОВЛЕНИЕ счетчика
+  },
   fields: [
     {
       name: 'contactPhone',
@@ -19,16 +22,6 @@ export const PageContent: GlobalConfig = {
       type: 'email',
     },
 
-    // --- ПОЛЯ ДЛЯ СЧЕТЧИКА ПОСЕЩЕНИЙ ---
-    {
-      name: 'visitorCount',
-      label: 'Счетчик уникальных посетителей',
-      type: 'number',
-      defaultValue: 0,
-      admin: {
-        readOnly: true, // Запрещаем ручное редактирование через админку
-      },
-    },
     {
       name: 'visitIps',
       label: 'Логи посещений по IP (для защиты от накрутки)',

@@ -1,5 +1,3 @@
-//layout.tsx
-
 // app/(frontend)/layout.tsx (ОСНОВНОЙ ШАБЛОН САЙТА)
 
 import type { Metadata } from 'next'
@@ -37,30 +35,25 @@ export default async function RootLayout({
   // 2. Получаем глобальные данные
   let content: any = {}
   try {
-    content = await getPageContent()
-    // // !!! ГЛАВНЫЙ ШАГ ОТЛАДКИ !!!
+    content = await getPageContent() // // !!! ГЛАВНЫЙ ШАГ ОТЛАДКИ !!!
     // console.log('--- Payload Global Content Received ---')
     // console.log(JSON.stringify(content, null, 2))
     // console.log('---------------------------------------')
   } catch (error) {
     console.error('Ошибка при загрузке глобального контента в layout:', error)
-  }
+  } // 3. Извлекаем нужные простые надписи с заглушками
 
-  // 3. Извлекаем нужные простые надписи
-  // 3. Извлекаем нужные простые надписи с заглушками
   const phone = content.contactPhone || '+380 (00) 000-00-00'
-  const email = content.contactEmail || 'contact@example.com'
-  // const slogan = content.headerSlogan || 'Натуральні продукти'
-  const visitorCount = content.visitorCount || 0
+  const email = content.contactEmail || 'contact@example.com' // ВОССТАНОВЛЕНО: Слоган необходим для Header.tsx
+  const slogan = content.headerSlogan || 'Натуральні продукти'
 
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         {/* 4. Передаем данные в Header */}
         <Header />
-        <main className="flex-grow">{children}</main>
-        {/* 5. Передаем данные в Footer */}
-        <Footer phone={phone} email={email} visitorCount={visitorCount} />
+        <main className="flex-grow">{children}</main> {/* 5. Передаем данные в Footer */}
+        <Footer phone={phone} email={email} />{' '}
       </body>
     </html>
   )
