@@ -18,6 +18,42 @@ export const PageContent: GlobalConfig = {
       label: 'Email для связи',
       type: 'email',
     },
+
+    // --- ПОЛЯ ДЛЯ СЧЕТЧИКА ПОСЕЩЕНИЙ ---
+    {
+      name: 'visitorCount',
+      label: 'Счетчик уникальных посетителей',
+      type: 'number',
+      defaultValue: 0,
+      admin: {
+        readOnly: true, // Запрещаем ручное редактирование через админку
+      },
+    },
+    {
+      name: 'visitIps',
+      label: 'Логи посещений по IP (для защиты от накрутки)',
+      type: 'array',
+      localized: false, // Это технические данные, локализация не нужна
+      admin: {
+        description:
+          'Массив IP-адресов с временем последнего посещения. Записи старше 1 часа будут удаляться при помощи Route Handler Next.js.',
+        readOnly: true, // Запрещаем ручное редактирование
+      },
+      fields: [
+        {
+          name: 'ip',
+          label: 'IP-адрес',
+          type: 'text',
+        },
+        {
+          name: 'time',
+          label: 'Время последнего посещения (Timestamp)',
+          type: 'number',
+        },
+      ],
+    },
+    // --- КОНЕЦ ПОЛЕЙ ДЛЯ СЧЕТЧИКА ---
+
     // Если вы использовали 'headerSlogan', убедитесь, что он тоже здесь
     // {
     //   name: 'headerSlogan',

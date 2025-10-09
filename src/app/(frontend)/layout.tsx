@@ -24,8 +24,8 @@ const geistMono = Geist_Mono({
 
 // Метаданные
 export const metadata: Metadata = {
-  title: 'Payload E-commerce Store', // Обновим тайтл
-  description: 'Наш интернет-магазин, созданный на Next.js и Payload CMS.',
+  title: 'Натуральний яблучний оцет', // Обновим тайтл
+  description: 'Виготовлення та продаж натуральих яблучних оцтів',
 }
 
 // 1. Делаем функцию асинхронной
