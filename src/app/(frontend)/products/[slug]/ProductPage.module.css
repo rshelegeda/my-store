@@ -62,7 +62,7 @@
 
 .leaves {
     position: absolute;
-    top: 20px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -77,9 +77,14 @@
 .bottle {
     position: relative;
     z-index: 3;
-    margin-bottom: -80px;
     transition: transform 0.3s ease;
+    width: auto;
+    height: 260px; /* или нужный размер */
+    object-fit: contain;
+    /*margin: 0 auto; !* центрирование *!*/
+    margin-bottom: -35px;
 }
+
 
 .productBlock:hover .bottle {
     transform: scale(1.05);
