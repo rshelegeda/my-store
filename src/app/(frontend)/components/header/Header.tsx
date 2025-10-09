@@ -250,6 +250,7 @@ export default function Header() {
             className={styles.logoImage}
             priority
           />
+          <span className={styles.companyName}>Крафтова майстерня</span>
         </Link>
 
         <div className={styles.rightSection}>

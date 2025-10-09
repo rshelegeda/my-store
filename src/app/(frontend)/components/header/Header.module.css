@@ -6,7 +6,7 @@
     z-index: 1000;
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: "Sofia Sans", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     transform: translateY(0);
 }
@@ -19,7 +19,7 @@
 .headerContent {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 30px;
+    padding: 15px 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,6 +31,7 @@
     align-items: center;
     text-decoration: none;
     transition: transform 0.3s ease;
+    gap: 15px;
 }
 
 .logoLink:hover {
@@ -40,6 +41,19 @@
 .logoImage {
     border-radius: 50%;
     object-fit: cover;
+}
+
+.companyName {
+    color: #006e41;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.logoLink:hover .companyName {
+    color: #004d30;
 }
 
 .rightSection {
@@ -63,10 +77,11 @@
 .navLink {
     color: #004d30;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
     padding: 5px 0;
     position: relative;
+    text-wrap: nowrap;
 }
 
 .navLink::after {
@@ -205,7 +220,7 @@
         opacity: 1;
         transform: translateY(0);
     }
-}/* Добавить в конец файла, не изменяя существующие стили */
+}
 
 .cartContainer {
     position: relative;
@@ -382,16 +397,10 @@
     background: #004d30;
 }
 
-@media (max-width: 768px) {
-    .cartDropdown {
-        width: 300px;
-        right: -50px;
-    }
-}
-
-@media (max-width: 1024px) {
+/* Новый медиа-запрос для 1165px */
+@media (max-width: 1165px) {
     .headerContent {
-        padding: 10px 20px;
+        padding: 10px 8px;
         max-width: none;
         --header-height: 70px;
     }
@@ -410,6 +419,11 @@
 
     .logoImage {
         width: 50px;
+        height: 50px;
+    }
+
+    .companyName {
+        font-size: 1.2rem;
     }
 
     .ctaButton {
@@ -432,7 +446,79 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .headerContent {
+        padding: 10px 8px;
+        max-width: none;
+        --header-height: 70px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .burgerButton {
+        display: flex;
+    }
+
+    .rightSection {
+        gap: 10px;
+    }
+
+    .logoImage {
+        width: 50px;
+        height: 50px;
+    }
+
+    .companyName {
+        font-size: 1.2rem;
+    }
+
+    .ctaButton {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        width: auto;
+        height: auto;
+        justify-content: center;
+        min-width: 80px;
+    }
+
+    .ctaText {
+        display: block;
+        font-size: 0.8rem;
+    }
+
+    .cartIcon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerContent {
+        padding: 8px 6px;
+    }
+
+    .companyName {
+        font-size: 1rem;
+    }
+
+    .cartDropdown {
+        width: 300px;
+        right: -50px;
+    }
+}
+
 @media (max-width: 480px) {
+    .headerContent {
+        padding: 6px 4px;
+    }
+
+    .companyName {
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+    }
+
     .ctaButton {
         padding: 6px 10px;
         font-size: 0.8rem;
@@ -453,7 +539,7 @@
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1166px) {
     .mobileNavigation {
         display: none;
     }

@@ -6,7 +6,7 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { sofiaSans } from '../../fonts'
+import { montserratAlternates } from '../../fonts'
 import styles from './ProductPage.module.css'
 import ProductDetailsClient from '../../components/ProductDetailsClient'
 

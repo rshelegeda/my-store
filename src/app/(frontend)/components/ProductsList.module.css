@@ -4,6 +4,8 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
+    padding-top: 20px;
+    margin-top: 40px;
 }
 
 .pageTitle {
@@ -17,12 +19,14 @@
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .pageTitle h1 {
     color: #006e41;
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 68px;
+    font-weight: 600;
     margin: 0;
     line-height: 1.2;
 }
@@ -35,7 +39,7 @@
     /* УДАЛЕНО: justify-items: center; - может мешать растягиванию ширины
        УДАЛЕНО: align-items: start;
        ДОБАВЛЕНО: align-items: stretch; для одинаковой высоты (это значение по умолчанию, но его можно явно прописать) */
-    align-items: stretch; 
+    align-items: stretch;
 }
 
 /* --- ОСТАВЛЯЕМ ТОЛЬКО МОБИЛЬНУЮ АДАПТАЦИЮ --- */

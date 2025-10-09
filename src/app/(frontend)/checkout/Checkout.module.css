@@ -27,6 +27,7 @@
     color: #006e41;
     font-size: 2.5rem;
     margin: 0;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 .checkoutContent {
@@ -40,12 +41,15 @@
     padding: 30px;
     border-radius: 12px;
     height: fit-content;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 .orderSummary h2 {
     color: #006e41;
     margin-bottom: 20px;
     font-size: 1.5rem;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .cartItems {
@@ -73,6 +77,8 @@
     margin: 0 0 5px 0;
     font-size: 1.1rem;
     color: #333;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 600;
 }
 
 .itemInfo p {
@@ -134,6 +140,8 @@
     background: white;
     border-radius: 8px;
     border: 2px solid #006e41;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .orderForm {
@@ -148,6 +156,8 @@
     margin-bottom: 25px;
     margin-top: 30px;
     font-size: 1.5rem;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .formRow {
@@ -163,8 +173,10 @@
 .formGroup label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 600;
+    font-weight: 500;
     color: #333;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .formGroup input,
@@ -244,6 +256,7 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 0 auto;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 .successIcon {
@@ -382,8 +395,8 @@
     z-index: 2;
     /* Убедитесь, что эта часть осталась */
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     /* Добавьте auto-маржины для центрирования самого textContent, если его родитель не flex */
     margin-left: auto;
@@ -417,7 +430,7 @@
 
 .title {
     font-size: 48px;
-    font-family: "Sofia Sans", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
     font-weight: 900;
     color: #006838;
     line-height: 1.1;
@@ -618,7 +631,7 @@
 
 @media (max-width: 768px) {
     /* ... Ваш існуючий код ... */
-    
+
     .checkoutContent {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -636,27 +649,27 @@
 
     .ibanBox {
         /* Зберігаємо вертикальне розташування для адаптивності */
-        flex-direction: column; 
-        align-items: stretch; 
+        flex-direction: column;
+        align-items: stretch;
         gap: 10px;
         padding: 15px;
     }
-    
+
     .ibanText {
-        word-break: break-all; 
+        word-break: break-all;
         /* Збільшуємо шрифт на мобільних (порівняно з попередніми 14px) */
-        font-size: 17px; 
+        font-size: 17px;
         text-align: center;
         letter-spacing: 0.5px;
     }
-    
+
     .copyButton {
         /* Зберігаємо ширину 100% для зручності натискання на мобільних */
-        width: 40%; 
+        width: 40%;
         padding: 12px; /* Трохи більший padding, ніж на десктопі, для зручності */
     }
-    
-    
+
+
     .combinedCard {
         padding: 30px 20px; /* Трохи зменшуємо внутрішній відступ картки */
     }

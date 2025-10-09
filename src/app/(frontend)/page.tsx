@@ -1,9 +1,11 @@
+// my-store\src\app\(frontend)\page.tsx
+
 export const dynamic = 'force-dynamic'
 
-import Link from 'next/link'
-import Image from 'next/image'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+
+import { getPageContent } from '@/utils/payload-api'
 
 // Импорты компонентов напарника
 
@@ -70,7 +72,19 @@ export default async function HomePage() {
     // Если ошибка, products останется пустым массивом, что будет обработано в ProductsList
   }
 
-  // 2. Рендеринг всех секций, передавая загруженные товары в ProductsList
+  // 2. Загрузка контента страниц (GLOBAL CONTENT)
+  // Вызов функции для получения всех данных из глобальной переменной
+
+  let pageContent: any = {}
+  try {
+    pageContent = await getPageContent()
+  } catch (error) {
+    console.error('Ошибка при получении глобального контента:', error)
+  }
+
+  const phone = pageContent.contactPhone
+
+  // 3. Рендеринг всех секций, передавая загруженные товары в ProductsList
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Слайдер */}

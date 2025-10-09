@@ -9,6 +9,8 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
+import { PageContent } from './app/(payload)/globals/PageContent' // Убедитесь, что путь верный
+
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Products } from './collections/Products'
@@ -36,6 +38,10 @@ export default buildConfig({
       collections: 'Розділи', // <-- Новое название для "Collections"
     },
   } as any,
+
+  globals: [
+    PageContent, // <-- ДОЛЖНО БЫТЬ ЗДЕСЬ
+  ],
 
   collections: [Users, Media, Products],
 

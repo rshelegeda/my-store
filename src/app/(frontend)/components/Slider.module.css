@@ -1,131 +1,241 @@
-/* Slider.module.css */
-
-.sliderWrapper {
+.videoWrapper {
     position: relative;
     width: 100%;
-    overflow-x: hidden;
+    animation: fadeIn 1s ease-out;
 }
 
-.sliderContainer {
-    min-height: 100vh;
-    height: 100vh;
+.videoSection {
+    position: relative;
     width: 100%;
+    height: 100vh;
     overflow: hidden;
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.slidesSection {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-}
-
-.slide {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-}
-
-/* --- ИЗМЕНЕНИЯ ДЛЯ МОБИЛЬНЫХ (ПО УМОЛЧАНИЮ) --- */
-.slideContentArea {
-    position: relative;
-    margin: 0 auto;
-    /* Увеличиваем область на мобильных до 100% ширины */
-    width: 100%; 
-    /* Увеличиваем высоту на мобильных для большего вертикального пространства */
-    height: 100%; 
-    top: 0; /* Прижимаем к верху */
-}
-
-@media (min-width: 768px) {
-    .slideContentArea {
-        width: 80%;
-        height: 80%;
-        top: 10%;
-    }
-    
-    .slideImageDiv {
-        height: 100vh; /* Возвращаем полную высоту для десктопа */
-    }
-    
-    .slideHeader {
-        align-items: center; /* Центрируем по вертикали на десктопе */
-    }
-    
-    .slideTitle {
-        font-size: 4.5rem; 
-        line-height: 1;
-    }
-    
-    .titleWrapper {
-        padding: 1.5rem 2rem; 
-    }
-}
-
-.slideFigure {
-    z-index: 10;
+.mainVideo {
     position: absolute;
-    inset: 0;
-    margin: auto;
-    height: 100%;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    animation: videoZoomIn 2s ease-out;
+    transition: transform 0.3s ease;
 }
 
-.slideImageDiv {
-    position: relative;
-    display: block;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+.mainVideo:hover {
+    transform: translate(-50%, -50%) scale(1.02);
 }
 
-.slideHeader {
-    z-index: 20;
-    position: relative;
+/* Стили для contentOverlay */
+.contentOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    z-index: 10;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.textBackground {
+    /*background: white;*/
+    padding: 2.5rem 1.8rem;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 40%;
+    border-radius: 0 10px 10px 0;
+    /*border-left: 4px solid #fff;*/
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideInFromLeft 1.2s ease-out 0.5s forwards;
+    transition: all 0.3s ease;
+    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);*/
+    position: relative;
     overflow: hidden;
 }
 
-.titleWrapper {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(4px);
-    /* УВЕЛИЧИВАЕМ отступы для мобильных устройств */
-    padding: 2rem 1.5rem; 
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+/* Декоративный элемент */
+.textBackground::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 104, 56, 0.1), transparent);
+    animation: shimmer 2s ease-in-out 1.5s;
 }
 
-.slideTitle {
-    color: #006838;
-    letter-spacing: 2px;
-    font-weight: 500;
+/* Hover эффекты */
+.textBackground:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    /*border-left-color: #006838;*/
+}
+
+.textBackground:hover::before {
+    animation: shimmer 0.8s ease-in-out;
+}
+
+/* Стили для текста с анимацией */
+.mainText {
+    color: white;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.3rem, 4vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    font-family: "Sofia Sans", Arial;
-    overflow: hidden;
-    /* УВЕЛИЧИВАЕМ размер шрифта для мобильных (по умолчанию) */
-    font-size: 2rem; 
-    line-height: 1.1;
+    text-align: left;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textFadeInUp 1s ease-out 1s forwards;
+    transition: all 0.3s ease;
 }
 
-@media (min-width: 768px) {
-    .slideTitle {
-        font-size: 4.5rem; 
-        line-height: 1;
+/*.textBackground:hover .mainText {*/
+/*    color: #004d2a;*/
+/*    text-shadow: 0 2px 4px rgba(0, 104, 56, 0.2);*/
+/*}*/
+
+/* Альтернативный вариант фона */
+.textBackground.alt {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+    border-left: 4px solid #ff6b35;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
     }
-    
-    /* Уменьшаем отступ обратно для десктопа */
-    .titleWrapper {
-        padding: 1.5rem 2rem; 
+    100% {
+        opacity: 1;
     }
 }
 
-.titleLine {
-    display: block;
-    overflow: hidden;
+@keyframes videoZoomIn {
+    0% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }
 
-.titleLineSpan {
-    display: inline-block;
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes textFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .textBackground {
+        max-width: 50%;
+        padding: 2.2rem 1.6rem;
+        animation: slideInFromLeft 1s ease-out 0.3s forwards;
+    }
+
+    .mainText {
+        font-size: clamp(1.4rem, 4.5vw, 2.8rem);
+        animation: textFadeInUp 0.8s ease-out 0.8s forwards;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .textBackground {
+        max-width: 80%;
+        padding: 2.5rem 2rem;
+        animation: slideInFromLeft 0.8s ease-out 0.2s forwards;
+    }
+
+    .mainText {
+        font-size: clamp(1.4rem, 5vw, 2.8rem);
+        animation: textFadeInUp 0.6s ease-out 0.6s forwards;
+    }
+}
+
+/* Маленькие мобильные устройства */
+@media (max-width: 480px) {
+    .textBackground {
+        max-width: 90%;
+        padding: 2rem 1.8rem;
+        border-radius: 0 12px 12px 0;
+        animation: slideInFromLeft 0.6s ease-out 0.1s forwards;
+    }
+
+    .mainText {
+        font-size: clamp(1.3rem, 4.5vw, 2.3rem);
+        line-height: 1.3;
+        animation: textFadeInUp 0.5s ease-out 0.4s forwards;
+    }
+}
+
+/* Дополнительные эффекты для премиального вида */
+.textBackground::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    /*background: linear-gradient(180deg, transparent, #006838, transparent);*/
+    opacity: 0;
+    animation: borderGlow 2s ease-in-out 2s forwards;
+}
+
+@keyframes borderGlow {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    100% {
+        opacity: 0.7;
+        transform: scaleY(1);
+    }
 }

@@ -34,7 +34,7 @@ export default function ProductBlock({
 
         <div className={styles.infoBox} style={{ backgroundColor: blockColor }}>
           <h2>{title}</h2>
-          <p>{price} грн.</p>
+          <p style={{fontSize: 24}}>{price} грн.</p>
         </div>
       </div>
     </Link>

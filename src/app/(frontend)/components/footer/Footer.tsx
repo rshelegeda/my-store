@@ -5,6 +5,12 @@ import Image from 'next/image'
 import styles from './Footer.module.css'
 import { FaInstagram, FaFacebookF, FaTelegramPlane } from 'react-icons/fa'
 
+// 1. Создаем интерфейс для ожидаемых пропсов
+interface FooterProps {
+  phone: string
+  email: string
+}
+
 // -----------------------------------------------------------
 // НОВЫЙ ХУК ДЛЯ ПЛАВНОЙ ПРОКРУТКИ
 // Этот хук отвечает за перехват клика и плавный скролл к ID

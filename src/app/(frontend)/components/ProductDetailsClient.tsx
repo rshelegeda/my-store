@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { sofiaSans } from '@/app/(frontend)/fonts'
+import { montserratAlternates } from '@/app/(frontend)/fonts'
 import styles from './../products/[slug]/ProductPage.module.css'
 
 // ВАЖНО: Перенесите сюда все типы, которые нужны CC
@@ -127,7 +127,7 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
         </div>
         <div className={styles.infoSection}>
           {/* ... (остальная часть JSX) ... */}
-          <h1 className={`${styles.title} ${sofiaSans.className}`}>{product.title}</h1>
+          <h1 className={`${styles.title} ${montserratAlternates.className}`}>{product.title}</h1>
           {/* <p className={styles.subtitle}>{product.subtitle}</p> */}
 
           <div className={styles.price}>{product.price} грн.</div>

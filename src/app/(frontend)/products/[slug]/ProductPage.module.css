@@ -16,11 +16,13 @@
     margin-top: 20px;
     color: #006e41;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     transition: color 0.3s ease;
     font-size: 1.3rem;
     position: relative;
     z-index: 10;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .backButton:hover {
@@ -96,6 +98,9 @@
     transition: all 0.3s ease;
     /* Только базовый цвет по умолчанию, который будет перезаписан */
     background-color: #f8a616;
+    font-family: "Montserrat Alternates", sans-serif;
+
+
 }
 
 .productBlock:hover .infoBox {
@@ -111,6 +116,7 @@
     text-transform: uppercase;
     padding-bottom: 10px;
     transition: transform 0.3s ease;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 .productBlock:hover .infoBox h2 {
@@ -134,10 +140,11 @@
 
 .infoBox p {
     margin: 8px 0 0;
-    font-size: 15px;
+    font-size: 20px;
     font-style: italic;
     opacity: 0.9;
     transition: opacity 0.3s ease;
+
 }
 
 .productBlock:hover .infoBox p {
@@ -172,9 +179,11 @@
 .price {
     font-size: 2.2rem;
     color: #f8a616;
-    font-weight: 700;
+    font-weight: 500;
     margin: 25px 0 30px 0;
     text-shadow: 0 2px 4px rgba(248, 166, 22, 0.3);
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .description {
@@ -191,6 +200,8 @@
     font-size: 1.4rem;
     margin: 0 0 15px 0;
     font-weight: 600;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .description p {
@@ -206,7 +217,7 @@
     border: none;
     padding: 16px 35px;
     border-radius: 12px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 8px 25px rgba(0, 110, 65, 0.4);
@@ -215,6 +226,8 @@
     letter-spacing: 1px;
     width: 100%;
     max-width: 280px;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .buyButton:hover {

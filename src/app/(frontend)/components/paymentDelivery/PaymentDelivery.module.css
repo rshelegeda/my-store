@@ -47,6 +47,8 @@
 .header {
     margin-bottom: 50px;
     text-align: center;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 .iconWrapper {
@@ -71,7 +73,7 @@
 
 .title {
     font-size: 48px;
-    font-family: "Sofia Sans", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
     font-weight: 900;
     color: #006838;
     line-height: 1.1;
@@ -141,6 +143,8 @@
     font-weight: 700;
     color: #006838;
     margin: 0;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 /* СТИЛИ ДЛЯ ВЫДЕЛЕННОГО ТЕКСТА (strong) */
@@ -148,6 +152,8 @@
 .paymentText strong {
     font-weight: 700;
     color: #006838;
+    font-family: "Montserrat Alternates", sans-serif;
+
 }
 
 /* СТИЛИ ДЛЯ ДОСТАВКИ */

@@ -33,7 +33,7 @@
 .tagline {
     font-size: 1.8rem;
     opacity: 1;
-    font-family: "Sofia Sans", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
     letter-spacing: 0.5px;
     margin: 10px 0 20px;
     font-weight: 500;
@@ -43,7 +43,7 @@
 }
 
 .navTitle {
-    font-family: "Sofia Sans", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
     font-size: 1.7rem;
     margin-bottom: 15px;
     color: #fff;
@@ -67,7 +67,7 @@
 .footerNav {
     flex: 0.8;
     min-width: 150px;
-    font-family: "Sofia Sans", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 .navList {
