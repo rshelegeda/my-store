@@ -5,20 +5,14 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-
-    /* --- КРИТИЧЕСКИЕ ИСПРАВЛЕНИЯ ДЛЯ GRID --- */
-    /* 1. Занимаем всю ширину колонки Grid (1fr) */
     width: 100%;
-    /* 2. Занимаем 100% высоты Grid-ячейки для одинаковой высоты */
-    height: 100%;
-    /* 3. Минимальная высота для визуальной стабильности */
-    min-height: 480px;
-
+    height: 520px; /* ✅ Добавлено — одинаковая высота для всех карточек */
     transition: transform 0.3s ease;
     text-decoration: none;
     color: inherit;
-    /* УДАЛЕНО: margin-bottom: 130px; */
+    overflow: hidden; /* чтобы не вылезали элементы при анимации */
 }
+
 
 .block:hover {
     transform: translateY(-10px);
@@ -31,11 +25,14 @@
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 3; /* ✅ Было 1 — теперь выше бутылки и infoBox */
     pointer-events: none;
     animation: float 3s ease-in-out infinite;
     transition: all 0.3s ease;
+    width: 200px;
+    height: auto;
 }
+
 
 .block:hover .leaves {
     animation: floatHover 2s ease-in-out infinite;
@@ -60,16 +57,18 @@
     }
 }
 
-/* --- Декоративные элементы (Бутылка) --- */
-
 .bottle {
     position: relative;
     z-index: 2;
-    /* Отрицательный margin, чтобы бутылка перекрывала infoBox */
     margin-bottom: -50px;
     transition: all 0.3s ease;
     animation: gentleSway 4s ease-in-out infinite;
+
+    object-fit: contain;
+    width: auto;
+    height: 290px;
 }
+
 
 .block:hover .bottle {
     transform: scale(1.05) rotate(2deg);
@@ -97,7 +96,6 @@
     }
 }
 
-/* --- Информационный блок --- */
 
 .infoBox {
     background: #f8a616;
@@ -112,11 +110,10 @@
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 
-    /* --- КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: Flexbox для вертикального растягивания --- */
-    flex-grow: 1; /* Занимает все оставшееся вертикальное пространство */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Распределяем содержимое (цену, кнопку) */
+    justify-content: space-between;
     font-family: "Montserrat Alternates", sans-serif;
 
 }
@@ -171,9 +168,8 @@
     transform: scale(1.05);
 }
 
-/* --- Стили для цены и кнопки (добавлены в JSX) --- */
 .priceSection {
-    margin-top: auto; /* Прижимает цену к низу */
+    margin-top: auto;
     margin-bottom: 10px;
     font-family: "Montserrat Alternates", sans-serif;
 
