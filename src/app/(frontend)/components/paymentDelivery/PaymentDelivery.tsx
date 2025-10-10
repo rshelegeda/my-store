@@ -27,7 +27,7 @@ export default function PaymentDelivery() {
     <section className={styles.about}>
       <div className={styles.rightSection}>
         <Image
-          src="/about-us-2.jpg"
+          src="/delivery.jpg"
           alt="Наш маєток"
           fill
           sizes="50vw"

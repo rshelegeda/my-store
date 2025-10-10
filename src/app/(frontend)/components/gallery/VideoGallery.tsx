@@ -134,10 +134,10 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
                 </div>
               </div>
             </div>
-            <div className={styles.videoInfo}>
+            {/* <div className={styles.videoInfo}>
               <h3 className={styles.videoTitle}>{video.title}</h3>
               <p className={styles.videoDescription}>{video.description}</p>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
