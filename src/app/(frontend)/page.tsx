@@ -18,6 +18,7 @@ import AboutUs from './components/AboutUs'
 import Gallery from './components/gallery/Gallery'
 import PaymentDelivery from './components/paymentDelivery/PaymentDelivery'
 import ProductsList from './components/ProductsList'
+import VideoGallery from './components/gallery/VideoGallery'
 
 // const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3030' // Ваш Payload CMS
 
@@ -32,6 +33,34 @@ const initialImages = [
   '/gallery/18.jpg',
   '/gallery/24.jpg',
   '/gallery/14.jpg',
+]
+
+const videos = [
+  {
+    id: 1,
+    title: 'Процес виготовлення яблучного оцту',
+    description:
+      'Подивіться, як ми створюємо наш унікальний яблучний оцет з найкращих сортів яблук',
+    videoUrl: '/mih.mp4',
+    thumbnail: '/video-thumbnail-1.jpg',
+    duration: '3:45',
+  },
+  {
+    id: 2,
+    title: 'Імбирний оцет - секрети приготування',
+    description: 'Дізнайтеся про користь імбиру та як він поєднується з яблучним оцтом',
+    videoUrl: '/miha3.mp4',
+    thumbnail: '/video-thumbnail-2.jpg',
+    duration: '4:20',
+  },
+  {
+    id: 3,
+    title: 'Медовий оцет - натуральна солодкість',
+    description: 'Процес додавання натурального меду для створення особливого смаку',
+    videoUrl: '/miha4.mp4',
+    thumbnail: '/video-thumbnail-3.jpg',
+    duration: '2:30',
+  },
 ]
 
 const galleryData = initialImages.map((src, index) => ({
@@ -108,6 +137,7 @@ export default async function HomePage() {
       <section id="delivery-payment-section" className="py-16 bg-white">
         <PaymentDelivery></PaymentDelivery>
       </section>
+      <VideoGallery videos={videos} />
     </div>
   )
 }

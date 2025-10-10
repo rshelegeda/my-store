@@ -32,7 +32,7 @@ body {
 
 .pageTitle .subtitle {
   font-size: 20px;
-  color: #006838;
+  color: #7b5d00;
   letter-spacing: 2px;
   margin: 0 0 10px;
   font-weight: 500;
@@ -44,7 +44,7 @@ body {
 .pageTitle h1 {
   font-size: 68px;
   font-weight: 600;
-  color: #006838;
+  color: #7b5d00;
   margin: 0;
   text-transform: uppercase;
 }

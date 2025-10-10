@@ -14,8 +14,8 @@
 }
 
 .subtitle {
-    color: #666;
-    font-size: 1.1rem;
+    color: #7b5d00;
+    font-size: 1.3rem;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -24,7 +24,7 @@
 }
 
 .pageTitle h1 {
-    color: #006e41;
+    color: #7b5d00;
     font-size: 68px;
     font-weight: 600;
     margin: 0;

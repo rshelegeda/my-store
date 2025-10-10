@@ -67,7 +67,9 @@ export default function PaymentDelivery() {
               <PaymentIcon />
               <h3 className={styles.sectionTitle}>Оплата</h3>
             </div>
-            <p className={styles.paymentText}>Оплата тільки на рахунок IBAN:</p>
+            <p className={styles.paymentText}>ФОП: АВДЄЄВА ДАР'Я ОЛЕГІВНА</p>
+            <p className={styles.paymentText}>ЄДРПОУ: 3711210500</p>
+            <p className={styles.paymentText}>IBAN: UA933052990000026001026105561</p>
             <div className={styles.ibanContainer}>
               <div className={styles.ibanBox}>
                 <span className={styles.ibanText}>{iban}</span>

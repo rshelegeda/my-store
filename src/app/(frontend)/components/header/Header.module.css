@@ -44,7 +44,7 @@
 }
 
 .companyName {
-    color: #006e41;
+    color: #614900;
     font-size: 1.4rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -53,7 +53,7 @@
 }
 
 .logoLink:hover .companyName {
-    color: #004d30;
+    color: #7b5d00;
 }
 
 .rightSection {
@@ -75,7 +75,7 @@
 }
 
 .navLink {
-    color: #004d30;
+    color: #7b5d00;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 600;
@@ -373,7 +373,7 @@
 .totalPrice {
     font-size: 16px;
     font-weight: bold;
-    color: #006e41;
+    color: #7b5d00;
     margin-bottom: 10px;
 }
 

@@ -3,17 +3,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Footer.module.css'
-import { FaInstagram, FaFacebookF, FaTelegramPlane } from 'react-icons/fa'
+// Добавлен FaTiktok, удален FaTelegramPlane, FaFacebookF, FaInstagram
+import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
 
-// 1. Создаем интерфейс для ожидаемых пропсов
+// 1. Создаем интерфейс для ожидаемых пропсов (только phone и email)
 interface FooterProps {
   phone: string
   email: string
 }
 
 // -----------------------------------------------------------
-// НОВЫЙ ХУК ДЛЯ ПЛАВНОЙ ПРОКРУТКИ
-// Этот хук отвечает за перехват клика и плавный скролл к ID
+// ХУК ДЛЯ ПЛАВНОЙ ПРОКРУТКИ
 // -----------------------------------------------------------
 const useSmoothScroll = () => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -51,10 +51,16 @@ export default function Footer({ phone, email }: FooterProps) {
     { title: 'Контакти', href: '#contact-section' },
   ]
 
+  // ДОБАВЛЕНА ССЫЛКА НА TIKTOK
   const socialLinks = [
     { icon: FaInstagram, href: 'https://www.instagram.com/domashniy_yabluchnyy_otset/' },
     { icon: FaFacebookF, href: 'https://www.facebook.com/profile.php?id=100063654803541' },
     { icon: FaTelegramPlane, href: 'https://t.me/applecidervinegarukraine' },
+    {
+      icon: FaTiktok,
+      href: 'https://www.tiktok.com/@organic_apple_vinegar?is_from_webapp=1&sender_device=pc',
+    },
+    { icon: FaYoutube, href: '' }, // ЗАМЕНИТЕ НА ВАШ АДРЕС TIKTOK
   ]
 
   return (
@@ -80,11 +86,11 @@ export default function Footer({ phone, email }: FooterProps) {
           <ul className={styles.navList}>
             {navLinks.map((link) => (
               <li key={link.title}>
-                {/* ИЗМЕНЕНИЕ: Используем handleScrollClick для плавной прокрутки */}
+                {/* ИСПОЛЬЗУЕМ handleScrollClick для плавной прокрутки */}
                 <Link
                   href={link.href}
                   className={styles.navItem}
-                  onClick={(e) => handleScrollClick(e, link.href)} // УДАЛЕНА setIsMenuOpen(false)
+                  onClick={(e) => handleScrollClick(e, link.href)}
                 >
                   {link.title}
                 </Link>
@@ -124,15 +130,7 @@ export default function Footer({ phone, email }: FooterProps) {
         </div>
       </div>
 
-      {/* НОВАЯ СЕКЦИЯ СЧЕТЧИКА ПОСЕЩЕНИЙ */}
-      {/* Вам нужно добавить стили для .counterSection, .counterText и .counterNumber 
-        в файл Footer.module.css
-      */}
-      <div className={styles.counterSection}>
-        <p className={styles.counterText}>
-          Counter: <span className={styles.counterNumber}></span>
-        </p>
-      </div>
+      {/* СЕКЦИЯ СЧЕТЧИКА УДАЛЕНА */}
 
       <div className={styles.copyright}>
         &copy; {currentYear} Apple Cider Vinegar. Усі права захищені.

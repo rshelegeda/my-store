@@ -43,8 +43,8 @@
 .title {
     font-size: 56px;
     font-family: "Montserrat Alternates", sans-serif;
-    font-weight: 900;
-    color: #006838;
+    font-weight: 600;
+    color: #7b5d00;
     line-height: 1.1;
     margin-bottom: 24px;
     text-transform: uppercase;
@@ -72,7 +72,7 @@
 }
 
 .description strong {
-    color: #006838;
+    color: #7b5d00;
     font-weight: 600;
     font-family: "Montserrat Alternates", sans-serif;
 
@@ -82,7 +82,7 @@
     font-size: 18px;
     font-style: italic;
     font-weight: 500;
-    color: #006838;
+    color: #7b5d00;
     margin: 0;
 }
 

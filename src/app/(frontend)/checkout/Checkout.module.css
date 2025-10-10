@@ -12,7 +12,7 @@
 .backButton {
     display: inline-block;
     margin-bottom: 20px;
-    color: #006e41;
+    color: #7b5d00;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -20,11 +20,11 @@
 }
 
 .backButton:hover {
-    color: #004d30;
+    color: #5a4400;
 }
 
 .header h1 {
-    color: #006e41;
+    color: #7b5d00;
     font-size: 2.5rem;
     margin: 0;
     font-family: "Montserrat Alternates", sans-serif;
@@ -45,7 +45,7 @@
 }
 
 .orderSummary h2 {
-    color: #006e41;
+    color: #7b5d00;
     margin-bottom: 20px;
     font-size: 1.5rem;
     font-family: "Montserrat Alternates", sans-serif;
@@ -134,7 +134,7 @@
 .totalPrice {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #006e41;
+    color: #7b5d00;
     text-align: center;
     padding: 20px;
     background: white;
@@ -152,7 +152,7 @@
 }
 
 .orderForm h2 {
-    color: #006e41;
+    color: #7b5d00;
     margin-bottom: 25px;
     margin-top: 30px;
     font-size: 1.5rem;
@@ -274,7 +274,7 @@
 }
 
 .successTitle {
-    color: #006838;
+    color: #7b5d00;
     font-size: 2.6rem;
     font-weight: 700;
     margin-bottom: 30px;
@@ -301,7 +301,7 @@
 }
 
 .nextSteps h3 {
-    color: #006e41;
+    color: #7b5d00;
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
@@ -335,7 +335,7 @@
 }
 
 .contactInfo h3 {
-    color: #006e41;
+    color: #7b5d00;
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
@@ -379,7 +379,7 @@
 
 .secondaryButton {
     background: white;
-    color: #006e41;
+    color: #7b5d00;
     text-decoration: none;
     padding: 15px 30px;
     border: 2px solid #006e41;
@@ -414,7 +414,7 @@
     justify-content: center;
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #006838 0%, #4CAF50 100%);
+    background: linear-gradient(135deg, #7b5d00 0%, #4CAF50 100%);
     border-radius: 50%;
     color: white;
     margin-bottom: 24px;
@@ -432,7 +432,7 @@
     font-size: 48px;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 900;
-    color: #006838;
+    color: #7b5d00;
     line-height: 1.1;
     margin-bottom: 16px;
     text-transform: uppercase;
@@ -442,7 +442,7 @@
 .titleUnderline {
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #006838, #4CAF50);
+    background: linear-gradient(90deg, #7b5d00, #cea11c);
     margin: 0 auto;
     border-radius: 2px;
 }
@@ -492,7 +492,7 @@
 }
 
 .sectionHeader svg {
-    color: #006838;
+    color: #006e41;
     width: 32px;
     height: 32px;
 }
@@ -500,7 +500,7 @@
 .sectionTitle {
     font-size: 24px;
     font-weight: 700;
-    color: #006838;
+    color: #7b5d00;
     margin: 0;
 }
 
@@ -508,7 +508,7 @@
 .deliveryText strong,
 .paymentText strong {
     font-weight: 700;
-    color: #006838;
+    color: #7b5d00;
 }
 
 /* СТИЛИ ДЛЯ ДОСТАВКИ */
@@ -603,7 +603,7 @@
 }
 
 .emptyCart h1 {
-    color: #006e41;
+    color: #7b5d00;
     margin-bottom: 20px;
     font-size: 2rem;
 }
