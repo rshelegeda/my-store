@@ -5,7 +5,7 @@ import React from 'react' // Импортируем React для <React.Fragment
 import Image from 'next/image'
 import Link from 'next/link' // Оставляем Link, чтобы избежать ошибки сборки
 import { montserratAlternates } from '@/app/(frontend)/fonts'
-import styles from './ProductPage.module.css' // Обновил путь для стилей
+import styles from './../products/[slug]/ProductPage.module.css'
 
 // ВАЖНО: Перенесите сюда все типы, которые нужны CC
 interface CartItem {
