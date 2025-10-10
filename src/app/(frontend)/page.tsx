@@ -18,7 +18,7 @@ import AboutUs from './components/AboutUs'
 import Gallery from './components/gallery/Gallery'
 import PaymentDelivery from './components/paymentDelivery/PaymentDelivery'
 import ProductsList from './components/ProductsList'
-import VideoGallery from './components/gallery/VideoGallery'
+// import VideoGallery from './components/gallery/VideoGallery'
 
 // const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3030' // Ваш Payload CMS
 
@@ -137,7 +137,7 @@ export default async function HomePage() {
       <section id="delivery-payment-section" className="py-16 bg-white">
         <PaymentDelivery></PaymentDelivery>
       </section>
-      <VideoGallery videos={videos} />
+      {/* <VideoGallery videos={videos} /> */}
     </div>
   )
 }
