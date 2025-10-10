@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react'
 import React from 'react' // Импортируем React для <React.Fragment> и <br />
 import Image from 'next/image'
-import Link from 'next/link' // Оставляем Link, но используем <a> для обхода проблемы
+import Link from 'next/link' // Оставляем Link, чтобы избежать ошибки сборки
 import { montserratAlternates } from '@/app/(frontend)/fonts'
-import styles from './../products/[slug]/ProductPage.module.css'
+import styles from './ProductPage.module.css' // Обновил путь для стилей
 
 // ВАЖНО: Перенесите сюда все типы, которые нужны CC
 interface CartItem {
@@ -39,8 +39,6 @@ const formatTitle = (text: string) => {
 
   partsZ.forEach((part, partIndex) => {
     // 3. Внутри каждой части ищем скобки для дополнительного переноса
-    // Используем регулярное выражение для разделения по скобке "(" и захвата текста в ней
-    // Например: 'ОЦЕТ (з прянощами)' -> ['ОЦЕТ ', '(з прянощами)']
     const partsParentheses = part.split(/(\s?\([^)]+\))$/)
 
     partsParentheses.forEach((p, pIndex) => {
@@ -66,7 +64,6 @@ const formatTitle = (text: string) => {
   })
 
   // Оборачиваем все элементы в React.Fragment
-  // Используем index в качестве ключа, поскольку состав элементов не меняется
   return finalElements.map((el, index) => (
     <React.Fragment key={`title-part-${index}`}>{el}</React.Fragment>
   ))
@@ -75,8 +72,6 @@ const formatTitle = (text: string) => {
 export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: Props) {
   const [isAdded, setIsAdded] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
-
-  // Вся логика, требующая 'use client' (localStorage, useState, useEffect, onClick)
 
   const getCartItems = (): CartItem[] => {
     if (typeof window === 'undefined') return []
@@ -90,7 +85,6 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
   useEffect(() => {
     const savedCart = localStorage.getItem('cart')
     if (savedCart) {
-      // ОБЯЗАТЕЛЬНО: Проверьте, что product.id является string, если вы используете сгенерированные типы Payload
       setCartItems(JSON.parse(savedCart))
     }
   }, [])
@@ -104,7 +98,6 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
       setCartItems(getCartItems())
     }
 
-    // Проверяем, что window доступен перед добавлением слушателей
     if (typeof window !== 'undefined') {
       window.addEventListener('storage', handleStorageChange)
       window.addEventListener('cartUpdated', handleCartUpdate)
@@ -114,11 +107,10 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
         window.removeEventListener('cartUpdated', handleCartUpdate)
       }
     }
-    return () => {} // Возвращаем пустую функцию, если window не определен
+    return () => {}
   }, [])
 
   const addToCart = () => {
-    // ВНИМАНИЕ: product.id, скорее всего, string, а не number в Payload. Убедитесь, что CartItem.id - string.
     const cartItem: Omit<CartItem, 'quantity'> = {
       id: product.id,
       title: product.title,
@@ -149,10 +141,21 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
   // ВЕСЬ JSX Рендеринг переносится сюда
   return (
     <div className={styles.container}>
-      {/* ИЗМЕНЕНИЕ: Используем стандартный тег <a> вместо Link для обхода ошибки */}
-      <a href="/" className={styles.backButton}>
+      {/* ГИБРИДНОЕ ИСПРАВЛЕНИЕ: Используем Link для прохождения сборки, 
+        но onClick принудительно вызывает полную перезагрузку (чтобы обойти ошибку RSC payload).
+      */}
+      <Link
+        href="/"
+        className={styles.backButton}
+        onClick={(e) => {
+          // Отменяем стандартное поведение Link (soft navigation)
+          e.preventDefault()
+          // Принудительно вызываем полную навигацию (hard navigation)
+          window.location.href = '/'
+        }}
+      >
         ← Назад до головної
-      </a>
+      </Link>
 
       <div className={styles.productContainer}>
         <div className={styles.imageSection}>
