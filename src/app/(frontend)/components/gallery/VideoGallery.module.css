@@ -87,7 +87,7 @@
 }
 
 .playButton {
-    background: rgba(0, 110, 65, 0.9);
+    background: #554100;
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -98,7 +98,7 @@
 }
 
 .videoCard:hover .playButton {
-    background: rgba(0, 110, 65, 1);
+    background: #463500;
     transform: scale(1.1);
 }
 

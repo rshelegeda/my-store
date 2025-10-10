@@ -94,7 +94,7 @@
 }
 
 .quantityBtn {
-    background: #006e41;
+    background: #7b5d00;
     color: white;
     border: none;
     width: 30px;
@@ -109,7 +109,7 @@
 }
 
 .quantityBtn:hover {
-    background: #004d30;
+    background: #5a4400;
 }
 
 .removeBtn {
@@ -139,7 +139,7 @@
     padding: 20px;
     background: white;
     border-radius: 8px;
-    border: 2px solid #006e41;
+    border: 2px solid #7b5d00;
     font-family: "Montserrat Alternates", sans-serif;
 
 }
@@ -194,7 +194,7 @@
 .formGroup select:focus,
 .formGroup textarea:focus {
     outline: none;
-    border-color: #006e41;
+    border-color: #7b5d00;
 }
 
 .radioGroup {
@@ -216,7 +216,7 @@
 }
 
 .radioLabel:hover {
-    border-color: #006e41;
+    border-color: #644b00;
 }
 
 .radioLabel input[type="radio"] {
@@ -227,7 +227,7 @@
 
 .submitButton {
     width: 100%;
-    background: #006e41;
+    background: #7b5d00;
     color: white;
     border: none;
     padding: 18px;
@@ -240,7 +240,7 @@
 }
 
 .submitButton:hover:not(:disabled) {
-    background: #004d30;
+    background: #7b5d00;
 }
 
 .submitButton:disabled {
@@ -323,7 +323,7 @@
     content: "✓";
     position: absolute;
     left: 0;
-    color: #4CAF50;
+    color: #b99423;
     font-weight: bold;
 }
 
@@ -361,7 +361,7 @@
 }
 
 .primaryButton {
-    background: linear-gradient(135deg, #006e41 0%, #004d30 100%);
+    background: linear-gradient(135deg, #7b5d00 0%, #5a4400 100%);
     color: white;
     text-decoration: none;
     padding: 15px 30px;
@@ -369,20 +369,21 @@
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 110, 65, 0.3);
+    box-shadow: 0 8px 25px rgba(123, 93, 0, 0.3);
 }
 
 .primaryButton:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 110, 65, 0.4);
+    box-shadow: 0 12px 35px rgba(123, 93, 0, 0.4);
 }
+
 
 .secondaryButton {
     background: white;
     color: #7b5d00;
     text-decoration: none;
     padding: 15px 30px;
-    border: 2px solid #006e41;
+    border: 2px solid #7b5d00;
     border-radius: 12px;
     font-weight: 600;
     font-size: 1.1rem;
@@ -414,11 +415,12 @@
     justify-content: center;
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #7b5d00 0%, #4CAF50 100%);
+    /* ИЗМЕНЕНИЕ: Цвет градиента приведен к основной золотисто-коричневой схеме */
+    background: linear-gradient(135deg, #7b5d00 0%, #cea11c 100%);
     border-radius: 50%;
     color: white;
     margin-bottom: 24px;
-    box-shadow: 0 10px 30px rgba(0, 104, 56, 0.3);
+    box-shadow: 0 10px 30px rgba(123, 93, 0, 0.3);
     animation: pulse 2s infinite;
 }
 
@@ -453,9 +455,10 @@
     width: 100%;
     margin: 0 auto 40px auto;
     padding: 35px;
-    background: rgba(76, 175, 80, 0.05);
+    /* ИЗМЕНЕНИЕ: Используется более нейтральный светло-золотистый оттенок для фона */
+    background: rgba(123, 93, 0, 0.05); 
     border-radius: 24px;
-    border: 1px solid rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(123, 93, 0, 0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -469,18 +472,20 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #006838, #4CAF50);
+    /* ИЗМЕНЕНИЕ: Изменен градиент на золотисто-коричневый */
+    background: linear-gradient(90deg, #7b5d00, #cea11c);
 }
 
 .combinedCard:hover {
     transform: translateY(-5px);
-    box-shadow: 0 18px 45px rgba(76, 175, 80, 0.15);
+    /* ИЗМЕНЕНИЕ: Тень соответствует золотисто-коричневому акценту */
+    box-shadow: 0 18px 45px rgba(123, 93, 0, 0.15);
 }
 
 .separator {
     width: 100%;
     height: 1px;
-    background-color: rgba(0, 104, 56, 0.2);
+    background-color: rgba(123, 93, 0, 0.2);
     margin: 30px 0;
 }
 
@@ -492,7 +497,7 @@
 }
 
 .sectionHeader svg {
-    color: #006e41;
+    color: #7b5d00; /* ИЗМЕНЕНИЕ: Цвет иконки изменен на золотисто-коричневый */
     width: 32px;
     height: 32px;
 }
@@ -548,8 +553,8 @@
 }
 
 .ibanBox:hover {
-    border-color: #4CAF50;
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+    border-color: #7b5d00; /* ИЗМЕНЕНИЕ: Цвет рамки при наведении изменен на золотисто-коричневый */
+    box-shadow: 0 8px 25px rgba(123, 93, 0, 0.2); /* ИЗМЕНЕНИЕ: Тень соответствует золотисто-коричневому акценту */
 }
 
 .ibanText {
@@ -557,12 +562,14 @@
     font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
     font-size: 16px;
     font-weight: 600;
-    color: #006838;
+    /* ИЗМЕНЕНИЕ: Цвет текста IBAN изменен на золотисто-коричневый (соответствует заголовкам) */
+    color: #7b5d00; 
     letter-spacing: 1px;
 }
 
 .copyButton {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    /* ИЗМЕНЕНИЕ: Градиент кнопки "Копировать" изменен на золотисто-коричневый */
+    background: linear-gradient(135deg, #7b5d00, #cea11c);
     border: none;
     border-radius: 12px;
     padding: 12px;
@@ -576,14 +583,15 @@
 
 .copyButton:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+    /* ИЗМЕНЕНИЕ: Тень соответствует новому цвету кнопки */
+    box-shadow: 0 8px 20px rgba(123, 93, 0, 0.4);
 }
 
 .copyButton:active {
     transform: scale(0.95);
 }
 .secondaryButton:hover {
-    background: #006e41;
+    background: #7b5d00; /* ИЗМЕНЕНИЕ: Цвет фона при наведении изменен на золотисто-коричневый */
     color: white;
     transform: translateY(-2px);
 }
@@ -616,7 +624,8 @@
 
 .backToProducts {
     display: inline-block;
-    background: #006e41;
+       background: linear-gradient(135deg, #7b5d00, #cea11c);
+
     color: white;
     text-decoration: none;
     padding: 12px 24px;
@@ -626,7 +635,7 @@
 }
 
 .backToProducts:hover {
-    background: #004d30;
+    background: #7b5d00; 
 }
 
 @media (max-width: 768px) {
@@ -666,7 +675,9 @@
     .copyButton {
         /* Зберігаємо ширину 100% для зручності натискання на мобільних */
         width: 40%;
-        padding: 12px; /* Трохи більший padding, ніж на десктопі, для зручності */
+        padding: 12px; /* Трохи більший padding, ніж на десктопе, для зручності */
+        /* ИЗМЕНЕНИЕ: Отцентрировать кнопку на мобильных */
+        margin: 0 auto;
     }
 
 

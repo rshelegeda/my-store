@@ -91,7 +91,8 @@
     left: 0;
     width: 0;
     height: 3px;
-    background-color: #b0e0a0;
+    /* Изменен цвет подчеркивания с зеленого на светло-золотистый */
+    background-color: #d1b876; 
     transition: width 0.3s ease-in-out;
     border-radius: 2px;
 }
@@ -102,7 +103,8 @@
 }
 
 .ctaButton {
-    background: linear-gradient(135deg, #006e41 0%, #004d30 100%);
+    /* ИЗМЕНЕНИЕ: Глубокий коричневый/золотистый градиент */
+    background: linear-gradient(135deg, #7b5d00 0%, #a08434 100%);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -110,7 +112,8 @@
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 110, 65, 0.3);
+    /* ИЗМЕНЕНИЕ: Тень в коричневых тонах */
+    box-shadow: 0 4px 15px rgba(123, 93, 0, 0.4);
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -121,8 +124,10 @@
 
 .ctaButton:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 110, 65, 0.5);
-    background: linear-gradient(135deg, #004d30 0%, #006e41 100%);
+    /* ИЗМЕНЕНИЕ: Более насыщенная тень */
+    box-shadow: 0 6px 20px rgba(123, 93, 0, 0.6);
+    /* ИЗМЕНЕНИЕ: Обратный, более темный градиент при наведении */
+    background: linear-gradient(135deg, #a08434 0%, #7b5d00 100%);
 }
 
 .ctaButton:active {
@@ -199,7 +204,7 @@
 .mobileNavLink {
     display: block;
     padding: 15px 30px;
-    color: #004d30;
+    color: #7b5d00; /* ИЗМЕНЕНИЕ */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
@@ -207,8 +212,8 @@
 }
 
 .mobileNavLink:hover {
-    background-color: #f5fff5;
-    color: #006e41;
+    background-color: #fff9f0; /* ИЗМЕНЕНИЕ */
+    color: #a08434; /* ИЗМЕНЕНИЕ */
 }
 
 @keyframes slideDown {
@@ -265,8 +270,9 @@
 }
 
 .cartHeader h3 {
+    /* ИЗМЕНЕНИЕ: Цвет заголовка корзины */
     margin: 0;
-    color: #006e41;
+    color: #7b5d00;
     font-size: 18px;
 }
 
@@ -377,24 +383,57 @@
     margin-bottom: 10px;
 }
 
-.checkoutBtn {
-    width: 100%;
-    background: #006e41;
+.ctaButton {
+    /* ИЗМЕНЕНИЕ: Глубокий коричневый/золотистый градиент (темнее) */
+    background: linear-gradient(135deg, #614900 0%, #7b5d00 100%);
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 6px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    display: block;
+    /* ИЗМЕНЕНИЕ: Тень в более темных коричневых тонах */
+    box-shadow: 0 4px 15px rgba(97, 73, 0, 0.5);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkoutBtn {
+     /* Базовые стили для внешнего вида кнопки */
+    background: linear-gradient(135deg, #614900 0%, #7b5d00 100%); /* Более темный градиент для акцента */
+    color: white;
+    border: none;
+    /* ИЗМЕНЕНИЕ: Уменьшение вертикального padding для меньшей высоты (восстановлено на 12px 30px) */
+    padding: 5px; 
+    border-radius: 10px; /* Немного меньше скругление */
+    /* ИЗМЕНЕНИЕ: Уменьшение размера шрифта */
+    font-size: 0.9rem; 
+    font-weight: 700;
+    cursor: pointer;
+    /* Тень в коричневых тонах */
+    box-shadow: 0 6px 20px rgba(97, 73, 0, 0.4); /* Менее выраженная тень */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Меньший межбуквенный интервал */
+    width: 100%;
+    max-width: 250px; /* Немного меньшая максимальная ширина */
+    /* ИЗМЕНЕНИЕ: Добавление margin: 0 auto; для центрирования кнопки */
+    margin: 15px auto 0;
+    font-family: "Montserrat Alternates", sans-serif;
     text-align: center;
-    transition: background 0.3s ease;
+    display: block; /* Изменено на block для корректной работы margin: auto */
+    text-decoration: none; /* Убираем подчеркивание, если используется <a> */
 }
 
 .checkoutBtn:hover {
-    background: #004d30;
+    
+    background: #9b7400;
+    box-shadow: 0 8px 25px rgba(160, 132, 52, 0.6);
 }
 
 /* Новый медиа-запрос для 1165px */

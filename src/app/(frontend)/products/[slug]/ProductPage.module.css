@@ -183,7 +183,7 @@
 
 .price {
     font-size: 2.2rem;
-    color: #f8a616;
+    color: #9e7f22;
     font-weight: 500;
     margin: 25px 0 30px 0;
     text-shadow: 0 2px 4px rgba(248, 166, 22, 0.3);
@@ -197,7 +197,7 @@
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid #006e41;
+    border-left: 4px solid #7b5d00;
 }
 
 .description h3 {
@@ -217,7 +217,8 @@
 }
 
 .buyButton {
-    background: linear-gradient(135deg, #006e41 0%, #004d30 100%);
+    /* ИЗМЕНЕНИЕ: Темно-коричневый/золотистый градиент */
+    background: linear-gradient(135deg, #7b5d00 0%, #554000 100%);
     color: white;
     border: none;
     padding: 16px 35px;
@@ -225,7 +226,8 @@
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0, 110, 65, 0.4);
+    /* ИЗМЕНЕНИЕ: Тень в коричневых тонах */
+    box-shadow: 0 8px 25px rgba(123, 93, 0, 0.4);
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -237,8 +239,10 @@
 
 .buyButton:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 110, 65, 0.6);
-    background: linear-gradient(135deg, #004d30 0%, #006e41 100%);
+    /* ИЗМЕНЕНИЕ: Более темная тень в коричневых тонах */
+    box-shadow: 0 12px 35px rgba(123, 93, 0, 0.6);
+    /* ИЗМЕНЕНИЕ: Обратный градиент при наведении */
+    background: linear-gradient(135deg, #614900 0%, #7b5d00 100%);
 }
 
 .buyButton:active {

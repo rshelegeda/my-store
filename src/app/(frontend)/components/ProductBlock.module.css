@@ -98,7 +98,8 @@
 
 
 .infoBox {
-    background: #f8a616;
+    /* ИЗМЕНЕНИЕ: Теплый, насыщенный коричневый/золотистый цвет */
+    background: #7b5d00;
     color: white;
     padding: 4rem 1.5rem 2rem;
     border-radius: 0 0 100% 100%/50px;
@@ -108,6 +109,7 @@
     z-index: 1;
     text-align: center;
     transition: all 0.3s ease;
+    /* ИЗМЕНЕНИЕ: Тень в коричневых тонах */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 
     flex-grow: 1;
@@ -182,8 +184,10 @@
 }
 
 .addToCartBtn {
+    /* ИЗМЕНЕНИЕ: Белый фон */
     background-color: #fff;
-    color: #006e41;
+    /* ИЗМЕНЕНИЕ: Темно-коричневый текст */
+    color: #614900;
     border: none;
     padding: 10px 20px;
     border-radius: 50px;
@@ -201,8 +205,10 @@
 }
 
 .addToCartBtn:disabled {
-    background-color: #d4edda;
-    color: #006e41;
+    /* ИЗМЕНЕНИЕ: Светлый, приглушенный золотисто-коричневый фон */
+    background-color: #e6dac1;
+    /* ИЗМЕНЕНИЕ: Приглушенный темно-коричневый текст */
+    color: #7b5d00;
     cursor: not-allowed;
     opacity: 0.8;
 }

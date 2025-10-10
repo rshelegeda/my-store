@@ -1,5 +1,6 @@
 .footer {
-    background-color: #006e41;
+    /* ИЗМЕНЕНИЕ: Темный, насыщенный коричневый для фона */
+    background-color: #554100;
     color: #f0f0f0;
     padding: 40px 20px 20px;
     font-family: Arial, sans-serif;
@@ -37,7 +38,8 @@
     letter-spacing: 0.5px;
     margin: 10px 0 20px;
     font-weight: 500;
-    color: #b0e0a0;
+    /* ИЗМЕНЕНИЕ: Светлый золотистый цвет */
+    color: #d1b876;
     line-height: 1.4;
     text-transform: none;
 }
@@ -59,7 +61,8 @@
     left: 0;
     width: 30px;
     height: 3px;
-    background-color: #b0e0a0;
+    /* ИЗМЕНЕНИЕ: Светлый золотистый цвет */
+    background-color: #d1b876;
     border-radius: 1px;
     transition: width 0.3s ease;
 }
@@ -85,7 +88,8 @@
 }
 
 .navItem:hover {
-    color: #b0e0a0;
+    /* ИЗМЕНЕНИЕ: Светлый золотистый цвет при наведении */
+    color: #d1b876;
 }
 
 .contactInfo {
@@ -106,8 +110,9 @@
 }
 
 .contactLink:hover {
-    color: #b0e0a0;
-    border-bottom-color: #b0e0a0;
+    /* ИЗМЕНЕНИЕ: Светлый золотистый цвет при наведении */
+    color: #d1b876;
+    border-bottom-color: #d1b876;
 }
 
 .socials {
@@ -123,7 +128,8 @@
 }
 
 .socialIconLink:hover {
-    color: #b0e0a0;
+    /* ИЗМЕНЕНИЕ: Светлый золотистый цвет при наведении */
+    color: #d1b876;
     transform: translateY(-3px) scale(1.1);
 }
 
@@ -131,7 +137,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 20px;
-    border-top: 1px solid #444;
+    /* ИЗМЕНЕНИЕ: Более темная коричневая линия для разделителя */
+    border-top: 1px solid #614900;
     text-align: center;
 }
 
