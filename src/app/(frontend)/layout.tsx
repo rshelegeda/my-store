@@ -8,6 +8,7 @@ import Footer from './components/footer/Footer'
 import './globals.css'
 
 import { getPageContent } from '../../utils/payload-api'
+import ClientVisitorTracker from './components/ClientVisitorTracker'
 
 // Шрифты
 const geistSans = Geist({
@@ -53,7 +54,7 @@ export default async function RootLayout({
         {/* 4. Передаем данные в Header */}
         <Header />
         <main className="flex-grow">{children}</main> {/* 5. Передаем данные в Footer */}
-        <Footer phone={phone} email={email} />{' '}
+        <Footer phone={phone} email={email} /> <ClientVisitorTracker></ClientVisitorTracker>
       </body>
     </html>
   )

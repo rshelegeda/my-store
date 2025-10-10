@@ -23,27 +23,14 @@ export const PageContent: GlobalConfig = {
     },
 
     {
-      name: 'visitIps',
-      label: 'Логи посещений по IP (для защиты от накрутки)',
-      type: 'array',
-      localized: false, // Это технические данные, локализация не нужна
+      name: 'visitorCount',
+      label: 'Счетчик просмотров страниц',
+      type: 'number',
+      defaultValue: 0,
       admin: {
-        description:
-          'Массив IP-адресов с временем последнего посещения. Записи старше 1 часа будут удаляться при помощи Route Handler Next.js.',
-        readOnly: true, // Запрещаем ручное редактирование
+        // Разрешаем только чтение в админке, чтобы избежать случайного изменения
+        readOnly: true,
       },
-      fields: [
-        {
-          name: 'ip',
-          label: 'IP-адрес',
-          type: 'text',
-        },
-        {
-          name: 'time',
-          label: 'Время последнего посещения (Timestamp)',
-          type: 'number',
-        },
-      ],
     },
     // --- КОНЕЦ ПОЛЕЙ ДЛЯ СЧЕТЧИКА ---
 
