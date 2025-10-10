@@ -58,8 +58,7 @@ export default function PaymentDelivery() {
               Доставка здійснюється <strong>Новою поштою</strong> у будь-яке місто України.
             </p>
             <p className={styles.deliveryText}>
-              Всі замовлення відправляємо упродовж <strong>2-х днів</strong>, щоб якомога швидше
-              порадувати вас.
+              Всі замовлення відправляємо упродовж <strong>2-3-х днів</strong>
             </p>
             <div className={styles.separator}></div> {/* Разделитель */}
             {/* БЛОК ОПЛАТЫ */}

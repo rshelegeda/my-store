@@ -60,7 +60,10 @@ export default function Footer({ phone, email }: FooterProps) {
       icon: FaTiktok,
       href: 'https://www.tiktok.com/@organic_apple_vinegar?is_from_webapp=1&sender_device=pc',
     },
-    { icon: FaYoutube, href: '' }, // ЗАМЕНИТЕ НА ВАШ АДРЕС TIKTOK
+    {
+      icon: FaYoutube,
+      href: 'https://www.youtube.com/@%D0%9D%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9%D0%AF%D0%B1%D0%BB%D1%83%D1%87%D0%BD%D0%B8%D0%B9%D0%BE%D1%86%D0%B5%D1%82',
+    }, // ЗАМЕНИТЕ НА ВАШ АДРЕС TIKTOK
   ]
 
   return (
@@ -70,7 +73,7 @@ export default function Footer({ phone, email }: FooterProps) {
         <div className={styles.brandInfo}>
           <Link href="/" className={styles.logoWrapper}>
             <Image
-              src="/logo.png"
+              src="/logo-new.png"
               alt="Логотип компанії"
               width={100}
               height={100}

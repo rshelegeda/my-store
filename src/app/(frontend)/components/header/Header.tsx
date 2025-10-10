@@ -243,7 +243,7 @@ export default function Header() {
       <div className={styles.headerContent}>
         <Link href="/" className={styles.logoLink} onClick={() => setIsMenuOpen(false)}>
           <Image
-            src="/logo.png"
+            src="/logo-new.png"
             alt="Логотип компанії"
             width={60}
             height={60}

@@ -51,7 +51,7 @@ public/*
 public/**/
 
 # 2. Отменить игнорирование (исключить) нужные файлы
-!public/logo.png
+!public/logo-new.png
 !public/homepage_video.mp4
 !public/4651048.jpg
 !public/mih.mp4
