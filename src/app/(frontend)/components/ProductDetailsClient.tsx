@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import React from 'react' // Импортируем React для <React.Fragment> и <br />
 import Image from 'next/image'
 import Link from 'next/link'
 import { montserratAlternates } from '@/app/(frontend)/fonts'
@@ -22,6 +23,49 @@ interface Props {
   leavesUrl: string | null
 }
 
+/**
+ * Функция для форматирования заголовка:
+ * 1. Вставляет <br /> перед " З ".
+ * 2. Вставляет <br /> перед открывающей скобкой "(".
+ * @param text Исходный заголовок из CMS.
+ * @returns Отформатированный React-элемент.
+ */
+const formatTitle = (text: string) => {
+  // 1. Сначала обрабатываем перенос перед " З "
+  const partsZ = text.split(' З ')
+
+  // 2. Создаем финальный массив элементов, обрабатывая каждую часть
+  const finalElements: React.ReactNode[] = []
+
+  partsZ.forEach((part, partIndex) => {
+    // 3. Внутри каждой части ищем скобки для дополнительного переноса
+    // Используем регулярное выражение для разделения по скобке "(" и захвата текста в ней
+    // Например: 'ОЦЕТ (з прянощами)' -> ['ОЦЕТ ', '(з прянощами)']
+    const partsParentheses = part.split(/(\s?\([^)]+\))$/)
+
+    partsParentheses.forEach((p, pIndex) => {
+      if (p) {
+        // Если элемент начинается со скобки, вставляем перед ним перенос
+        if (p.trim().startsWith('(')) {
+          finalElements.push(<br />)
+        }
+        finalElements.push(p)
+      }
+    })
+
+    // Добавляем <br /> и "З " только если это не последний элемент в разделении по " З "
+    if (partIndex < partsZ.length - 1) {
+      finalElements.push(<br />)
+      finalElements.push('З ')
+    }
+  })
+
+  // Оборачиваем все элементы в React.Fragment
+  return finalElements.map((el, index) => (
+    <React.Fragment key={`title-part-${index}`}>{el}</React.Fragment>
+  ))
+}
+
 export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: Props) {
   const [isAdded, setIsAdded] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
@@ -33,6 +77,9 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
     const savedCart = localStorage.getItem('cart')
     return savedCart ? JSON.parse(savedCart) : []
   }
+
+  // --- Форматирование заголовка здесь ---
+  const formattedTitle = formatTitle(product.title)
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cart')
@@ -120,7 +167,7 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
             />
             {/* ... */}
             <div className={styles.infoBox} style={{ backgroundColor: product.blockColor }}>
-              <h2>{product.title}</h2>
+              <h2>{formattedTitle}</h2>
               <p>{product.price} грн.</p>
             </div>
           </div>
