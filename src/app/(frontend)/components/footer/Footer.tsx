@@ -10,6 +10,7 @@ import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from '
 interface FooterProps {
   phone: string
   email: string
+  counter: number
 }
 
 // -----------------------------------------------------------
@@ -37,7 +38,7 @@ const useSmoothScroll = () => {
 }
 // -----------------------------------------------------------
 
-export default function Footer({ phone, email }: FooterProps) {
+export default function Footer({ phone, email, counter }: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   // Инициализируем хук прокрутки
@@ -135,7 +136,7 @@ export default function Footer({ phone, email }: FooterProps) {
 
       {/* СЕКЦИЯ СЧЕТЧИКА УДАЛЕНА */}
 
-      <div className={styles.copyright}>Counter: 0</div>
+      <div className={styles.copyright}>Counter: {counter}</div>
       <div className={styles.copyright}>
         &copy; {currentYear} Apple Cider Vinegar. Усі права захищені.
       </div>

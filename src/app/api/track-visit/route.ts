@@ -1,62 +1,44 @@
 import { NextResponse } from 'next/server'
-
-// Используем переменную окружения для URL Payload
-const PAYLOAD_URL = process.env.NEXT_PUBLIC_PAYLOAD_URL
-// ВАЖНО: Ключ API нужен, если ваш Payload требует авторизации для обновления globals
-const API_KEY = process.env.PAYLOAD_API_KEY || ''
+import { getPayload } from 'payload'
+import config from '@/payload.config' // Путь к вашему конфигурационному файлу Payload CMS
 
 /**
  * Обрабатывает запрос GET для увеличения счетчика просмотров в глобальном контенте Payload CMS.
- * При каждом вызове инкрементирует 'visitorCount' на 1.
+ * Использует прямой доступ к Payload CMS (getPayload) для максимальной надежности,
+ * избегая внешних HTTP-запросов (fetch) и проблем с PAYLOAD_URL/CORS.
  */
 export async function GET(request: Request) {
   try {
+    // Инициализация Payload CMS (как в серверных компонентах)
+    const payload = await getPayload({ config })
+
     // 1. Получаем текущее значение глобального контента
-    // Используем 'no-store', чтобы гарантировать получение актуальных данных счетчика
-    const contentRes = await fetch(`${PAYLOAD_URL}/api/globals/page-content`, {
-      method: 'GET',
-      cache: 'no-store',
+    // Используем findGlobal для получения актуального объекта
+    const currentContent = await payload.findGlobal({
+      slug: 'page-content',
     })
 
-    if (!contentRes.ok) {
-      console.error('API: Failed to fetch current global content.', contentRes.status)
-      return NextResponse.json(
-        { success: false, message: 'Failed to fetch global content' },
-        { status: 500 },
-      )
-    }
-
-    const currentContent = await contentRes.json()
     // Используем 0, если поле еще не существует
     const currentCount = currentContent.visitorCount || 0
     const newCount = currentCount + 1
 
     // 2. Обновляем глобальный контент (инкремент visitorCount)
-    const updateRes = await fetch(`${PAYLOAD_URL}/api/globals/page-content`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        // Если ваш Payload защищен, раскомментируйте эту строку:
-        // 'Authorization': `Bearer ${API_KEY}`,
-      },
-      body: JSON.stringify({
+    // Используем updateGlobal для обновления
+    await payload.updateGlobal({
+      slug: 'page-content',
+      data: {
         visitorCount: newCount,
-      }),
-      cache: 'no-store',
+      },
     })
 
-    if (!updateRes.ok) {
-      console.error('API: Failed to update visitor count.', updateRes.status)
-      return NextResponse.json(
-        { success: false, message: 'Failed to update count' },
-        { status: 500 },
-      )
-    }
-
-    console.log(`Visitor count incremented to: ${newCount}`)
+    console.log(`[Payload API] Visitor count successfully incremented to: ${newCount}`)
     return NextResponse.json({ success: true, newCount })
   } catch (error) {
-    console.error('API: Error in visitor tracking:', error)
-    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 })
+    // Теперь ошибка будет приходить от Payload CMS/MongoDB
+    console.error('API: Fatal Error in visitor tracking (Payload Client):', error)
+    return NextResponse.json(
+      { success: false, message: 'Internal server error during Payload operation' },
+      { status: 500 },
+    )
   }
 }

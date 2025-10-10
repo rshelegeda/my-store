@@ -48,13 +48,18 @@ export default async function RootLayout({
   const email = content.contactEmail || 'contact@example.com' // ВОССТАНОВЛЕНО: Слоган необходим для Header.tsx
   const slogan = content.headerSlogan || 'Натуральні продукти'
 
+  const counter = content.visitorCount || 0
+
+  // console.log(counter)
+
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         {/* 4. Передаем данные в Header */}
         <Header />
         <main className="flex-grow">{children}</main> {/* 5. Передаем данные в Footer */}
-        <Footer phone={phone} email={email} /> <ClientVisitorTracker></ClientVisitorTracker>
+        <Footer phone={phone} email={email} counter={counter} />
+        <ClientVisitorTracker></ClientVisitorTracker>
       </body>
     </html>
   )

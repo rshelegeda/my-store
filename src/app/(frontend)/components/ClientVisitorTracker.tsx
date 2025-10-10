@@ -1,4 +1,3 @@
-// 'use client' - Обязателен для использования хуков и useEffect
 'use client'
 
 import { useEffect } from 'react'
