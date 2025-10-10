@@ -54,7 +54,7 @@ export default async function ProductsList() {
     <div className={styles.productsContainer}>
       <div className={styles.pageTitle}>
         <p className={styles.subtitle}>АСОРТИМЕНТ СМАКІВ</p>
-        <h1 className={montserratAlternates.className}>ОБЕРИ СВІЙ УЛЮБЛЕНИЙ СМАК</h1>
+        <h1 className={montserratAlternates.className}>ОБЕРИ СВІЙ СМАК</h1>
       </div>
 
       <div className={styles.productsGrid}>
