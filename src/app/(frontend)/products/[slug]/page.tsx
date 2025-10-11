@@ -13,7 +13,7 @@ import ProductDetailsClient from '../../components/ProductDetailsClient'
 // --- ИСПРАВЛЕНИЕ КЕШИРОВАНИЯ ---
 // Указываем Next.js перепроверять данные (кеш) каждые 60 секунд.
 // Если требуется немедленная ревалидация, используйте 'export const revalidate = 0;'
-export const revalidate = 10
+export const revalidate = 30
 
 const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL
 
