@@ -70,6 +70,8 @@ const formatTitle = (text: string) => {
 }
 
 export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: Props) {
+  console.log(product)
+
   const [isAdded, setIsAdded] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 

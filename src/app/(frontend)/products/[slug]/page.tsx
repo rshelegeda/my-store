@@ -10,6 +10,11 @@ import { montserratAlternates } from '../../fonts'
 import styles from './ProductPage.module.css'
 import ProductDetailsClient from '../../components/ProductDetailsClient'
 
+// --- ИСПРАВЛЕНИЕ КЕШИРОВАНИЯ ---
+// Указываем Next.js перепроверять данные (кеш) каждые 60 секунд.
+// Если требуется немедленная ревалидация, используйте 'export const revalidate = 0;'
+export const revalidate = 10
+
 const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL
 
 // const PAYLOAD_BASE_URL = 'http://localhost:3030'
