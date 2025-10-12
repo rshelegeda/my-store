@@ -50,6 +50,7 @@ export default function Footer({ phone, email, counter }: FooterProps) {
     { title: 'Наша продукція', href: '#products-section' },
     { title: 'Доставка та оплата', href: '#delivery-payment-section' },
     { title: 'Контакти', href: '#contact-section' },
+    { title: 'Оферта', href: '/publ_of.pdf' },
   ]
 
   // ДОБАВЛЕНА ССЫЛКА НА TIKTOK
