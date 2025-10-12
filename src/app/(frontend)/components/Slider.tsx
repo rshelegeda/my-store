@@ -3,8 +3,8 @@
 import React from 'react'
 import styles from './Slider.module.css'
 
-const BACKGROUND_VIDEO_PATH = '/homepage_video.mp4'
-const POSTER_IMAGE_PATH = '/about-us-2.jpg'
+// const BACKGROUND_VIDEO_PATH = '/homepage_video.mp4'
+const POSTER_IMAGE_PATH = '/main_photo_z_5.jpg'
 
 const Slider: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const Slider: React.FC = () => {
           playsInline
           poster={POSTER_IMAGE_PATH}
         >
-          <source src={BACKGROUND_VIDEO_PATH} type="video/mp4" />
+          {/* <source src={BACKGROUND_VIDEO_PATH} type="video/mp4" /> */}
           Ваш браузер не поддерживает видео в формате MP4.
         </video>
 
