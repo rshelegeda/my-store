@@ -239,3 +239,44 @@
         transform: scaleY(1);
     }
 }
+
+
+/* -------------------------------------- */
+/* Стили для социальных иконок (НОВЫЙ БЛОК) */
+/* -------------------------------------- */
+.socials {
+    /* Абсолютное позиционирование относительно .contentOverlay */
+    position: absolute; 
+    bottom: 40px; /* Отступ от нижнего края */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование по горизонтали */
+    z-index: 20; 
+    
+    display: flex;
+    gap: 20px; /* Расстояние между иконками */
+    padding: 10px 20px;
+    /* Полупрозрачный фон */
+    background: rgba(0, 0, 0, 0.4); 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Плавное появление */
+    opacity: 0; 
+    animation: fadeIn 1s ease-out 1.5s forwards; /* Появляется с задержкой */
+}
+
+.socialIconLink {
+    color: #ffffff; /* Белый цвет иконок */
+    transition: all 0.3s ease;
+    display: flex; 
+    align-items: center;
+}
+
+.socialIcon {
+    width: 30px; 
+    height: 30px;
+}
+
+.socialIconLink:hover {
+    color: #ffcc00; /* Золотистый цвет при наведении */
+    transform: translateY(-3px) scale(1.1);
+}
