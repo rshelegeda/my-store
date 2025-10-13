@@ -247,7 +247,7 @@
 .socials {
     /* Абсолютное позиционирование относительно .contentOverlay */
     position: absolute; 
-    bottom: 40px; /* Отступ от нижнего края */
+    bottom: 80px; /* Отступ от нижнего края */
     left: 50%;
     transform: translateX(-50%); /* Центрирование по горизонтали */
     z-index: 20; 
