@@ -19,55 +19,11 @@ import Gallery from './components/gallery/Gallery'
 import PaymentDelivery from './components/paymentDelivery/PaymentDelivery'
 import ProductsList from './components/ProductsList'
 // import VideoGallery from './components/gallery/VideoGallery'
+import type { Media, GalleryImage } from '../../payload-types'
 
 // const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3030' // Ваш Payload CMS
 
 const PAYLOAD_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL
-
-// ИСХОДНЫЕ URL-ы
-const initialImages = [
-  '/gallery/0.jpg',
-  '/gallery/5.jpg',
-  '/gallery/8.jpg',
-  '/gallery/11.jpg',
-  '/gallery/18.jpg',
-  '/gallery/24.jpg',
-  '/gallery/14.jpg',
-]
-
-const videos = [
-  {
-    id: 1,
-    title: 'Процес виготовлення яблучного оцту',
-    description:
-      'Подивіться, як ми створюємо наш унікальний яблучний оцет з найкращих сортів яблук',
-    videoUrl: '/mih.mp4',
-    thumbnail: '/video-thumbnail-1.jpg',
-    duration: '3:45',
-  },
-  {
-    id: 2,
-    title: 'Імбирний оцет - секрети приготування',
-    description: 'Дізнайтеся про користь імбиру та як він поєднується з яблучним оцтом',
-    videoUrl: '/miha3.mp4',
-    thumbnail: '/video-thumbnail-2.jpg',
-    duration: '4:20',
-  },
-  {
-    id: 3,
-    title: 'Медовий оцет - натуральна солодкість',
-    description: 'Процес додавання натурального меду для створення особливого смаку',
-    videoUrl: '/miha4.mp4',
-    thumbnail: '/video-thumbnail-3.jpg',
-    duration: '2:30',
-  },
-]
-
-const galleryData = initialImages.map((src, index) => ({
-  id: index + 1,
-  src: src,
-  alt: `Наш продукт - фото ${index + 1}`, // Замените на реальное описание
-}))
 
 export default async function HomePage() {
   // 1. Загрузка товаров из Payload CMS
@@ -112,6 +68,35 @@ export default async function HomePage() {
   }
 
   const phone = pageContent.contactPhone
+
+  // 3. Загрузка изображений галереи из Payload CMS
+  let galleryData: (GalleryImage & { image: Media })[] = []
+  try {
+    const payloadConfig = await config
+    const payload = await getPayload({ config: payloadConfig })
+
+    const findOptions = {
+      // <--- Определяем опции
+      collection: 'gallery-images',
+      sort: 'sortOrder',
+      limit: 100,
+      depth: 1,
+      // ОПЦИИ NEXT.JS, КОТОРЫЕ ВЫЗЫВАЮТ ОШИБКУ ТИПИЗАЦИИ PAYLOAD:
+      cache: 'no-store', // <--- Ошибка здесь
+      next: {
+        revalidate: 0,
+      },
+    }
+
+    const galleryResult = await payload.find(
+      findOptions as any, // <--- ПРИМЕНЯЕМ 'as any' К ОБЪЕКТУ ОПЦИЙ
+    )
+
+    // Типизация на выходе остается строгой
+    galleryData = galleryResult.docs as (GalleryImage & { image: Media })[]
+  } catch (error) {
+    console.error('Ошибка при получении галереи из Payload:', error)
+  }
 
   // 3. Рендеринг всех секций, передавая загруженные товары в ProductsList
   return (

@@ -14,6 +14,7 @@ import { PageContent } from './app/(payload)/globals/PageContent' // Убеди�
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Products } from './collections/Products'
+import { GalleryImages } from './collections/GalleryImages' // <-- НОВЫЙ ИМПОРТ
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -43,7 +44,7 @@ export default buildConfig({
     PageContent, // <-- ДОЛЖНО БЫТЬ ЗДЕСЬ
   ],
 
-  collections: [Users, Media, Products],
+  collections: [Users, Media, Products, GalleryImages],
 
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
