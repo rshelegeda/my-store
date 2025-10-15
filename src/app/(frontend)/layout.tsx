@@ -1,5 +1,3 @@
-// app/(frontend)/layout.tsx (ОСНОВНОЙ ШАБЛОН САЙТА)
-
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google' // Если шрифты установлены
 import './styles.css' // Ваши глобальные стили
@@ -62,39 +60,39 @@ export default async function RootLayout({
 
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
-      {/* !!! ИНТЕГРАЦИЯ GA4 АКТИВИРОВАНА !!!
-        Условие на загрузку скриптов упрощено до проверки существования ID.
-      */}
-      {GA_MEASUREMENT_ID && ( // Скрипты загрузятся, если ID существует
-        <>
-          {/* 1. Загрузка основного скрипта Google Tag Manager */}
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          />
-
-          {/* 2. Инициализация и настройка gtag.js */}
-          <Script
-            id="google-analytics-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                // Инициализация GA4. Явно указываем домен для куки для исправления ошибок
-                gtag('config', '${GA_MEASUREMENT_ID}', {
-                  page_path: window.location.pathname,
-                  cookie_domain: '.applecidervinegar.com.ua' 
-                });
-              `,
-            }}
-          />
-        </>
-      )}
-
       <body>
+        {/* !!! ИНТЕГРАЦИЯ GA4 ПЕРЕМЕЩЕНА СЮДА !!!
+            Стратегия "beforeInteractive" и размещение в <body> гарантирует, 
+            что скрипт загрузится рано, но не вызовет ошибок гидратации.
+        */}
+        {GA_MEASUREMENT_ID && ( // Скрипты загрузятся, если ID существует
+          <>
+            {/* 1. Загрузка основного скрипта Google Tag Manager */}
+            <Script
+              strategy="beforeInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            />
+
+            {/* 2. Инициализация и настройка gtag.js */}
+            <Script
+              id="google-analytics-init"
+              strategy="beforeInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  // Инициализация GA4. Явно указываем домен для куки для исправления ошибок
+                  gtag('config', '${GA_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                    cookie_domain: '.applecidervinegar.com.ua' 
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
         {/* 4. Передаем данные в Header */}
         <Header />
         <main className="flex-grow">{children}</main> {/* 5. Передаем данные в Footer */}
