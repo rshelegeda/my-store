@@ -6,9 +6,17 @@ import './styles.css' // Ваши глобальные стили
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import './globals.css'
+import Script from 'next/script' // Импортируем компонент Script
 
 import { getPageContent } from '../../utils/payload-api'
 import ClientVisitorTracker from './components/ClientVisitorTracker'
+
+// --- НАЧАЛО: ИНТЕГРАЦИЯ GOOGLE ANALYTICS 4 ---
+
+// ИДЕНТИФИКАТОР ИЗМЕРЕНИЯ
+const GA_MEASUREMENT_ID = 'G-4ZTMC3WVYE'
+
+// --- КОНЕЦ: ИНТЕГРАЦИЯ GOOGLE ANALYTICS 4 ---
 
 // Шрифты
 const geistSans = Geist({
@@ -45,7 +53,7 @@ export default async function RootLayout({
   } // 3. Извлекаем нужные простые надписи с заглушками
 
   const phone = content.contactPhone || '+380 (00) 000-00-00'
-  const email = content.contactEmail || 'contact@example.com' // ВОССТАНОВЛЕНО: Слоган необходим для Header.tsx
+  const email = content.contactEmail || 'contact@example.com'
   const slogan = content.headerSlogan || 'Натуральні продукти'
 
   const counter = content.visitorCount || 0
@@ -54,6 +62,37 @@ export default async function RootLayout({
 
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
+      {/* !!! ИНТЕГРАЦИЯ GA4 АКТИВИРОВАНА !!!
+        Условие на загрузку скриптов упрощено до проверки существования ID.
+      */}
+      {GA_MEASUREMENT_ID && ( // Скрипты загрузятся, если ID существует
+        <>
+          {/* 1. Загрузка основного скрипта Google Tag Manager */}
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+
+          {/* 2. Инициализация и настройка gtag.js */}
+          <Script
+            id="google-analytics-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                // Инициализация GA4.
+                gtag('config', '${GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
+        </>
+      )}
+
       <body>
         {/* 4. Передаем данные в Header */}
         <Header />
