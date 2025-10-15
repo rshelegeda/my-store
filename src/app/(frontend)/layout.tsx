@@ -35,6 +35,8 @@ export const metadata: Metadata = {
 
 // Утилита для проверки окружения
 const isProduction = process.env.NODE_ENV === 'production'
+// Оставляем isProduction только для информации, не используем в GA4,
+// чтобы гарантировать его загрузку при любом сценарии деплоя.
 
 // 1. Делаем функцию асинхронной
 export default async function RootLayout({
@@ -61,26 +63,33 @@ export default async function RootLayout({
 
   // console.log(counter)
 
+  // ВАЖНО: Тег GSC должен быть жестко закодирован в <head>
+  // Этот код был удален, чтобы избежать дублирования в JSX.
+
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
-      {/* !!! ИНТЕГРАЦИЯ GA4 ПЕРЕМЕЩЕНА В <head> !!!
-          Используем нативные <script> теги с 'async' для корректного размещения 
-          в <head> при серверном рендеринге. Это удовлетворяет требование GSC.
-      */}
-      {GA_MEASUREMENT_ID &&
-        isProduction && ( // Загружаем только в Production
-          <>
-            {/* 1. Загрузка основного скрипта Google Tag Manager */}
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            />
+      <head>
+        <title>{metadata.title as string}</title>
+        <meta name="description" content={metadata.description as string} />
 
-            {/* 2. Инициализация и настройка gtag.js */}
-            <script
-              id="google-analytics-init"
-              dangerouslySetInnerHTML={{
-                __html: `
+        {/* !!! ВСТАВЬТЕ СЮДА ВАШ УНИКАЛЬНЫЙ КОД ВЕРИФИКАЦИИ GSC !!! */}
+        {/* ПРИМЕР: <meta name="google-site-verification" content="ВАШ_УНИКАЛЬНЫЙ_КОД" /> */}
+        {/* Замените этот комментарий на ваш реальный мета-тег */}
+      </head>
+
+      {/* !!! ИНТЕГРАЦИЯ GA4 (УСПЕШНЫЙ МЕТОД: нативные скрипты) !!!
+        Убрано условие && isProduction, чтобы гарантировать загрузку тега.
+      */}
+      {GA_MEASUREMENT_ID && ( // Загружаем всегда, если есть ID
+        <>
+          {/* 1. Загрузка основного скрипта Google Tag Manager */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+
+          {/* 2. Инициализация и настройка gtag.js */}
+          <script
+            id="google-analytics-init"
+            dangerouslySetInnerHTML={{
+              __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
@@ -91,10 +100,10 @@ export default async function RootLayout({
                   cookie_domain: '.applecidervinegar.com.ua' 
                 });
               `,
-              }}
-            />
-          </>
-        )}
+            }}
+          />
+        </>
+      )}
 
       <body>
         {/* 4. Передаем данные в Header */}
