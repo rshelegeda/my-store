@@ -86,6 +86,7 @@ export default async function RootLayout({
                 // Инициализация GA4.
                 gtag('config', '${GA_MEASUREMENT_ID}', {
                   page_path: window.location.pathname,
+                  cookie_domain: 'auto' // Указываем скрипту автоматически определять домен
                 });
               `,
             }}
