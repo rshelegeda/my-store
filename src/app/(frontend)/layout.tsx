@@ -83,10 +83,10 @@ export default async function RootLayout({
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                // Инициализация GA4.
+                // Инициализация GA4. Явно указываем домен для куки для исправления ошибок
                 gtag('config', '${GA_MEASUREMENT_ID}', {
                   page_path: window.location.pathname,
-                  cookie_domain: 'auto' // Указываем скрипту автоматически определять домен
+                  cookie_domain: '.applecidervinegar.com.ua' 
                 });
               `,
             }}
