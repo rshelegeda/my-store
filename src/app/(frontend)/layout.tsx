@@ -86,30 +86,26 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'Product',
-              name: 'Натуральний яблучний оцет.',
-              image: 'https://applecidervinegar.com.ua/4651048.jpg',
+              '@type': 'WebSite',
+              name: 'Apple Cider Vinegar UA',
+              url: 'https://applecidervinegar.com.ua/',
               description:
-                'Натуральний крафтовий яблучний оцет ручного виробництва. Это натуральный крафтовый яблочный уксус, продукт высокого качества от украинского производителя.',
-              brand: {
-                '@type': 'Brand',
-                name: 'Apple Cider Vinegar UA',
+                'Натуральний яблучний оцет ручного виробництва. Купити крафтовий оцет з доставкою по Україні.',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://applecidervinegar.com.ua/?s={search_term_string}',
+                'query-input': 'required name=search_term_string',
               },
-              offers: {
-                '@type': 'Offer',
-                priceCurrency: 'UAH',
-                price: '230',
-                availability: 'https://schema.org/InStock',
-                url: 'https://applecidervinegar.com.ua/',
+              publisher: {
+                '@type': 'Organization',
+                name: 'Apple Cider Vinegar UA',
+                logo: 'https://applecidervinegar.com.ua/logo-new.png',
               },
             }),
           }}
         />
       </head>
 
-      {/* !!! ИНТЕГРАЦИЯ GA4 (УСПЕШНЫЙ МЕТОД: нативные скрипты) !!!
-        Убрано условие && isProduction, чтобы гарантировать загрузку тега.
-      */}
       {GA_MEASUREMENT_ID && ( // Загружаем всегда, если есть ID
         <>
           {/* 1. Загрузка основного скрипта Google Tag Manager */}
