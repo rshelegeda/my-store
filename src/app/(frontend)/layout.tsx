@@ -67,7 +67,7 @@ export default async function RootLayout({
   // Этот код был удален, чтобы избежать дублирования в JSX.
 
   return (
-    <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="uk" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <title>{metadata.title as string}</title>
         <meta name="description" content={metadata.description as string} />
