@@ -1,3 +1,5 @@
+// src/app/(frontend)/layout.tsx
+
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google' // Если шрифты установлены
 import './styles.css' // Ваши глобальные стили
@@ -30,7 +32,8 @@ const geistMono = Geist_Mono({
 // Метаданные
 export const metadata: Metadata = {
   title: 'Натуральний яблучний оцет', // Обновим тайтл
-  description: 'Виготовлення та продаж натуральих яблучних оцтів',
+  description:
+    'Натуральний яблучний крафтовий оцет ручного виробництва. Купити з доставкою по Україні — 100% органічний продукт без консервантів.',
 }
 
 // Утилита для проверки окружения
@@ -69,13 +72,38 @@ export default async function RootLayout({
   return (
     <html lang="uk" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
-        <title>{metadata.title as string}</title>
-        <meta name="description" content={metadata.description as string} />
+        {/* <title>{metadata.title as string}</title>
+        <meta name="description" content={metadata.description as string} /> */}
 
         {/* Тег верификации Google Search Console (GSC) */}
         <meta
           name="google-site-verification"
           content="OSV1cKj-XC82eDe2c2ilyONO4gJcurq1SD15cRj0t60"
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Product',
+              name: 'Натуральний яблучний оцет.',
+              image: 'https://applecidervinegar.com.ua/4651048.jpg',
+              description:
+                'Натуральний крафтовий яблучний оцет ручного виробництва. Это натуральный крафтовый яблочный уксус, продукт высокого качества от украинского производителя.',
+              brand: {
+                '@type': 'Brand',
+                name: 'Apple Cider Vinegar UA',
+              },
+              offers: {
+                '@type': 'Offer',
+                priceCurrency: 'UAH',
+                price: '230',
+                availability: 'https://schema.org/InStock',
+                url: 'https://applecidervinegar.com.ua/',
+              },
+            }),
+          }}
         />
       </head>
 
