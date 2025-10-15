@@ -4,7 +4,7 @@ import './styles.css' // Ваши глобальные стили
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import './globals.css'
-import Script from 'next/script' // Импортируем компонент Script
+// ВНИМАНИЕ: Удаляем импорт 'next/script', так как мы используем нативные <script> теги
 
 import { getPageContent } from '../../utils/payload-api'
 import ClientVisitorTracker from './components/ClientVisitorTracker'
@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   description: 'Виготовлення та продаж натуральих яблучних оцтів',
 }
 
+// Утилита для проверки окружения
+const isProduction = process.env.NODE_ENV === 'production'
+
 // 1. Делаем функцию асинхронной
 export default async function RootLayout({
   children,
@@ -60,39 +63,40 @@ export default async function RootLayout({
 
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
-        {/* !!! ИНТЕГРАЦИЯ GA4 ПЕРЕМЕЩЕНА СЮДА !!!
-            Стратегия "beforeInteractive" и размещение в <body> гарантирует, 
-            что скрипт загрузится рано, но не вызовет ошибок гидратации.
-        */}
-        {GA_MEASUREMENT_ID && ( // Скрипты загрузятся, если ID существует
+      {/* !!! ИНТЕГРАЦИЯ GA4 ПЕРЕМЕЩЕНА В <head> !!!
+          Используем нативные <script> теги с 'async' для корректного размещения 
+          в <head> при серверном рендеринге. Это удовлетворяет требование GSC.
+      */}
+      {GA_MEASUREMENT_ID &&
+        isProduction && ( // Загружаем только в Production
           <>
             {/* 1. Загрузка основного скрипта Google Tag Manager */}
-            <Script
-              strategy="beforeInteractive"
+            <script
+              async
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
             />
 
             {/* 2. Инициализация и настройка gtag.js */}
-            <Script
+            <script
               id="google-analytics-init"
-              strategy="beforeInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-                  // Инициализация GA4. Явно указываем домен для куки для исправления ошибок
-                  gtag('config', '${GA_MEASUREMENT_ID}', {
-                    page_path: window.location.pathname,
-                    cookie_domain: '.applecidervinegar.com.ua' 
-                  });
-                `,
+                // Инициализация GA4 с явным указанием домена для куки
+                gtag('config', '${GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                  cookie_domain: '.applecidervinegar.com.ua' 
+                });
+              `,
               }}
             />
           </>
         )}
+
+      <body>
         {/* 4. Передаем данные в Header */}
         <Header />
         <main className="flex-grow">{children}</main> {/* 5. Передаем данные в Footer */}
