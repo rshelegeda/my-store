@@ -72,9 +72,11 @@ export default async function RootLayout({
         <title>{metadata.title as string}</title>
         <meta name="description" content={metadata.description as string} />
 
-        {/* !!! ВСТАВЬТЕ СЮДА ВАШ УНИКАЛЬНЫЙ КОД ВЕРИФИКАЦИИ GSC !!! */}
-        {/* ПРИМЕР: <meta name="google-site-verification" content="ВАШ_УНИКАЛЬНЫЙ_КОД" /> */}
-        {/* Замените этот комментарий на ваш реальный мета-тег */}
+        {/* Тег верификации Google Search Console (GSC) */}
+        <meta
+          name="google-site-verification"
+          content="OSV1cKj-XC82eDe2c2ilyONO4gJcurq1SD15cRj0t60"
+        />
       </head>
 
       {/* !!! ИНТЕГРАЦИЯ GA4 (УСПЕШНЫЙ МЕТОД: нативные скрипты) !!!
