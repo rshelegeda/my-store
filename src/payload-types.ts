@@ -400,6 +400,7 @@ export interface PageContent {
   contactPhone?: string | null;
   contactEmail?: string | null;
   visitorCount?: number | null;
+  mainHeroImage?: (string | null) | Media;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -411,6 +412,7 @@ export interface PageContentSelect<T extends boolean = true> {
   contactPhone?: T;
   contactEmail?: T;
   visitorCount?: T;
+  mainHeroImage?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

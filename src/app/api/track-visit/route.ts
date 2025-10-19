@@ -1,3 +1,5 @@
+// /src/app/api/track-visit/route.ts
+
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@/payload.config' // Путь к вашему конфигурационному файлу Payload CMS

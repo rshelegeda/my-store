@@ -6,7 +6,11 @@ import styles from './Slider.module.css'
 import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
 
 // const BACKGROUND_VIDEO_PATH = '/homepage_video.mp4'
-const POSTER_IMAGE_PATH = '/grandpa_with_ocet.jpg'
+// const POSTER_IMAGE_PATH = '/grandpa_with_ocet.jpg'
+
+interface SliderProps {
+  dynamicPosterPath: string
+}
 
 // ДОБАВЛЕНА ССЫЛКА НА TIKTOK
 const socialLinks = [
@@ -23,7 +27,9 @@ const socialLinks = [
   }, // ЗАМЕНИТЕ НА ВАШ АДРЕС TIKTOK
 ]
 
-const Slider: React.FC = () => {
+// Компонент принимает dynamicPosterPath
+// Компонент принимает dynamicPosterPath
+const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
   return (
     <div className={styles.videoWrapper}>
       <div className={styles.videoSection}>
@@ -33,7 +39,8 @@ const Slider: React.FC = () => {
           loop
           muted
           playsInline
-          poster={POSTER_IMAGE_PATH}
+          // 🌟 ИСПОЛЬЗУЕМ ДИНАМИЧЕСКИЙ ПУТЬ
+          poster={dynamicPosterPath}
         >
           {/* <source src={BACKGROUND_VIDEO_PATH} type="video/mp4" /> */}
           Ваш браузер не поддерживает видео в формате MP4.

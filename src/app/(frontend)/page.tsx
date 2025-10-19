@@ -13,7 +13,9 @@ import { getPageContent } from '@/utils/payload-api'
 // import Gallery from '@/app/(frontend)/components/gallery/Gallery';
 // import PaymentDelivery from '@/app/(frontend)/components/paymentDelivery/PaymentDelivery';
 
-import Slider from './components/Slider'
+// import Slider from './components/Slider'
+
+import SliderWrapper from './components/SliderWrapper'
 import AboutUs from './components/AboutUs'
 import Gallery from './components/gallery/Gallery'
 import PaymentDelivery from './components/paymentDelivery/PaymentDelivery'
@@ -33,7 +35,6 @@ export default async function HomePage() {
     const payloadConfig = await config
     const payload = await getPayload({ config: payloadConfig })
 
-    // Объект опций, включая 'cache: "no-store"', который вызывает ошибку типизации.
     const findOptions = {
       collection: 'products',
       limit: 6,
@@ -44,7 +45,7 @@ export default async function HomePage() {
           equals: true,
         },
       },
-      // Это свойство функционально работает в Next.js, но не типизировано в Payload
+
       cache: 'no-store',
       next: {
         revalidate: 0,
@@ -55,7 +56,6 @@ export default async function HomePage() {
     products = productData.docs
   } catch (error) {
     console.error('Ошибка при получении товаров из Payload:', error)
-    // Если ошибка, products останется пустым массивом, что будет обработано в ProductsList
   }
 
   // 2. Загрузка контента страниц (GLOBAL CONTENT)
@@ -82,16 +82,14 @@ export default async function HomePage() {
       sort: 'sortOrder',
       limit: 100,
       depth: 1,
-      // ОПЦИИ NEXT.JS, КОТОРЫЕ ВЫЗЫВАЮТ ОШИБКУ ТИПИЗАЦИИ PAYLOAD:
-      cache: 'no-store', // <--- Ошибка здесь
+
+      cache: 'no-store',
       next: {
         revalidate: 0,
       },
     }
 
-    const galleryResult = await payload.find(
-      findOptions as any, // <--- ПРИМЕНЯЕМ 'as any' К ОБЪЕКТУ ОПЦИЙ
-    )
+    const galleryResult = await payload.find(findOptions as any)
 
     // Типизация на выходе остается строгой
     galleryData = galleryResult.docs as (GalleryImage & { image: Media })[]
@@ -103,7 +101,8 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Слайдер */}
-      <Slider></Slider>
+      {/* <Slider></Slider> */}
+      <SliderWrapper />
 
       {/* 2. КАТАЛОГ ТОВАРОВ: передаем массив реальных данных */}
       <section id="products-section" className="py-16 bg-white">

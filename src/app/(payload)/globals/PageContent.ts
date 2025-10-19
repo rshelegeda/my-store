@@ -21,7 +21,6 @@ export const PageContent: GlobalConfig = {
       label: 'Email для связи',
       type: 'email',
     },
-
     {
       name: 'visitorCount',
       label: 'Счетчик просмотров страниц',
@@ -32,6 +31,14 @@ export const PageContent: GlobalConfig = {
         readOnly: true,
       },
     },
+    {
+      name: 'mainHeroImage', // Имя поля в базе данных
+      label: 'Головне фонове зображення (Плакат)',
+      type: 'upload',
+      relationTo: 'media', // Ссылка на вашу коллекцию медиафайлов
+      required: false,
+    },
+
     // --- КОНЕЦ ПОЛЕЙ ДЛЯ СЧЕТЧИКА ---
 
     // Если вы использовали 'headerSlogan', убедитесь, что он тоже здесь
