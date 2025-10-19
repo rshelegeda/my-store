@@ -117,13 +117,12 @@ export default async function HomePage() {
       {/* 4. Галерея */}
 
       <Gallery images={galleryData} />
+      <Information></Information>
 
       {/* 5. Доставка и Оплата (предположительно, этот компонент есть) */}
       <section id="delivery-payment-section" className="py-16 bg-white">
         <PaymentDelivery></PaymentDelivery>
       </section>
-
-      <Information></Information>
 
       {/* <VideoGallery videos={videos} /> */}
     </div>

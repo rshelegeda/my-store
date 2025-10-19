@@ -9,7 +9,7 @@ import type { Media } from '../../../payload-types'
  */
 export default async function SliderWrapper() {
   let dynamicPosterPath: string | undefined = undefined
-  const defaultPoster = '/images/slider-placeholder.jpg' // Замените на путь к вашей статической заглушке
+  const defaultPoster = '/about-us-2.jpg' // Замените на путь к вашей статической заглушке
 
   try {
     const pageContent = await getPageContent()

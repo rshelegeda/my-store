@@ -90,9 +90,9 @@ export default function Information() {
         {/* ------------------------------------- */}
       </div>
 
-      {/* <div className={styles.rightSection}>
-        <Image src="/4651048.jpg" alt="Наш маєток" fill className={styles.image} />
-      </div> */}
+      <div className={styles.rightSection}>
+        <Image src="/about-us-2.jpg" alt="Наш маєток" fill className={styles.image} />
+      </div>
     </section>
   )
 }
