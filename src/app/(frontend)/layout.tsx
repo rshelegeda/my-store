@@ -31,7 +31,7 @@ const geistMono = Geist_Mono({
 
 // Метаданные
 export const metadata: Metadata = {
-  title: 'Натуральний яблучний оцет', // Обновим тайтл
+  title: 'Натуральний яблучний оцет - купити онлайн', // Обновим тайтл
   description:
     'Натуральний яблучний крафтовий оцет ручного виробництва. Купити з доставкою по Україні — 100% органічний продукт без консервантів.',
 }
@@ -104,18 +104,20 @@ export default async function RootLayout({
             }),
           }}
         />
-      </head>
 
-      {GA_MEASUREMENT_ID && ( // Загружаем всегда, если есть ID
-        <>
-          {/* 1. Загрузка основного скрипта Google Tag Manager */}
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+        {GA_MEASUREMENT_ID && ( // Загружаем всегда, если есть ID
+          <>
+            {/* 1. Загрузка основного скрипта Google Tag Manager */}
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            />
 
-          {/* 2. Инициализация и настройка gtag.js */}
-          <script
-            id="google-analytics-init"
-            dangerouslySetInnerHTML={{
-              __html: `
+            {/* 2. Инициализация и настройка gtag.js */}
+            <script
+              id="google-analytics-init"
+              dangerouslySetInnerHTML={{
+                __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
@@ -126,10 +128,11 @@ export default async function RootLayout({
                   cookie_domain: '.applecidervinegar.com.ua' 
                 });
               `,
-            }}
-          />
-        </>
-      )}
+              }}
+            />
+          </>
+        )}
+      </head>
 
       <body>
         {/* 4. Передаем данные в Header */}

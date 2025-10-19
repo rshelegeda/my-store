@@ -6,7 +6,7 @@ import styles from './Slider.module.css'
 import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
 
 // const BACKGROUND_VIDEO_PATH = '/homepage_video.mp4'
-const POSTER_IMAGE_PATH = '/main_photo_z_5.jpg'
+const POSTER_IMAGE_PATH = '/grandpa_with_ocet.jpg'
 
 // ДОБАВЛЕНА ССЫЛКА НА TIKTOK
 const socialLinks = [
