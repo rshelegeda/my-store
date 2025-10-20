@@ -44,6 +44,19 @@
     text-transform: none;
 }
 
+.languages {
+    font-size: 1rem;
+    opacity: 0.4;
+    font-family: "Montserrat Alternates", sans-serif;
+    letter-spacing: 0.5px;
+    margin: 5px 5 5px;
+    font-weight: 500;
+    /* ИЗМЕНЕНИЕ: Светлый золотистый цвет */
+    color: #d1b876;
+    line-height: 1.4;
+    text-transform: none;
+}
+
 .navTitle {
     font-family: "Montserrat Alternates", sans-serif;
     font-size: 1.7rem;
