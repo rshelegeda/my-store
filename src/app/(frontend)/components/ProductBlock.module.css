@@ -134,8 +134,17 @@
     padding-bottom: 10px;
     transition: all 0.3s ease;
     /* Чтобы текст не растягивал блок, если он слишком длинный */
-    hyphens: auto;
+
+    hyphens: none;
+    word-break: normal;
+    white-space: pre-wrap;
+    /* ----------------------------------------------- */
+
     word-wrap: break-word;
+
+
+    /* hyphens: auto; */
+    /* word-wrap: break-word; */
     font-family: "Montserrat Alternates", sans-serif;
 
 }

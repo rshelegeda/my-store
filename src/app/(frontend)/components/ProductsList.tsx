@@ -65,7 +65,7 @@ export default async function ProductsList() {
           const imageUrl =
             typeof firstImage === 'object' && firstImage?.url
               ? firstImage.url // <-- УДАЛЕНО: ${PAYLOAD_BASE_URL}
-              : '/placeholder-image.png'
+              : '/logo-new.png'
 
           const leavesUrl =
             typeof product.leaves === 'object' && product.leaves?.url
