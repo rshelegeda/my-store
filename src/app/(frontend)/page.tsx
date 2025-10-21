@@ -79,8 +79,8 @@ export default async function HomePage() {
     const findOptions = {
       // <--- Определяем опции
       collection: 'gallery-images',
-      sort: 'sortOrder',
-      limit: 100,
+      sort: '-createdAt',
+      limit: 50,
       depth: 1,
 
       cache: 'no-store',
