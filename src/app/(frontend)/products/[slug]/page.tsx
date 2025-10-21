@@ -79,6 +79,7 @@ export default async function ProductDetailPage({ params }: any) {
       priceCurrency: 'UAH',
       price: product.price,
       availability: 'https://schema.org/InStock',
+      priceValidUntil: '2025-12-31',
     },
     // Добавляем заглушку для агрегированного рейтинга (для Rich Snippets)
     aggregateRating: {
