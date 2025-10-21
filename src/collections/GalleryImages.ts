@@ -5,6 +5,10 @@ import { CollectionConfig } from 'payload'
 export const GalleryImages: CollectionConfig = {
   // Название коллекции, которое будет использоваться в API и админке
   slug: 'gallery-images',
+  labels: {
+    singular: 'Галерея',
+    plural: 'Галерея',
+  },
   // Разрешаем только чтение, чтобы избежать прямого доступа к API
   access: {
     read: () => true,
@@ -22,7 +26,7 @@ export const GalleryImages: CollectionConfig = {
       label: 'Порядок сортировки',
       type: 'number',
       admin: {
-        description: 'Введите число для определения порядка: меньшее число = выше в списке.',
+        description: 'Введить число для визначення порядку: меньше число = вишче у списку.',
       },
       // УДАЛИТЕ СТРОКУ НИЖЕ, ОНА НЕ НУЖНА И ВЫЗЫВАЕТ ОШИБКУ ТИПИЗАЦИИ:
       // saveToDatabase: true, // <-- Эту строку нужно удалить
@@ -30,21 +34,21 @@ export const GalleryImages: CollectionConfig = {
     },
     {
       name: 'image',
-      label: 'Изображение',
+      label: 'Зображення',
       type: 'upload', // Тип "upload" для связи с коллекцией Media
       relationTo: 'media', // Ссылка на вашу коллекцию Media
       required: true,
     },
     {
       name: 'altText',
-      label: 'Альтернативный текст (для SEO)',
+      label: 'Альтернативний текст (для SEO)',
       type: 'text',
       required: false,
     },
     {
       // Поле, определяющее, будет ли изображение "высоким" (tallImage)
       name: 'isTall',
-      label: 'Сделать изображение высоким (Tall Image)',
+      label: 'Зробить зображення високим (Tall Image)',
       type: 'checkbox',
       defaultValue: false,
     },

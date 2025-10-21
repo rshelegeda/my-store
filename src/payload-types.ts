@@ -210,7 +210,7 @@ export interface Product {
 export interface GalleryImage {
   id: string;
   /**
-   * Введите число для определения порядка: меньшее число = выше в списке.
+   * Введить число для визначення порядку: меньше число = вишче у списку.
    */
   sortOrder?: number | null;
   image: string | Media;
