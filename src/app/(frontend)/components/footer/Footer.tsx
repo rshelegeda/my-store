@@ -141,6 +141,11 @@ export default function Footer({ phone, email, counter }: FooterProps) {
       <div className={styles.copyright}>
         &copy; {currentYear} Apple Cider Vinegar. Усі права захищені.
       </div>
+
+      <div className={styles.languages}>
+        UA: На цьому сайті Ви можете <strong>купити натуральний крафтовий яблучний оцет</strong>,
+        вироблений в Україні.
+      </div>
       <div className={styles.languages}>EN: Natural live apple cider vinegar. Made in Ukraine.</div>
       <div className={styles.languages}>
         RU: На этом сайте Вы можете <strong>купить натуральный живой яблочный уксус</strong>,
