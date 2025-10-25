@@ -102,7 +102,12 @@ export default async function RootLayout({
               publisher: {
                 '@type': 'Organization',
                 name: 'Apple Cider Vinegar UA',
-                logo: 'https://applecidervinegar.com.ua/logo-new.png',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://applecidervinegar.com.ua/logo-new.png',
+                  width: 150,
+                  height: 150,
+                },
               },
             }),
           }}
