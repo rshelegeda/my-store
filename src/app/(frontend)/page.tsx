@@ -7,8 +7,6 @@ import config from '@/payload.config'
 
 import { getPageContent } from '@/utils/payload-api'
 
-// Импорты компонентов напарника
-
 // import AboutUs from '@/app/(frontend)/components/AboutUs';
 // import Gallery from '@/app/(frontend)/components/gallery/Gallery';
 // import PaymentDelivery from '@/app/(frontend)/components/paymentDelivery/PaymentDelivery';

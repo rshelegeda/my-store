@@ -94,11 +94,11 @@ export default async function RootLayout({
               url: 'https://applecidervinegar.com.ua/',
               description:
                 'Натуральний яблучний оцет ручного виробництва. Купити крафтовий оцет з доставкою по Україні.',
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: 'https://applecidervinegar.com.ua/?s={search_term_string}',
-                'query-input': 'required name=search_term_string',
-              },
+              // potentialAction: {
+              //   '@type': 'SearchAction',
+              //   target: 'https://applecidervinegar.com.ua/?s={search_term_string}',
+              //   'query-input': 'required name=search_term_string',
+              // },
               publisher: {
                 '@type': 'Organization',
                 name: 'Apple Cider Vinegar UA',
