@@ -118,7 +118,14 @@ export default async function RootLayout({
             }),
           }}
         />
+      </head>
 
+      <body>
+        {/* 4. Передаем данные в Header */}
+        <Header />
+        <main className="flex-grow">{children}</main> {/* 5. Передаем данные в Footer */}
+        <Footer phone={phone} email={email} counter={counter} />
+        <ClientVisitorTracker></ClientVisitorTracker>
         {GA_MEASUREMENT_ID && ( // Загружаем всегда, если есть ID
           <>
             {/* 1. Загрузка основного скрипта Google Tag Manager */}
@@ -146,14 +153,6 @@ export default async function RootLayout({
             />
           </>
         )}
-      </head>
-
-      <body>
-        {/* 4. Передаем данные в Header */}
-        <Header />
-        <main className="flex-grow">{children}</main> {/* 5. Передаем данные в Footer */}
-        <Footer phone={phone} email={email} counter={counter} />
-        <ClientVisitorTracker></ClientVisitorTracker>
       </body>
     </html>
   )
