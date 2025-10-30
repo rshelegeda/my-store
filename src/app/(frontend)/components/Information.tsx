@@ -68,27 +68,6 @@ export default function Information() {
           <p className={styles.signature}>Ваша Дар&apos;я Авдєєва 🌿</p>
         </div>
 
-        {/* --- Додано блок для сертифікатів --- */}
-        {/* <div className={styles.certificates}>
-          <div className={styles.certificateWrapper}>
-            <Image
-              src="/certificate1.jpg" // Замініть на шлях до першого сертифіката
-              alt="Сертифікат 1"
-              width={140} // Встановлюємо невелику ширину
-              height={190} // Встановлюємо невелику висоту
-              className={styles.certificateImage}
-            />
-          </div>
-          <div className={styles.certificateWrapper}>
-            <Image
-              src="/certificate2.jpg" // Замініть на шлях до другого сертифіката
-              alt="Сертифікат 2"
-              width={140} // Встановлюємо невелику ширину
-              height={190} // Встановлюємо невелику висоту
-              className={styles.certificateImage}
-            />
-          </div>
-        </div> */}
         {/* ------------------------------------- */}
       </div>
 

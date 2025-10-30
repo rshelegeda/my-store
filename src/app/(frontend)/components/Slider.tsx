@@ -33,18 +33,15 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
   return (
     <div className={styles.videoWrapper}>
       <div className={styles.videoSection}>
-        <video
+        <img
           className={styles.mainVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          // 🌟 ИСПОЛЬЗУЕМ ДИНАМИЧЕСКИЙ ПУТЬ
-          poster={dynamicPosterPath}
-        >
-          {/* <source src={BACKGROUND_VIDEO_PATH} type="video/mp4" /> */}
-          Ваш браузер не поддерживает видео в формате MP4.
-        </video>
+          src={dynamicPosterPath}
+          alt="Натуральний яблучний оцет купити"
+          fetchPriority="high"
+          // 💡 Добавьте width и height, чтобы избежать CLS
+          width={873} // Примерная ширина контейнера
+          height={1015} // Примерная высота контейнера
+        />
 
         <div className={styles.contentOverlay}>
           {/* Блок с основным текстом */}
