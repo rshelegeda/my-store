@@ -83,6 +83,12 @@ export default async function RootLayout({
           name="google-site-verification"
           content="OSV1cKj-XC82eDe2c2ilyONO4gJcurq1SD15cRj0t60"
         />
+        {/* 🚀 ОПТИМИЗАЦИЯ LCP: Предзагрузка критического изображения */}
+        <link
+          rel="preload"
+          href="https://applecidervinegar.com.ua/api/media/file/grandpa_with_ocet.jpg"
+          as="image"
+        />
 
         <script
           type="application/ld+json"
