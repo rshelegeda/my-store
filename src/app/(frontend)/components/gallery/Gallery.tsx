@@ -23,7 +23,7 @@ export default function Gallery({ images }: GalleryProps) {
     <section className={styles.gallerySection}>
       {' '}
       <div className="pageTitle">
-        <h1 className={montserratAlternates.className}>Наша галерея</h1>{' '}
+        <h2 className={montserratAlternates.className}>Наша галерея</h2>{' '}
       </div>
       <div className={styles.carouselBlock}>
         <ImageCarousel images={images} />

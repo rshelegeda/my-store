@@ -49,3 +49,11 @@ body {
   text-transform: uppercase;
 }
 
+.pageTitle h2 {
+  font-size: 68px;
+  font-weight: 600;
+  color: #7b5d00;
+  margin: 0;
+  text-transform: uppercase;
+}
+
