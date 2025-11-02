@@ -248,7 +248,7 @@ export default function Header() {
             width={60}
             height={60}
             className={styles.logoImage}
-            priority
+            // priority
           />
           <span className={styles.companyName}>Крафтова оцетарня</span>
         </Link>

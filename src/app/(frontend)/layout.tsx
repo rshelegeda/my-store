@@ -22,11 +22,15 @@ const GA_MEASUREMENT_ID = 'G-4ZTMC3WVYE'
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
+  // 💡 Добавляем конкретные начертания, чтобы уменьшить число файлов
+  weight: ['400', '700'],
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  // 💡 Добавляем конкретные начертания
+  weight: ['400', '700'],
 })
 
 // Метаданные

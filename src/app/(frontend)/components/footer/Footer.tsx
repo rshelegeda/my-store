@@ -80,7 +80,7 @@ export default function Footer({ phone, email, counter }: FooterProps) {
               width={100}
               height={100}
               className={styles.logoImage}
-              priority
+              // priority
             />
           </Link>
           <p className={styles.tagline}>Натуральні продукти з любов&apos;ю до природи.</p>

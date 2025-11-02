@@ -32,7 +32,7 @@ export default function PaymentDelivery() {
           fill
           sizes="50vw"
           className={styles.image}
-          priority
+          // priority
         />
         <div className={styles.imageOverlay}></div>
       </div>
