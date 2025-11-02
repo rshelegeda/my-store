@@ -6,7 +6,9 @@ export default function Information() {
     <section className={styles.about}>
       <div className={styles.leftSection}>
         <div className={styles.textContent}>
-          <h2 className={styles.title}>Корисна інформація про натуральний яблучний оцет</h2>
+          <h2 className={styles.title}>Корисна інформація про</h2>
+
+          <h1 className={styles.title}>натуральний яблучний оцет</h1>
 
           <div className={styles.description}>
             <h2>Натуральний яблучний оцет</h2>
