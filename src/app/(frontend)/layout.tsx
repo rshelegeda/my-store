@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.png',
   },
+  alternates: {
+    canonical: 'https://applecidervinegar.com.ua/', // Канонический адрес главной страницы
+  },
 }
 
 // Утилита для проверки окружения

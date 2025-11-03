@@ -78,6 +78,12 @@
     text-align: justify;
 }
 
+.description h3 {
+    font-size: 24px;    
+    color: #7b5d00;    
+    text-align: justify;
+}
+
 .description strong {
     color: #7b5d00;
     font-weight: 600;

@@ -40,7 +40,7 @@ export default function PaymentDelivery() {
       <div className={styles.leftSection}>
         <div className={styles.textContent}>
           <div className={styles.header}>
-            <h2 className={styles.title}>Як купити натуральний яблучний оцет та інші товари? </h2>
+            <h3 className={styles.title}>Як купити натуральний яблучний оцет та інші товари? </h3>
             <div className={styles.iconWrapper}>
               <DeliveryIcon />
             </div>
