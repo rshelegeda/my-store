@@ -24,7 +24,6 @@ const geistSans = Geist({
   subsets: ['latin'],
   // 💡 Добавляем конкретные начертания, чтобы уменьшить число файлов
   weight: ['400', '700'],
-  display: 'swap',
 })
 
 const geistMono = Geist_Mono({
@@ -32,7 +31,6 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
   // 💡 Добавляем конкретные начертания
   weight: ['400', '700'],
-  display: 'swap',
 })
 
 // Метаданные
@@ -92,12 +90,12 @@ export default async function RootLayout({
           name="google-site-verification"
           content="OSV1cKj-XC82eDe2c2ilyONO4gJcurq1SD15cRj0t60"
         />
-
-        {/* <link
+        {/* 🚀 ОПТИМИЗАЦИЯ LCP: Предзагрузка критического изображения */}
+        <link
           rel="preload"
           href="https://applecidervinegar.com.ua/api/media/file/grandpa_with_ocet.jpg"
           as="image"
-        /> */}
+        />
 
         <script
           type="application/ld+json"

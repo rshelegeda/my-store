@@ -43,7 +43,7 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
           alt="Натуральний яблучний оцет купити"
           width={873}
           height={1015}
-          priority // 👈 Шаг 3: Добавляем атрибут priority
+          fetchPriority="high" // 👈 Шаг 3: Добавляем атрибут priority
         />
 
         <div className={styles.contentOverlay}>

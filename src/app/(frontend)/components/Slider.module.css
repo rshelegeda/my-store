@@ -1,7 +1,11 @@
 .videoWrapper {
     position: relative;
     width: 100%;
-    animation: fadeIn 1s ease-out;
+
+
+
+    /* animation: fadeIn 1s ease-out; */
+
 }
 
 .videoSection {
@@ -25,8 +29,10 @@
     transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: 1;
-    animation: videoZoomIn 0.3s ease-out;
-    transition: transform 0.3s ease;
+
+    
+    /* animation: videoZoomIn 2s ease-out;
+    transition: transform 0.3s ease; */
 }
 
 .mainVideo:hover {
@@ -56,10 +62,17 @@
     max-width: 40%;
     border-radius: 0 10px 10px 0;
     /*border-left: 4px solid #fff;*/
+
+/* 
     opacity: 0;
     transform: translateX(-100px);
-    animation: slideInFromLeft 1.2s ease-out 0.5s forwards;
+    animation: slideInFromLeft 1.2s ease-out 0.5s forwards; */
+
+
     transition: all 0.3s ease;
+
+
+
     /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);*/
     position: relative;
     overflow: hidden;
@@ -99,9 +112,11 @@
     text-transform: uppercase;
     text-align: left;
     margin: 0;
-    opacity: 0;
+
+    /* opacity: 0;
     transform: translateY(20px);
-    animation: textFadeInUp 1s ease-out 1s forwards;
+    animation: textFadeInUp 1s ease-out 1s forwards; */
+
     transition: all 0.3s ease;
 }
 
@@ -260,8 +275,10 @@
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     /* Плавное появление */
-    opacity: 0; 
-    animation: fadeIn 1s ease-out 1.5s forwards; /* Появляется с задержкой */
+
+    
+    /* opacity: 0; 
+    animation: fadeIn 1s ease-out 1.5s forwards; */
 }
 
 .socialIconLink {
