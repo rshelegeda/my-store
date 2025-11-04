@@ -30,14 +30,6 @@ const nextConfig = {
     ],
   },
 
-  experimental: {
-    optimizeCss: true, // ✅ объединяет и минифицирует CSS
-  },
-
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production', // очищает console.log в проде
-  },
-
   // Your Next.js config here
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
