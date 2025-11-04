@@ -29,6 +29,7 @@ const nextConfig = {
       { protocol: 'http', hostname: '104.248.252.139' },
     ],
   },
+
   experimental: {
     optimizeCss: true, // ✅ объединяет и минифицирует CSS
   },
