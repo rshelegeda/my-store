@@ -32,18 +32,19 @@ const socialLinks = [
 ]
 
 // Компонент принимает dynamicPosterPath
-// Компонент принимает dynamicPosterPath
+
 const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
   return (
     <div className={styles.videoWrapper}>
       <div className={styles.videoSection}>
-        <Image // 👈 Шаг 2: Заменяем <img> на <Image>
+        <Image
           className={styles.mainVideo}
           src={dynamicPosterPath}
           alt="Натуральний яблучний оцет купити"
           width={873}
           height={1015}
-          fetchPriority="high" // 👈 Шаг 3: Добавляем атрибут priority
+          priority
+          fetchPriority="high"
         />
 
         <div className={styles.contentOverlay}>
