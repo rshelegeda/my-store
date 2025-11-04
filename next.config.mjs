@@ -29,6 +29,13 @@ const nextConfig = {
       { protocol: 'http', hostname: '104.248.252.139' },
     ],
   },
+  experimental: {
+    optimizeCss: true, // ✅ объединяет и минифицирует CSS
+  },
+
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production', // очищает console.log в проде
+  },
 
   // Your Next.js config here
   webpack: (webpackConfig) => {
