@@ -3,6 +3,8 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
+
 import styles from './Slider.module.css'
 
 import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
@@ -35,14 +37,13 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
   return (
     <div className={styles.videoWrapper}>
       <div className={styles.videoSection}>
-        <img
+        <Image // 👈 Шаг 2: Заменяем <img> на <Image>
           className={styles.mainVideo}
           src={dynamicPosterPath}
           alt="Натуральний яблучний оцет купити"
-          fetchPriority="high"
-          // 💡 Добавьте width и height, чтобы избежать CLS
-          width={873} // Примерная ширина контейнера
-          height={1015} // Примерная высота контейнера
+          width={873}
+          height={1015}
+          priority // 👈 Шаг 3: Добавляем атрибут priority
         />
 
         <div className={styles.contentOverlay}>
