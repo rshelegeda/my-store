@@ -1,6 +1,6 @@
 // my-store\src\app\(frontend)\page.tsx
 
-// export const dynamic = 'force-dynamic'              10 11 25
+export const dynamic = 'force-dynamic'
 
 import { getPayload } from 'payload'
 import config from '@/payload.config'
@@ -44,9 +44,9 @@ export default async function HomePage() {
         },
       },
 
-      // cache: 'no-store', 10 11 25
+      cache: 'no-store',
       next: {
-        revalidate: 600, //10 11 25
+        revalidate: 0,
       },
     }
 
@@ -64,7 +64,6 @@ export default async function HomePage() {
     pageContent = await getPageContent()
   } catch (error) {
     console.error('Ошибка при получении глобального контента:', error)
-    pageContent = {} // ✅ Гарантируем, что это объект
   }
 
   const phone = pageContent.contactPhone
@@ -82,9 +81,9 @@ export default async function HomePage() {
       limit: 50,
       depth: 1,
 
-      // cache: 'no-store',
+      cache: 'no-store',
       next: {
-        revalidate: 600, //10 11 25
+        revalidate: 0,
       },
     }
 
