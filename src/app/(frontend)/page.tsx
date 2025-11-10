@@ -1,6 +1,7 @@
 // my-store\src\app\(frontend)\page.tsx
 
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'  10 11 25
+export const revalidate = 60 // 1 минута
 
 import { getPayload } from 'payload'
 import config from '@/payload.config'
@@ -44,10 +45,8 @@ export default async function HomePage() {
         },
       },
 
-      cache: 'no-store',
-      next: {
-        revalidate: 0,
-      },
+      cache: 'force-cache',
+      next: { revalidate: 3600 },
     }
 
     const productData = await payload.find(findOptions as any)
@@ -81,10 +80,8 @@ export default async function HomePage() {
       limit: 50,
       depth: 1,
 
-      cache: 'no-store',
-      next: {
-        revalidate: 0,
-      },
+      cache: 'force-cache',
+      next: { revalidate: 3600 },
     }
 
     const galleryResult = await payload.find(findOptions as any)

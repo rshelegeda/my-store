@@ -188,7 +188,9 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
         </div>
         <div className={styles.infoSection}>
           {/* ... (остальная часть JSX) ... */}
-          <h1 className={`${styles.title} ${montserratAlternates.className}`}>{product.title}</h1>
+          <h1 className={`${styles.title} ${montserratAlternates.className}`}>
+            {product.title} купити онлайн
+          </h1>
           {/* <p className={styles.subtitle}>{product.subtitle}</p> */}
 
           <div className={styles.price}>{product.price} грн.</div>

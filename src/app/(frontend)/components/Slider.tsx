@@ -45,6 +45,8 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
           height={1015}
           priority
           fetchPriority="high"
+          quality={75}
+          sizes="(max-width: 600px) 100vw, 873px"
         />
 
         <div className={styles.contentOverlay}>
