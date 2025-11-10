@@ -22,8 +22,17 @@
 body {
   background: #fff5e3;
   color: var(--foreground);
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-geist-sans); ;
 }
+
+
+
+/* body {
+  background: #fff5e3;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
 
 /* .pageTitle {
   text-align: center;
