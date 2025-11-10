@@ -10,6 +10,7 @@ import './globals.css'
 
 import { getPageContent } from '../../utils/payload-api'
 import ClientVisitorTracker from './components/ClientVisitorTracker'
+import Script from 'next/script'
 
 // --- НАЧАЛО: ИНТЕГРАЦИЯ GOOGLE ANALYTICS 4 ---
 
@@ -66,6 +67,7 @@ export default async function RootLayout({
     // console.log('---------------------------------------')
   } catch (error) {
     console.error('Ошибка при загрузке глобального контента в layout:', error)
+    content = {} // ✅ Гарантируем, что content - это объект, чтобы избежать TypeError
   } // 3. Извлекаем нужные простые надписи с заглушками
 
   const phone = content.contactPhone || '+380 (00) 000-00-00'
@@ -135,29 +137,35 @@ export default async function RootLayout({
         <ClientVisitorTracker></ClientVisitorTracker>
         {GA_MEASUREMENT_ID && ( // Загружаем всегда, если есть ID
           <>
-            {/* 1. Загрузка основного скрипта Google Tag Manager */}
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            />
+            {/* ✅ НОВАЯ ОПТИМИЗИРОВАННАЯ ИНТЕГРАЦИЯ GOOGLE ANALYTICS */}
+            {GA_MEASUREMENT_ID && (
+              <>
+                {/* 1. Загрузка основного скрипта Google Tag Manager */}
+                <Script
+                  src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+                  strategy="afterInteractive" // 🏆 КЛЮЧЕВАЯ ОПТИМИЗАЦИЯ
+                />
 
-            {/* 2. Инициализация и настройка gtag.js */}
-            <script
-              id="google-analytics-init"
-              dangerouslySetInnerHTML={{
-                __html: `
+                {/* 2. Инициализация и настройка gtag.js */}
+
+                <Script
+                  id="google-analytics-init"
+                  strategy="afterInteractive" // 🏆 КЛЮЧЕВАЯ ОПТИМИЗАЦИЯ
+                  dangerouslySetInnerHTML={{
+                    __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                // Инициализация GA4 с явным указанием домена для куки
                 gtag('config', '${GA_MEASUREMENT_ID}', {
                   page_path: window.location.pathname,
                   cookie_domain: '.applecidervinegar.com.ua' 
                 });
               `,
-              }}
-            />
+                  }}
+                />
+              </>
+            )}
           </>
         )}
       </body>
