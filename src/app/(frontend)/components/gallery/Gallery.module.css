@@ -4,6 +4,41 @@
     padding: 0 20px 60px 20px;
 }
 
+
+.pageTitle {
+  text-align: center;
+  margin: 60px 0 60px;
+}
+
+.pageTitle .subtitle {
+  font-size: 20px;
+  color: #7b5d00;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Montserrat Alternates", sans-serif;
+
+}
+
+.pageTitle h1 {
+  font-size: 60px;
+  font-weight: 600;
+  color: #7b5d00;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.pageTitle h2 {
+  font-size: 56px;
+  font-weight: 600;
+  color: #7b5d00;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+
+
 .galleryGridContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

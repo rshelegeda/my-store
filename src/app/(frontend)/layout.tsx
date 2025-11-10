@@ -2,7 +2,7 @@
 
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google' // Если шрифты установлены
-import './styles.css' // Ваши глобальные стили
+// import './styles.css' // Ваши глобальные стили
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import './globals.css'
