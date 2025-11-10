@@ -41,12 +41,9 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
           className={styles.mainVideo}
           src={dynamicPosterPath}
           alt="Натуральний яблучний оцет купити"
-          width={873}
-          height={1015}
-          priority
-          fetchPriority="high"
-          quality={75}
-          sizes="(max-width: 600px) 100vw, 873px"
+          fill={true} // ✅ FIX: Устраняет CLS и 5-секундную задержку
+          priority // ✅ Сохраняет preload
+          style={{ objectFit: 'cover' }} // ✅ Гарантирует правильное отображение на весь экран
         />
 
         <div className={styles.contentOverlay}>
