@@ -137,7 +137,7 @@ export default function Footer({ phone, email, counter }: FooterProps) {
 
       {/* СЕКЦИЯ СЧЕТЧИКА УДАЛЕНА */}
 
-      <div className={styles.copyright}>Counter: {counter}</div>
+      {/* <div className={styles.copyright}>Counter: {counter}</div> */}
       <div className={styles.copyright}>
         &copy; {currentYear} Apple Cider Vinegar. Усі права захищені.
       </div>

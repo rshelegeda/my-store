@@ -1,9 +1,11 @@
-/* -------------------------------------- */
-/* Базовые стили */
-/* -------------------------------------- */
 .videoWrapper {
     position: relative;
     width: 100%;
+
+
+
+    /* animation: fadeIn 1s ease-out; */
+
 }
 
 .videoSection {
@@ -17,26 +19,27 @@
 }
 
 .mainVideo {
-    /* 🛑 КРИТИЧЕСКИЙ FIX ДЛЯ CLS 0.99 (Используется fill=true в JSX) */
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
     min-width: 100%;
     min-height: 100%;
-    transform: translate(0, 0); /* Сброс translate(-50%, -50%) */
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: 1;
 
-    /* ❌ УДАЛЕНА АНИМАЦИЯ LCP */
-    transition: transform 0.3s ease; 
+/* 
+    animation: videoZoomIn 0.8s ease-out;
+    transition: transform 0.3s ease; */
 }
 
 .mainVideo:hover {
-    transform: scale(1.02);
+    transform: translate(-50%, -50%) scale(1.02);
 }
 
+/* Стили для contentOverlay */
 .contentOverlay {
     position: absolute;
     top: 0;
@@ -52,21 +55,27 @@
 }
 
 .textBackground {
-    /* Стили фона */
+    /*background: white;*/
     padding: 2.5rem 1.8rem;
     margin-left: 0;
     margin-right: auto;
     max-width: 40%;
     border-radius: 0 10px 10px 0;
+    /*border-left: 4px solid #fff;*/
 
-    /* ✅ FIX: СТАТИЧЕСКОЕ СОСТОЯНИЕ (ВИДИМЫЙ ТЕКСТ) */
-    opacity: 1; 
-    transform: translateX(0); 
+/* 
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideInFromLeft 1.2s ease-out 0.5s forwards; */
 
-    transition: all 0.3s ease;
+
+    /* transition: all 0.3s ease; */
+
+
+
+    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);*/
     position: relative;
     overflow: hidden;
-    /* УДАЛЕНЫ АНИМАЦИИ */
 }
 
 /* Декоративный элемент */
@@ -78,24 +87,25 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(0, 104, 56, 0.1), transparent);
-    /* УДАЛЕНЫ АНИМАЦИИ */
+    /* animation: shimmer 2s ease-in-out 1.5s; */
 }
 
 /* Hover эффекты */
 .textBackground:hover {
     transform: translateX(10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    /*border-left-color: #006838;*/
 }
 
 .textBackground:hover::before {
-    /* УДАЛЕНЫ АНИМАЦИИ */
+    /* animation: shimmer 0.8s ease-in-out; */
 }
 
 /* Стили для текста */
 .mainText {
     color: white;
-    /* ✅ ВОЗВРАТ ШРИФТА: Используем переменную, определенную в layout.tsx/globals.css */
-    font-family: var(--font-montserrat-alternates, 'Montserrat Alternates', sans-serif); 
+    /* ✅ ВОЗВРАТ ШРИФТА: Используем прямое объявление, чтобы избежать конфликта CSS-переменных */
+    font-family: 'Montserrat Alternates', sans-serif; 
     font-weight: 700;
     font-size: clamp(1.3rem, 4vw, 3rem);
     line-height: 1.2;
@@ -104,43 +114,176 @@
     text-align: left;
     margin: 0;
 
-    /* ✅ FIX: СТАТИЧЕСКОЕ СОСТОЯНИЕ (ВИДИМЫЙ ТЕКСТ) */
-    opacity: 1; 
-    transform: translateY(0); 
+    /* opacity: 0;
+    transform: translateY(20px);
+    animation: textFadeInUp 1s ease-out 1s forwards; */
 
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
+}
+
+/*.textBackground:hover .mainText {*/
+/*    color: #004d2a;*/
+/*    text-shadow: 0 2px 4px rgba(0, 104, 56, 0.2);*/
+/*}*/
+
+/* Альтернативный вариант фона */
+.textBackground.alt {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+    border-left: 4px solid #ff6b35;
+}
+
+/* Анимации */
+/* @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes videoZoomIn {
+    0% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes textFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+} */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .textBackground {
+        max-width: 50%;
+        padding: 2.2rem 1.6rem;
+        /* animation: slideInFromLeft 1s ease-out 0.3s forwards; */
+    }
+
+    .mainText {
+        font-size: clamp(1.4rem, 4.5vw, 2.8rem);
+        /* animation: textFadeInUp 0.8s ease-out 0.8s forwards; */
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .textBackground {
+        max-width: 80%;
+        padding: 2.5rem 2rem;
+        /* animation: slideInFromLeft 0.8s ease-out 0.2s forwards; */
+    }
+
+    .mainText {
+        font-size: clamp(1.4rem, 5vw, 2.8rem);
+        /* animation: textFadeInUp 0.6s ease-out 0.6s forwards; */
+    }
+}
+
+/* Маленькие мобильные устройства */
+@media (max-width: 480px) {
+    .textBackground {
+        max-width: 90%;
+        padding: 2rem 1.8rem;
+        border-radius: 0 12px 12px 0;
+        /* animation: slideInFromLeft 0.6s ease-out 0.1s forwards; */
+    }
+
+    .mainText {
+        font-size: clamp(1.3rem, 4.5vw, 2.3rem);
+        line-height: 1.3;
+        /* animation: textFadeInUp 0.5s ease-out 0.4s forwards; */
+    }
 }
 
 /* Дополнительные эффекты для премиального вида */
 .textBackground::after {
-    /* ... */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    /*background: linear-gradient(180deg, transparent, #006838, transparent);*/
     opacity: 0;
-    /* УДАЛЕНЫ АНИМАЦИИ */
+    /* animation: borderGlow 2s ease-in-out 2s forwards; */
 }
+
+@keyframes borderGlow {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    100% {
+        opacity: 0.7;
+        transform: scaleY(1);
+    }
+}
+
 
 /* -------------------------------------- */
 /* Стили для социальных иконок (НОВЫЙ БЛОК) */
 /* -------------------------------------- */
 .socials {
+    /* Абсолютное позиционирование относительно .contentOverlay */
     position: absolute; 
-    bottom: 80px; 
+    bottom: 80px; /* Отступ от нижнего края */
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%); /* Центрирование по горизонтали */
     z-index: 20; 
     
-    /* ✅ FIX: СТАТИЧЕСКОЕ СОСТОЯНИЕ */
-    opacity: 1; 
-    
     display: flex;
-    gap: 20px; 
+    gap: 20px; /* Расстояние между иконками */
     padding: 10px 20px;
+    /* Полупрозрачный фон */
     background: rgba(0, 0, 0, 0.4); 
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Плавное появление */
+
+    
+    /* opacity: 0; 
+    animation: fadeIn 1s ease-out 1.5s forwards; */
 }
 
 .socialIconLink {
-    color: #ffffff; 
+    color: #ffffff; /* Белый цвет иконок */
     transition: all 0.3s ease;
     display: flex; 
     align-items: center;
@@ -152,51 +295,6 @@
 }
 
 .socialIconLink:hover {
-    color: #ffcc00; 
-    transform: translateY(-3px) scale(1.1);
-}
-
-/* -------------------------------------- */
-/* Медиазапросы: анимации удалены */
-/* -------------------------------------- */
-
-@media (max-width: 1024px) {
-    .textBackground {
-        max-width: 50%;
-        padding: 2.2rem 1.6rem;
-        /* УДАЛЕНЫ АНИМАЦИИ */
-    }
-
-    .mainText {
-        font-size: clamp(1.4rem, 4.5vw, 2.8rem);
-        /* УДАЛЕНЫ АНИМАЦИИ */
-    }
-}
-
-@media (max-width: 768px) {
-    .textBackground {
-        max-width: 80%;
-        padding: 2.5rem 2rem;
-        /* УДАЛЕНЫ АНИМАЦИИ */
-    }
-
-    .mainText {
-        font-size: clamp(1.4rem, 5vw, 2.8rem);
-        /* УДАЛЕНЫ АНИМАЦИИ */
-    }
-}
-
-@media (max-width: 480px) {
-    .textBackground {
-        max-width: 90%;
-        padding: 2rem 1.8rem;
-        border-radius: 0 12px 12px 0;
-        /* УДАЛЕНЫ АНИМАЦИИ */
-    }
-
-    .mainText {
-        font-size: clamp(1.3rem, 4.5vw, 2.3rem);
-        line-height: 1.3;
-        /* УДАЛЕНЫ АНИМАЦИИ */
-    }
+    color: #ffcc00; /* Золотистый цвет при наведении */
+    /* transform: translateY(-3px) scale(1.1); */
 }
