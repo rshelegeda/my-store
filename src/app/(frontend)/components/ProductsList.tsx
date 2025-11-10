@@ -54,8 +54,8 @@ export default async function ProductsList() {
     <div className={styles.productsContainer}>
       {/* <h1 className={styles.visuallyHidden}>НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ КУПИТИ</h1> */}
       <div className={styles.pageTitle}>
-        <p className={styles.subtitle}>АСОРТИМЕНТ СМАКІВ</p>
-        <h2 className={montserratAlternates.className}>ОБЕРИ СВІЙ СМАК</h2>
+        <h1 className={styles.subtitle}>НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ КУПИТИ ОНЛАЙН</h1>
+        {/* <h2 className={montserratAlternates.className}>ТА ІНША КОРИСНА ПРОДУКЦІЯ</h2> */}
       </div>
 
       <div className={styles.productsGrid}>

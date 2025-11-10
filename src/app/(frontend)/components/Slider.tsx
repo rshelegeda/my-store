@@ -50,9 +50,9 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
         <div className={styles.contentOverlay}>
           {/* Блок с основным текстом */}
           <div className={styles.textBackground}>
-            <h1 className={styles.mainText}>НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ</h1>
+            <h2 className={styles.mainText}>АСОРТИМЕНТ СМАКІВ</h2>
 
-            <h2 className={styles.mainText}>ТА ІНША КОРИСНА ПРОДУКЦІЯ</h2>
+            <h2 className={styles.mainText}>ОБЕРИ СВІЙ СМАК</h2>
           </div>
 
           {/* НОВЫЙ БЛОК: Социальные сети внизу оверлея */}
