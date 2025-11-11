@@ -36,14 +36,11 @@ const geistMono = Geist_Mono({
 
 // Метаданные
 export const metadata: Metadata = {
-  title: 'Натуральний яблучний оцет - купити онлайн', // Обновим тайтл
+  title: 'Натуральний яблучний оцет - купити онлайн',
   description:
     'Натуральний яблучний крафтовий оцет ручного виробництва. Купити з доставкою по Україні — 100% органічний продукт без консервантів.',
   icons: {
     icon: '/favicon.png',
-  },
-  alternates: {
-    canonical: 'https://applecidervinegar.com.ua/', // Канонический адрес главной страницы
   },
 }
 

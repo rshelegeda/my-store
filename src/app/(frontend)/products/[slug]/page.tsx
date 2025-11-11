@@ -135,7 +135,6 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  // ... (Ваш код generateMetadata) ...
   const { slug: productSlug } = await params
 
   const payloadConfig = await config
@@ -157,7 +156,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   return {
     title: product.title,
-    // Описание метаданных должно быть более коммерческим и содержать ключевые слова
-    description: `Купити ${product.title} за ${product.price} грн. Натуральний крафтовий яблучний оцет, доставка по Україні.`,
+    description: `Купити ${product.title} за ${product.price} грн. Натуральний яблучний оцет, доставка по Україні.`,
+    alternates: {
+      canonical: `https://applecidervinegar.com.ua/products/${productSlug}`,
+    },
   }
 }
