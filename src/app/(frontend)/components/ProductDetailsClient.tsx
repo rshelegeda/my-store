@@ -162,22 +162,23 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
       <div className={styles.productContainer}>
         <div className={styles.imageSection}>
           <div className={styles.productBlock}>
+            {/* Бутылка — главная */}
             <Image
-              // Используем leavesUrl, который был сформирован SC
-              src={leavesUrl || '/placeholder-leaves.png'}
-              alt="Листва"
-              width={260}
-              height={260}
-              className={styles.leaves}
-            />
-
-            <Image
-              // Используем imageUrl, который был сформирован SC
               src={imageUrl || '/placeholder-bottle.png'}
               alt={product.title}
               width={180}
               height={360}
               className={styles.bottle}
+            />
+
+            {/* Листва — декоративная */}
+            <Image
+              src={leavesUrl || '/placeholder-leaves.png'}
+              alt=""
+              aria-hidden="true"
+              width={260}
+              height={260}
+              className={styles.leaves}
             />
             {/* ... */}
             <div className={styles.infoBox} style={{ backgroundColor: product.blockColor }}>

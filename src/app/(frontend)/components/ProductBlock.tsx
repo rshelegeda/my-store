@@ -73,12 +73,20 @@ export default function ProductBlock({
   return (
     <Link href={`/products/${slug}`} className={styles.blockLink}>
       <div className={styles.block}>
-        <Image src={leaves} alt="Листва" width={260} height={260} className={styles.leaves} />
-
+        {/* Сначала основная бутылка */}
         <Image src={image} alt={title} width={180} height={360} className={styles.bottle} />
 
+        {/* Листва декоративная, alt пустой */}
+        <Image
+          src={leaves}
+          alt=""
+          aria-hidden="true"
+          width={260}
+          height={260}
+          className={styles.leaves}
+        />
+
         <div className={styles.infoBox} style={{ backgroundColor: blockColor }}>
-          {/* Используем отформатированный заголовок */}
           <h2>{formattedTitle}</h2>
           <p style={{ fontSize: 24 }}>{price} грн.</p>
         </div>
