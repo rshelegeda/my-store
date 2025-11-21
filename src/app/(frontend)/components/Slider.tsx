@@ -41,9 +41,10 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
           className={styles.mainVideo}
           src={dynamicPosterPath}
           alt="Натуральний яблучний оцет купити"
-          fill={true} // ✅ FIX: Устраняет CLS и 5-секундную задержку
-          priority // ✅ Сохраняет preload
-          style={{ objectFit: 'cover' }} // ✅ Гарантирует правильное отображение на весь экран
+          fill
+          priority
+          fetchPriority="high" // ← ЭТО ЛУЧШЕЕ РЕШЕНИЕ
+          style={{ objectFit: 'cover' }}
         />
 
         <div className={styles.contentOverlay}>

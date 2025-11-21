@@ -1,256 +1,131 @@
+/* Slider.module.css — LCP / PageSpeed optimized */
+
+/* Контейнер */
 .videoWrapper {
-    position: relative;
-    width: 100%;
-
-
-
-    /* animation: fadeIn 1s ease-out; */
-
+  position: relative;
+  width: 100%;
+  /* Минимизируем layout work */
+  contain: paint; /* изолирует рендеринг, безопасно */
 }
 
+/* Секция героя: оставляем 100vh, но делаем её layout-friendly */
 .videoSection {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #08120a; /* fallback background, чтобы не показывать белый фон до загрузки изображения */
 }
 
+/* Главное изображение (next/image с fill + priority) */
 .mainVideo {
-    /* 🛑 КРИТИЧЕСКИЙ FIX: УБИРАЕМ ВСЕ СЛОЖНЫЕ CSS-СВОЙСТВА */
-    position: absolute; /* Нужен для fill={true} */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
+  position: absolute; /* required for fill */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 
-    /* УДАЛЕНИЕ: min-width/min-height, transform, animation */
-    transform: none; 
-    transition: none; 
+  /* Убираем всё, что может вызвать перерасчёт layout/paint delays */
+  transform: none !important;
+  transition: none !important;
+  will-change: auto;
+  filter: none;
 }
 
-.mainVideo:hover {
-    transform: none; 
-}
-
-/* Стили для contentOverlay */
+/* Оверлей с текстом — упрощаем, делаем статичным и быстрым */
 .contentOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 0;
-    padding-right: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  pointer-events: none; /* чтобы overlay не блокировал взаимодействие под ним (если нужно) */
 }
 
-.textBackground {
-    /*background: white;*/
-    padding: 2.5rem 1.8rem;
-    margin-left: 0;
-    margin-right: auto;
-    max-width: 40%;
-    border-radius: 0 10px 10px 0;
-    /*border-left: 4px solid #fff;*/
-
-/* 
-    opacity: 0;
-    transform: translateX(-100px);
-    animation: slideInFromLeft 1.2s ease-out 0.5s forwards; */
+/* Фоновый блок текста — минимальные эффекты, без трансформов */
 
 
-    /* transition: all 0.3s ease; */
-
-
-
-    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);*/
-    position: relative;
-    overflow: hidden;
-}
-
-/* Декоративный элемент */
-.textBackground::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 104, 56, 0.1), transparent);
-    /* animation: shimmer 2s ease-in-out 1.5s; */
-}
-
-/* Hover эффекты */
-.textBackground:hover {
-    transform: translateX(10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    /*border-left-color: #006838;*/
-}
-
-.textBackground:hover::before {
-    /* animation: shimmer 0.8s ease-in-out; */
-}
-
-/* Стили для текста */
-.mainText {
-    color: white;
-    /* ✅ FIX: Прямое объявление шрифта */
-    font-family: 'Montserrat Alternates', sans-serif; 
-    font-weight: 700;
-    font-size: clamp(1.3rem, 4vw, 3rem);
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    text-align: left;
-    margin: 0;
-    
-    opacity: 1; 
-    transform: translateY(0); 
-
-    transition: all 0.3s ease;
-}
-
-/*.textBackground:hover .mainText {*/
-/*    color: #004d2a;*/
-/*    text-shadow: 0 2px 4px rgba(0, 104, 56, 0.2);*/
-/*}*/
-
-/* Альтернативный вариант фона */
-.textBackground.alt {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
-    border-left: 4px solid #ff6b35;
-}
-
-/* Анимации */
-/* @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes videoZoomIn {
-    0% {
-        transform: translate(-50%, -50%) scale(1.1);
-        opacity: 0;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes textFadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-} */
-
-/* Планшеты */
-
-
-/* Дополнительные эффекты для премиального вида */
+/* удаляем потенциально проблемные ::before / ::after эффекты */
+.textBackground::before,
 .textBackground::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 3px;
-    height: 100%;
-    /*background: linear-gradient(180deg, transparent, #006838, transparent);*/
-    opacity: 0;
-    /* animation: borderGlow 2s ease-in-out 2s forwards; */
+  content: none;
 }
 
-@keyframes borderGlow {
-    0% {
-        opacity: 0;
-        transform: scaleY(0);
-    }
-    50% {
-        opacity: 1;
-        transform: scaleY(1);
-    }
-    100% {
-        opacity: 0.7;
-        transform: scaleY(1);
-    }
+/* Основной текст — без transition/transform, шрифт заранее загружен */
+.mainText {
+  color: #ffffff;
+  font-family: 'Montserrat Alternates', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 4vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0;
+
+  /* Убираем анимации/переходы */
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 
-
-/* -------------------------------------- */
-/* Стили для социальных иконок (НОВЫЙ БЛОК) */
-/* -------------------------------------- */
+/* Социальные иконки — остаются, но без анимаций */
 .socials {
-    /* Абсолютное позиционирование относительно .contentOverlay */
-    position: absolute; 
-    bottom: 80px; /* Отступ от нижнего края */
-    left: 50%;
-    transform: translateX(-50%); /* Центрирование по горизонтали */
-    z-index: 20; 
-    
-    display: flex;
-    gap: 20px; /* Расстояние между иконками */
-    padding: 10px 20px;
-    /* Полупрозрачный фон */
-    background: rgba(0, 0, 0, 0.4); 
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    /* Плавное появление */
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
 
-    
-    /* opacity: 0; 
-    animation: fadeIn 1s ease-out 1.5s forwards; */
+  display: flex;
+  gap: 16px;
+  padding: 8px 14px;
+  background: rgba(0,0,0,0.36);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  pointer-events: auto; /* чтобы иконки кликабельны */
 }
 
+/* Иконки — статично */
 .socialIconLink {
-    color: #ffffff; /* Белый цвет иконок */
-    transition: all 0.3s ease;
-    display: flex; 
-    align-items: center;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
-
 .socialIcon {
-    width: 30px; 
-    height: 30px;
+  width: 28px;
+  height: 28px;
+  display: block;
 }
 
-.socialIconLink:hover {
-    color: #ffcc00; /* Золотистый цвет при наведении */
-    /* transform: translateY(-3px) scale(1.1); */
+/* Адаптация под reduced motion — полностью отключаем эффекты */
+@media (prefers-reduced-motion: reduce) {
+  .mainText,
+  .textBackground,
+  .socials {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Мелкая адаптивность */
+@media (max-width: 900px) {
+  .textBackground { max-width: 70%; padding: 1.5rem; }
+  .mainText { font-size: clamp(1.1rem, 6vw, 2rem); }
+  .socials { bottom: 32px; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .textBackground { max-width: 88%; padding: 1rem; }
+  .mainText { font-size: 1.2rem; }
+  .socials { bottom: 20px; }
 }
