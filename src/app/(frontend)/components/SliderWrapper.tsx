@@ -1,3 +1,5 @@
+// SliderWrapper.tsx
+
 import React from 'react'
 import Slider from '@/app/(frontend)/components/Slider'
 import { getPageContent } from '@/utils/payload-api'
