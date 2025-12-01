@@ -7,7 +7,8 @@ import Link from 'next/link' // Оставляем Link, чтобы избежа
 import { montserratAlternates } from '@/app/(frontend)/fonts'
 import styles from './../products/[slug]/ProductPage.module.css'
 
-// ВАЖНО: Перенесите сюда все типы, которые нужны CC
+import ProductSchema from '../components/ProductSchema'
+
 interface CartItem {
   id: string
   title: string
@@ -212,6 +213,18 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
           </div>
         </div>
       </div>
+
+      <ProductSchema
+        productData={{
+          name: product.title,
+          description: product.description || '',
+          image: imageUrl || undefined, // преобразуем null в undefined
+          price: product.price,
+          slug: product.slug || product.id,
+          priceCurrency: 'UAH',
+          availability: 'https://schema.org/InStock',
+        }}
+      />
     </div>
   )
 }

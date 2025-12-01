@@ -1,76 +1,69 @@
-// ProductsList.tsx
-
+// ProductsList.tsx - ТЕПЕРЬ получает данные из пропсов!
 import { montserratAlternates } from '@/app/(frontend)/fonts'
 import ProductBlock from './ProductBlock'
-import { getPayload } from 'payload'
-import config from './../../../../src/payload.config'
-import { Payload } from 'payload'
 import { Product } from '@/payload-types'
 import styles from './ProductsList.module.css'
 
-// Удалена константа PAYLOAD_BASE_URL — она больше не нужна, т.к. Payload
-// уже генерирует полный URL на сервере.
+// ДОБАВИТЬ интерфейс для пропсов
+interface ProductsListProps {
+  products: Product[] // ← Данные приходят из родителя (page.tsx)
+}
 
 /**
- * Серверный Компонент для отображения списка товаров.
+ * Компонент для отображения списка товаров.
+ * Теперь получает данные через пропсы, а не загружает сам.
  */
-export default async function ProductsList() {
-  let products: Product[] = []
-  let payload: Payload | null = null
+export default function ProductsList({ products }: ProductsListProps) {
+  // УДАЛЕНА загрузка данных! Все данные уже пришли из page.tsx
 
-  // 1. Инициализация Payload и получение данных
-  try {
-    const payloadConfig = await config
-    payload = await getPayload({ config: payloadConfig })
-    const productsData = await payload.find({
-      collection: 'products',
-      where: {
-        showOnHomepage: {
-          equals: true,
-        },
-      },
-      sort: 'sortOrder',
-      limit: 100,
-      depth: 2,
-    })
-
-    products = productsData.docs as Product[]
-  } catch (error) {
-    console.error('Ошибка при получении списка товаров из Payload CMS:', error)
-  }
-
-  if (products.length === 0) {
+  if (!products || products.length === 0) {
     return (
       <div className="text-center py-20">
         <h2 className="text-3xl font-bold text-gray-700">На жаль, товари наразі відсутні.</h2>
-        <p className="text-gray-500 mt-2">
-          Перевірте підключення до бази даних або додайте товари в адмін-панелі Payload.
-        </p>
+        <p className="text-gray-500 mt-2">Спробуйте оновити сторінку або завітати пізніше.</p>
       </div>
     )
   }
 
   return (
     <div className={styles.productsContainer}>
-      {/* <h1 className={styles.visuallyHidden}>НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ КУПИТИ</h1> */}
       <div className={styles.pageTitle}>
         <h1 className={styles.subtitle}>НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ КУПИТИ ОНЛАЙН</h1>
-        {/* <h2 className={montserratAlternates.className}>ТА ІНША КОРИСНА ПРОДУКЦІЯ</h2> */}
       </div>
+
+      {/* ВАЖНО: ДОБАВИТЬ SEO-ТЕКСТ перед товарами! */}
+      {/* <div className="seo-text-container mb-12 mt-8 px-4">
+        <div className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            Де купити натуральний яблучний оцет в Україні?
+          </h2>
+          <p className="text-gray-700 mb-3 text-lg">
+            <strong>Шукаєте справді якісний натуральний яблучний оцет?</strong>
+            Наша крафтова оцетарня пропонує унікальний продукт, виготовлений вручну з яблук власного
+            саду. Без консервантів, без цукру, без штучних добавок.
+          </p>
+          <p className="text-gray-700 mb-3">
+            Наш оцет проходить повний цикл природного бродіння у дубових бочках, що забезпечує
+            насичений смак та збереження всіх корисних речовин.
+          </p>
+          <p className="text-gray-700">
+            Замовляйте онлайн з доставкою по всій Україні.{' '}
+            <strong>Найкраща ціна прямо від виробника!</strong>
+          </p>
+        </div>
+      </div> */}
 
       <div className={styles.productsGrid}>
         {products.map((product) => {
           const firstImage = product.images?.[0]?.image
 
-          // ИСПРАВЛЕНИЕ: Передаем ЧИСТЫЙ URL, который уже сгенерировал Payload (с полным префиксом)
+          // Используем URL, сгенерированный Payload
           const imageUrl =
-            typeof firstImage === 'object' && firstImage?.url
-              ? firstImage.url // <-- УДАЛЕНО: ${PAYLOAD_BASE_URL}
-              : '/logo-new.png'
+            typeof firstImage === 'object' && firstImage?.url ? firstImage.url : '/logo-new.png'
 
           const leavesUrl =
             typeof product.leaves === 'object' && product.leaves?.url
-              ? product.leaves.url // <-- УДАЛЕНО: ${PAYLOAD_BASE_URL}
+              ? product.leaves.url
               : '/apple-front-opti.png'
 
           const safeSlug = product.slug ?? product.id.toString()
@@ -92,6 +85,26 @@ export default async function ProductsList() {
           )
         })}
       </div>
+
+      {/* ВАЖНО: ДОБАВИТЬ SEO-ТЕКСТ после товаров! */}
+      {/* <div className="seo-text-footer mt-12 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h3 className="text-xl font-bold text-gray-800 mb-4">
+            Чому варто купити яблучний оцет саме у нас?
+          </h3>
+          <ul className="text-gray-700 text-left inline-block">
+            <li className="mb-2">✅ Натуральний склад без хімічних добавок</li>
+            <li className="mb-2">✅ Ручне виробництво з любов'ю до якості</li>
+            <li className="mb-2">✅ Доступна ціна від виробника</li>
+            <li className="mb-2">✅ Швидка доставка по всій Україні</li>
+            <li>✅ Гарантія якості та натуральності продукту</li>
+          </ul>
+          <p className="mt-6 text-gray-800 font-semibold">
+            Замовляйте натуральний яблучний оцет прямо зараз та отримайте знижку на перше
+            замовлення!
+          </p>
+        </div>
+      </div> */}
     </div>
   )
 }
