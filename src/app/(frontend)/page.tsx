@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     images: ['https://applecidervinegar.com.ua/grandpa_with_ocet.jpg'], // ✅ Исправлено
   },
 }
-
 // Функция для получения ВСЕХ данных на этапе сборки
 async function getHomePageData() {
   const payloadConfig = await config
