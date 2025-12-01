@@ -56,7 +56,7 @@ async function getHomePageData() {
   const productsData = await payload.find({
     collection: 'products',
     limit: 50,
-    sort: '-createdAt',
+    sort: 'sortOrder',
     depth: 1,
     // УБРАТЬ where условие, которое вызывает ошибку
   })
