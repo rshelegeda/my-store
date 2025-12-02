@@ -95,15 +95,6 @@ const ProductSchema = ({ productData }: ProductSchemaProps) => {
       '@type': 'Brand',
       name: 'Крафтова оцетарня',
     },
-    ...(productData.rating && productData.reviewCount
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: productData.rating.toString(),
-            reviewCount: productData.reviewCount.toString(),
-          },
-        }
-      : {}),
   }
 
   return (
