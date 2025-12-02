@@ -1,4 +1,4 @@
-// ProductSchema.tsx - УЛУЧШЕННАЯ версия
+// ProductSchema.tsx - УЛУЧШЕННАЯ версия с полными данными для Google
 
 interface ProductSchemaProps {
   productData?: {
@@ -26,6 +26,7 @@ const ProductSchema = ({ productData }: ProductSchemaProps) => {
     description: productData.description || `Натуральний яблучний оцет ${productData.name}`,
     image: productData.image || 'https://applecidervinegar.com.ua/logo-new.png',
     sku: productData.sku || productData.slug,
+    mpn: productData.sku || productData.slug, // Добавляем mpn
     offers: {
       '@type': 'Offer',
       url: `https://applecidervinegar.com.ua/products/${productData.slug}`,
@@ -33,6 +34,19 @@ const ProductSchema = ({ productData }: ProductSchemaProps) => {
       price: productData.price,
       availability: productData.availability || 'https://schema.org/InStock',
       priceValidUntil: '2025-12-31',
+      itemCondition: 'https://schema.org/NewCondition', // Добавляем условие товара
+
+      // ДОБАВЛЯЕМ политику возврата
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'UA',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 14, // Укажите реальное количество дней
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/FreeReturn',
+        returnPolicyCountry: 'UA',
+      },
+
       shippingDetails: {
         '@type': 'OfferShippingDetails',
         shippingRate: {
@@ -44,6 +58,37 @@ const ProductSchema = ({ productData }: ProductSchemaProps) => {
           '@type': 'DefinedRegion',
           addressCountry: 'UA',
         },
+        // ДОБАВЛЯЕМ сроки доставки
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 2,
+            unitCode: 'DAY',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 3,
+            unitCode: 'DAY',
+          },
+          businessDays: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: [
+              'https://schema.org/Monday',
+              'https://schema.org/Tuesday',
+              'https://schema.org/Wednesday',
+              'https://schema.org/Thursday',
+              'https://schema.org/Friday',
+            ],
+          },
+        },
+      },
+      seller: {
+        '@type': 'Organization',
+        name: 'Крафтова оцетарня',
+        url: 'https://applecidervinegar.com.ua',
       },
     },
     brand: {
