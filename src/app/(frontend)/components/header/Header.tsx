@@ -1,5 +1,5 @@
 'use client'
-
+import { montserratAlternates } from '@/app/(frontend)/fonts'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
@@ -240,7 +240,7 @@ export default function Header() {
 
   return (
     <header className={`${styles.header} ${!isVisible ? styles.headerHidden : ''}`}>
-      <div className={styles.headerContent}>
+      <div className={`${styles.headerContent} ${montserratAlternates.className}`}>
         <Link href="/" className={styles.logoLink} onClick={() => setIsMenuOpen(false)}>
           <Image
             src="/logo-new.png"

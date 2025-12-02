@@ -2,56 +2,41 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styles from './ProductBlock.module.css'
+import { montserratAlternates } from '../fonts'
 
 interface ProductBlockProps {
   id: string
   title: string
   subtitle: string
-  slug: string // <-- ДОБАВЛЕН ПРОПС SLUG ДЛЯ УСТРАНЕНИЯ ОШИБКИ
+  slug: string
   price: number
-  image: string // Полный URL основного изображения
-  leaves: string // Полный URL фонового элемента (листья/узор)
-  blockColor: string // HEX-код для фона информационного блока
+  image: string
+  leaves: string
+  blockColor: string
 }
 
-/**
- * Функция для форматирования заголовка:
- * 1. Вставляет <br /> перед " З ".
- * 2. Вставляет <br /> перед открывающей скобкой "(".
- * @param text Исходный заголовок из CMS.
- * @returns Отформатированный React-элемент.
- */
 const formatTitle = (text: string) => {
-  // 1. Сначала обрабатываем перенос перед " З "
   const partsZ = text.split(' З ')
-
-  // 2. Создаем финальный массив элементов, обрабатывая каждую часть
   const finalElements: React.ReactNode[] = []
 
   partsZ.forEach((part, partIndex) => {
-    // 3. Внутри каждой части ищем скобки для дополнительного переноса
-    // Используем регулярное выражение для разделения по скобке "(" и захвата текста в ней
-    // Например: 'ОЦЕТ (з прянощами)' -> ['ОЦЕТ ', '(з прянощами)']
     const partsParentheses = part.split(/(\s?\([^)]+\))$/)
 
     partsParentheses.forEach((p, pIndex) => {
       if (p) {
-        // Если элемент начинается со скобки, вставляем перед ним перенос
         if (p.trim().startsWith('(')) {
-          finalElements.push(<br />)
+          finalElements.push(<br key={`br-${partIndex}-${pIndex}`} />)
         }
         finalElements.push(p)
       }
     })
 
-    // Добавляем <br /> и "З " только если это не последний элемент в разделении по " З "
     if (partIndex < partsZ.length - 1) {
-      finalElements.push(<br />)
+      finalElements.push(<br key={`br-z-${partIndex}`} />)
       finalElements.push('З ')
     }
   })
 
-  // Оборачиваем все элементы в React.Fragment
   return finalElements.map((el, index) => (
     <React.Fragment key={`title-part-${index}`}>{el}</React.Fragment>
   ))
@@ -67,12 +52,11 @@ export default function ProductBlock({
   blockColor,
   slug,
 }: ProductBlockProps) {
-  // Применяем форматирование к заголовку
   const formattedTitle = formatTitle(title)
 
   return (
     <Link href={`/products/${slug}`} className={styles.blockLink}>
-      <div className={styles.block}>
+      <div className={`${styles.block} ${montserratAlternates.className}`}>
         {/* Сначала основная бутылка */}
         <Image src={image} alt={title} width={180} height={360} className={styles.bottle} />
 
@@ -86,9 +70,19 @@ export default function ProductBlock({
           className={styles.leaves}
         />
 
-        <div className={styles.infoBox} style={{ backgroundColor: blockColor }}>
+        <div
+          className={`${styles.infoBox} ${montserratAlternates.className}`}
+          style={{ backgroundColor: blockColor }}
+        >
           <h2>{formattedTitle}</h2>
-          <p style={{ fontSize: 24 }}>{price} грн.</p>
+          <p className={montserratAlternates.className} style={{ fontSize: 24 }}>
+            {price} грн.
+          </p>
+
+          {/* Если есть кнопка "Додати в кошик" */}
+          {/* <button className={`${styles.addToCartBtn} ${montserratAlternates.className}`}>
+            Додати в кошик
+          </button> */}
         </div>
       </div>
     </Link>

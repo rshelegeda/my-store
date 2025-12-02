@@ -116,7 +116,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 }
 
@@ -145,7 +145,7 @@
 
     /* hyphens: auto; */
     /* word-wrap: break-word; */
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 }
 
@@ -182,14 +182,14 @@
 .priceSection {
     margin-top: auto;
     margin-bottom: 10px;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 }
 
 .priceValue {
     font-size: 1.5rem;
     font-weight: 700;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 }
 
 .addToCartBtn {

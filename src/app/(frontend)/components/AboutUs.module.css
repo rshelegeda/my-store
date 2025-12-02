@@ -43,7 +43,7 @@
 
 .title {
     font-size: 56px;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
     font-weight: 600;
     color: #7b5d00;
     line-height: 1.1;
@@ -76,7 +76,7 @@
 .description strong {
     color: #7b5d00;
     font-weight: 600;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 }
 
 .signature {

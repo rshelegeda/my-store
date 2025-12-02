@@ -182,7 +182,10 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
               className={styles.leaves}
             />
             {/* ... */}
-            <div className={styles.infoBox} style={{ backgroundColor: product.blockColor }}>
+            <div
+              className={`${styles.infoBox} ${montserratAlternates.className}`}
+              style={{ backgroundColor: product.blockColor }}
+            >
               <h2>{formattedTitle}</h2>
               <p>{product.price} грн.</p>
             </div>

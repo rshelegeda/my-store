@@ -1,50 +1,41 @@
-'use client' // КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: Это делает компонент клиентским, позволяя использовать хуки и onClick
+'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Footer.module.css'
-// Добавлен FaTiktok, удален FaTelegramPlane, FaFacebookF, FaInstagram
-import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
 
-// 1. Создаем интерфейс для ожидаемых пропсов (только phone и email)
+import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
+import { montserratAlternates } from '../../fonts'
+
 interface FooterProps {
   phone: string
   email: string
   counter: number
 }
 
-// -----------------------------------------------------------
-// ХУК ДЛЯ ПЛАВНОЙ ПРОКРУТКИ
-// -----------------------------------------------------------
 const useSmoothScroll = () => {
+  montserratAlternates
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Проверяем, является ли ссылка якорной (начинается с #)
     if (href.startsWith('#')) {
-      e.preventDefault() // Отменяем стандартное поведение Link
-
-      const targetId = href.substring(1) // Получаем ID без символа #
+      e.preventDefault()
+      const targetId = href.substring(1)
       const targetElement = document.getElementById(targetId)
 
       if (targetElement) {
-        // Используем scrollIntoView для плавной прокрутки
         targetElement.scrollIntoView({
           behavior: 'smooth',
-          block: 'start', // Прокручиваем так, чтобы элемент был вверху экрана
+          block: 'start',
         })
       }
     }
   }
   return handleClick
 }
-// -----------------------------------------------------------
 
 export default function Footer({ phone, email, counter }: FooterProps) {
   const currentYear = new Date().getFullYear()
-
-  // Инициализируем хук прокрутки
   const handleScrollClick = useSmoothScroll()
 
-  // ЯКОРНЫЕ ССЫЛКИ, которые соответствуют ID на главной странице (page.tsx)
   const navLinks = [
     { title: 'Про нас', href: '#about-section' },
     { title: 'Наша продукція', href: '#products-section' },
@@ -53,7 +44,6 @@ export default function Footer({ phone, email, counter }: FooterProps) {
     { title: 'Оферта', href: '/publ_of.pdf' },
   ]
 
-  // ДОБАВЛЕНА ССЫЛКА НА TIKTOK
   const socialLinks = [
     { icon: FaInstagram, href: 'https://www.instagram.com/domashniy_yabluchnyy_otset/' },
     { icon: FaFacebookF, href: 'https://www.facebook.com/profile.php?id=100063654803541' },
@@ -65,12 +55,11 @@ export default function Footer({ phone, email, counter }: FooterProps) {
     {
       icon: FaYoutube,
       href: 'https://www.youtube.com/@%D0%9D%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9%D0%AF%D0%B1%D0%BB%D1%83%D1%87%D0%BD%D0%B8%D0%B9%D0%BE%D1%86%D0%B5%D1%82',
-    }, // ЗАМЕНИТЕ НА ВАШ АДРЕС TIKTOK
+    },
   ]
 
   return (
-    // Обязательно добавляем ID для секции "Контакти"
-    <footer className={styles.footer} id="contact-section">
+    <footer className={`${styles.footer} ${montserratAlternates.className}`} id="contact-section">
       <div className={styles.footerContent}>
         <div className={styles.brandInfo}>
           <Link href="/" className={styles.logoWrapper}>
@@ -80,21 +69,21 @@ export default function Footer({ phone, email, counter }: FooterProps) {
               width={100}
               height={100}
               className={styles.logoImage}
-              // priority
             />
           </Link>
-          <p className={styles.tagline}>Натуральні продукти з любов&apos;ю до природи.</p>
+          <p className={`${styles.tagline} ${montserratAlternates.className}`}>
+            Натуральні продукти з любов&apos;ю до природи.
+          </p>
         </div>
 
         <nav className={styles.footerNav}>
-          <h3 className={styles.navTitle}>Навігація</h3>
+          <h3 className={`${styles.navTitle} ${montserratAlternates.className}`}>Навігація</h3>
           <ul className={styles.navList}>
             {navLinks.map((link) => (
               <li key={link.title}>
-                {/* ИСПОЛЬЗУЕМ handleScrollClick для плавной прокрутки */}
                 <Link
                   href={link.href}
-                  className={styles.navItem}
+                  className={`${styles.navItem} ${montserratAlternates.className}`}
                   onClick={(e) => handleScrollClick(e, link.href)}
                 >
                   {link.title}
@@ -105,16 +94,24 @@ export default function Footer({ phone, email, counter }: FooterProps) {
         </nav>
 
         <div className={styles.contactInfo}>
-          <h3 className={styles.navTitle}>Зв&apos;яжіться з нами</h3>
-          <p>
-            Email: {/* ИСПОЛЬЗУЕМ ПРОПС email ИЗ PAYLOAD CMS */}
-            <a href={`mailto:${email}`} className={styles.contactLink}>
+          <h3 className={`${styles.navTitle} ${montserratAlternates.className}`}>
+            Зв&apos;яжіться з нами
+          </h3>
+          <p className={montserratAlternates.className}>
+            Email:{' '}
+            <a
+              href={`mailto:${email}`}
+              className={`${styles.contactLink} ${montserratAlternates.className}`}
+            >
               {email}
             </a>
           </p>
-          <p>
-            Телефон: {/* ИСПОЛЬЗУЕМ ПРОПС phone ИЗ PAYLOAD CMS */}
-            <a href={`tel:${phone.replace(/[()-\s]/g, '')}`} className={styles.contactLink}>
+          <p className={montserratAlternates.className}>
+            Телефон:{' '}
+            <a
+              href={`tel:${phone.replace(/[()-\s]/g, '')}`}
+              className={`${styles.contactLink} ${montserratAlternates.className}`}
+            >
               {phone}
             </a>
           </p>
@@ -127,6 +124,7 @@ export default function Footer({ phone, email, counter }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialIconLink}
+                aria-label={`Посилання на ${social.href}`}
               >
                 <social.icon className={styles.socialIcon} />
               </a>
@@ -135,22 +133,34 @@ export default function Footer({ phone, email, counter }: FooterProps) {
         </div>
       </div>
 
-      {/* СЕКЦИЯ СЧЕТЧИКА УДАЛЕНА */}
-
-      <div className={styles.copyright}>Counter: {counter}</div>
-      <div className={styles.copyright}>
+      <div className={`${styles.copyright} ${montserratAlternates.className}`}>
+        Counter: {counter}
+      </div>
+      <div className={`${styles.copyright} ${montserratAlternates.className}`}>
         &copy; {currentYear} Apple Cider Vinegar. Усі права захищені.
       </div>
 
-      <div className={styles.languages}>
-        UA: На цьому сайті Ви можете <strong>купити натуральний крафтовий яблучний оцет</strong>,
-        вироблений в Україні.
+      <div className={`${styles.languages} ${montserratAlternates.className}`}>
+        UA: На цьому сайті Ви можете{' '}
+        <strong className={montserratAlternates.className}>
+          купити натуральний крафтовий яблучний оцет
+        </strong>
+        , вироблений в Україні.
       </div>
-      <div className={styles.languages}>EN: Natural live apple cider vinegar. Made in Ukraine.</div>
-      <div className={styles.languages}>
-        RU: На этом сайте Вы можете <strong>купить натуральный живой яблочный уксус</strong>,
-        произведенный в Украине.{' '}
-        <strong>Продажа натурального живого украинского яблочного уксуса.</strong>
+
+      <div className={`${styles.languages} ${montserratAlternates.className}`}>
+        EN: Natural live apple cider vinegar. Made in Ukraine.
+      </div>
+
+      <div className={`${styles.languages} ${montserratAlternates.className}`}>
+        RU: На этом сайте Вы можете{' '}
+        <strong className={montserratAlternates.className}>
+          купить натуральный живой яблочный уксус
+        </strong>
+        , произведенный в Украине.{' '}
+        <strong className={montserratAlternates.className}>
+          Продажа натурального живого украинского яблочного уксуса.
+        </strong>
       </div>
     </footer>
   )

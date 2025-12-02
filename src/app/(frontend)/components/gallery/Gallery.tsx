@@ -3,7 +3,7 @@
 
 import Image from 'next/image'
 import styles from './Gallery.module.css'
-import { montserratAlternates } from '@/app/(frontend)/fonts'
+import { montserratAlternatesBold } from '@/app/(frontend)/fonts'
 
 // Импортируем компонент Карусели
 import ImageCarousel from './ImageCarousel'
@@ -23,7 +23,7 @@ export default function Gallery({ images }: GalleryProps) {
     <section className={styles.gallerySection}>
       {' '}
       <div className={styles.pageTitle}>
-        <h2 className={montserratAlternates.className}>Наша галерея</h2>{' '}
+        <h2 className={montserratAlternatesBold.className}>Наша галерея</h2>{' '}
       </div>
       <div className={styles.carouselBlock}>
         <ImageCarousel images={images} />

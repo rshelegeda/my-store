@@ -6,7 +6,7 @@
     z-index: 1000;
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     transform: translateY(0);
 }
@@ -424,7 +424,7 @@
     max-width: 250px; /* Немного меньшая максимальная ширина */
     /* ИЗМЕНЕНИЕ: Добавление margin: 0 auto; для центрирования кнопки */
     margin: 15px auto 0;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
     text-align: center;
     display: block; /* Изменено на block для корректной работы margin: auto */
     text-decoration: none; /* Убираем подчеркивание, если используется <a> */

@@ -21,7 +21,7 @@
     font-size: 1.3rem;
     position: relative;
     z-index: 10;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 }
 
@@ -103,7 +103,7 @@
     transition: all 0.3s ease;
     /* Только базовый цвет по умолчанию, который будет перезаписан */
     background-color: #f8a616;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 
 }
@@ -121,7 +121,7 @@
     text-transform: uppercase;
     padding-bottom: 10px;
     transition: transform 0.3s ease;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 }
 
 .productBlock:hover .infoBox h2 {
@@ -187,7 +187,7 @@
     font-weight: 500;
     margin: 25px 0 30px 0;
     text-shadow: 0 2px 4px rgba(248, 166, 22, 0.3);
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 }
 
@@ -205,7 +205,7 @@
     font-size: 1.4rem;
     margin: 0 0 15px 0;
     font-weight: 600;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 }
 
@@ -233,7 +233,7 @@
     letter-spacing: 1px;
     width: 100%;
     max-width: 280px;
-    font-family: "Montserrat Alternates", sans-serif;
+    /* font-family: "Montserrat Alternates", sans-serif; */
 
 }
 

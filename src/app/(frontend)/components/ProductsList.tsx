@@ -19,8 +19,12 @@ export default function ProductsList({ products }: ProductsListProps) {
   if (!products || products.length === 0) {
     return (
       <div className="text-center py-20">
-        <h2 className="text-3xl font-bold text-gray-700">На жаль, товари наразі відсутні.</h2>
-        <p className="text-gray-500 mt-2">Спробуйте оновити сторінку або завітати пізніше.</p>
+        <h2 className={`text-3xl font-bold text-gray-700 ${montserratAlternates.className}`}>
+          На жаль, товари наразі відсутні.
+        </h2>
+        <p className={`text-gray-500 mt-2 ${montserratAlternates.className}`}>
+          Спробуйте оновити сторінку або завітати пізніше.
+        </p>
       </div>
     )
   }
@@ -28,7 +32,9 @@ export default function ProductsList({ products }: ProductsListProps) {
   return (
     <div className={styles.productsContainer}>
       <div className={styles.pageTitle}>
-        <h1 className={styles.subtitle}>НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ КУПИТИ ОНЛАЙН</h1>
+        <h1 className={`${styles.subtitle} ${montserratAlternates.className}`}>
+          НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ КУПИТИ ОНЛАЙН
+        </h1>
       </div>
 
       {/* ВАЖНО: ДОБАВИТЬ SEO-ТЕКСТ перед товарами! */}

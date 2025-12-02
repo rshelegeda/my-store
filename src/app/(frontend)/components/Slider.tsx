@@ -8,6 +8,7 @@ import Image from 'next/image'
 import styles from './Slider.module.css'
 
 import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
+import { montserratAlternatesBold } from '../fonts'
 
 // const BACKGROUND_VIDEO_PATH = '/homepage_video.mp4'
 // const POSTER_IMAGE_PATH = '/grandpa_with_ocet.jpg'
@@ -50,9 +51,13 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
         <div className={styles.contentOverlay}>
           {/* Блок с основным текстом */}
           <div className={styles.textBackground}>
-            <h2 className={styles.mainText}>АСОРТИМЕНТ СМАКІВ</h2>
+            <h2 className={`${styles.mainText} ${montserratAlternatesBold.className}`}>
+              АСОРТИМЕНТ СМАКІВ
+            </h2>
 
-            <h2 className={styles.mainText}>ОБЕРИ СВІЙ СМАК</h2>
+            <h2 className={`${styles.mainText} ${montserratAlternatesBold.className}`}>
+              ОБЕРИ СВІЙ СМАК
+            </h2>
           </div>
 
           {/* НОВЫЙ БЛОК: Социальные сети внизу оверлея */}
