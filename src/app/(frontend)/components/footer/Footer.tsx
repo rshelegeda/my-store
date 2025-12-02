@@ -5,7 +5,7 @@ import Image from 'next/image'
 import styles from './Footer.module.css'
 
 import { FaInstagram, FaFacebookF, FaTelegramPlane, FaTiktok, FaYoutube } from 'react-icons/fa'
-import { montserratAlternates } from '../../fonts'
+import { montserratAlternatesRegular } from '../../fonts'
 
 interface FooterProps {
   phone: string
@@ -14,7 +14,6 @@ interface FooterProps {
 }
 
 const useSmoothScroll = () => {
-  montserratAlternates
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault()
@@ -59,7 +58,10 @@ export default function Footer({ phone, email, counter }: FooterProps) {
   ]
 
   return (
-    <footer className={`${styles.footer} ${montserratAlternates.className}`} id="contact-section">
+    <footer
+      className={`${styles.footer} ${montserratAlternatesRegular.className}`}
+      id="contact-section"
+    >
       <div className={styles.footerContent}>
         <div className={styles.brandInfo}>
           <Link href="/" className={styles.logoWrapper}>
@@ -71,19 +73,21 @@ export default function Footer({ phone, email, counter }: FooterProps) {
               className={styles.logoImage}
             />
           </Link>
-          <p className={`${styles.tagline} ${montserratAlternates.className}`}>
+          <p className={`${styles.tagline} ${montserratAlternatesRegular.className}`}>
             Натуральні продукти з любов&apos;ю до природи.
           </p>
         </div>
 
         <nav className={styles.footerNav}>
-          <h3 className={`${styles.navTitle} ${montserratAlternates.className}`}>Навігація</h3>
+          <h3 className={`${styles.navTitle} ${montserratAlternatesRegular.className}`}>
+            Навігація
+          </h3>
           <ul className={styles.navList}>
             {navLinks.map((link) => (
               <li key={link.title}>
                 <Link
                   href={link.href}
-                  className={`${styles.navItem} ${montserratAlternates.className}`}
+                  className={`${styles.navItem} ${montserratAlternatesRegular.className}`}
                   onClick={(e) => handleScrollClick(e, link.href)}
                 >
                   {link.title}
@@ -94,23 +98,23 @@ export default function Footer({ phone, email, counter }: FooterProps) {
         </nav>
 
         <div className={styles.contactInfo}>
-          <h3 className={`${styles.navTitle} ${montserratAlternates.className}`}>
+          <h3 className={`${styles.navTitle} ${montserratAlternatesRegular.className}`}>
             Зв&apos;яжіться з нами
           </h3>
-          <p className={montserratAlternates.className}>
+          <p className={montserratAlternatesRegular.className}>
             Email:{' '}
             <a
               href={`mailto:${email}`}
-              className={`${styles.contactLink} ${montserratAlternates.className}`}
+              className={`${styles.contactLink} ${montserratAlternatesRegular.className}`}
             >
               {email}
             </a>
           </p>
-          <p className={montserratAlternates.className}>
+          <p className={montserratAlternatesRegular.className}>
             Телефон:{' '}
             <a
               href={`tel:${phone.replace(/[()-\s]/g, '')}`}
-              className={`${styles.contactLink} ${montserratAlternates.className}`}
+              className={`${styles.contactLink} ${montserratAlternatesRegular.className}`}
             >
               {phone}
             </a>
@@ -133,32 +137,32 @@ export default function Footer({ phone, email, counter }: FooterProps) {
         </div>
       </div>
 
-      <div className={`${styles.copyright} ${montserratAlternates.className}`}>
+      <div className={`${styles.copyright} ${montserratAlternatesRegular.className}`}>
         Counter: {counter}
       </div>
-      <div className={`${styles.copyright} ${montserratAlternates.className}`}>
+      <div className={`${styles.copyright} ${montserratAlternatesRegular.className}`}>
         &copy; {currentYear} Apple Cider Vinegar. Усі права захищені.
       </div>
 
-      <div className={`${styles.languages} ${montserratAlternates.className}`}>
+      <div className={`${styles.languages} ${montserratAlternatesRegular.className}`}>
         UA: На цьому сайті Ви можете{' '}
-        <strong className={montserratAlternates.className}>
+        <strong className={montserratAlternatesRegular.className}>
           купити натуральний крафтовий яблучний оцет
         </strong>
         , вироблений в Україні.
       </div>
 
-      <div className={`${styles.languages} ${montserratAlternates.className}`}>
+      <div className={`${styles.languages} ${montserratAlternatesRegular.className}`}>
         EN: Natural live apple cider vinegar. Made in Ukraine.
       </div>
 
-      <div className={`${styles.languages} ${montserratAlternates.className}`}>
+      <div className={`${styles.languages} ${montserratAlternatesRegular.className}`}>
         RU: На этом сайте Вы можете{' '}
-        <strong className={montserratAlternates.className}>
+        <strong className={montserratAlternatesRegular.className}>
           купить натуральный живой яблочный уксус
         </strong>
         , произведенный в Украине.{' '}
-        <strong className={montserratAlternates.className}>
+        <strong className={montserratAlternatesRegular.className}>
           Продажа натурального живого украинского яблочного уксуса.
         </strong>
       </div>

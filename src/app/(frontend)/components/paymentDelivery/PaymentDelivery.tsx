@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './PaymentDelivery.module.css'
 import CopyButton from '@/app/(frontend)/components/paymentDelivery/CopyButton'
-import { montserratAlternates } from '../../fonts'
+import { montserratAlternatesRegular } from '../../fonts'
 
 export const DeliveryIcon = () => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -41,13 +41,13 @@ export default function PaymentDelivery() {
       <div className={styles.leftSection}>
         <div className={styles.textContent}>
           <div className={styles.header}>
-            <h3 className={`${styles.title} ${montserratAlternates.className}`}>
+            <h3 className={`${styles.title} ${montserratAlternatesRegular.className}`}>
               Як купити натуральний яблучний оцет та інші товари?{' '}
             </h3>
             <div className={styles.iconWrapper}>
               <DeliveryIcon />
             </div>
-            <h2 className={`${styles.title} ${montserratAlternates.className}`}>
+            <h2 className={`${styles.title} ${montserratAlternatesRegular.className}`}>
               Доставка та Оплата
             </h2>
             <div className={styles.titleUnderline}></div>
@@ -58,29 +58,31 @@ export default function PaymentDelivery() {
             {/* БЛОК ДОСТАВКИ */}
             <div className={styles.sectionHeader}>
               <DeliveryIcon /> {/* Изменено: Используем иконку доставки */}
-              <h3 className={`${styles.sectionTitle} ${montserratAlternates.className}`}>
+              <h3 className={`${styles.sectionTitle} ${montserratAlternatesRegular.className}`}>
                 Доставка
               </h3>
             </div>
-            <p className={`${styles.deliveryText} ${montserratAlternates.className}`}>
+            <p className={`${styles.deliveryText} ${montserratAlternatesRegular.className}`}>
               Доставка здійснюється <strong>Новою поштою</strong> у будь-яке місто України.
             </p>
-            <p className={`${styles.deliveryText} ${montserratAlternates.className}`}>
+            <p className={`${styles.deliveryText} ${montserratAlternatesRegular.className}`}>
               Всі замовлення відправляємо упродовж <strong>2-3-х днів</strong>
             </p>
             <div className={styles.separator}></div> {/* Разделитель */}
             {/* БЛОК ОПЛАТЫ */}
             <div className={styles.sectionHeader}>
               <PaymentIcon />
-              <h3 className={`${styles.sectionTitle} ${montserratAlternates.className}`}>Оплата</h3>
+              <h3 className={`${styles.sectionTitle} ${montserratAlternatesRegular.className}`}>
+                Оплата
+              </h3>
             </div>
-            <p className={`${styles.paymentText} ${montserratAlternates.className}`}>
+            <p className={`${styles.paymentText} ${montserratAlternatesRegular.className}`}>
               Тільки на рахунок (IBAN)
             </p>
-            <p className={`${styles.paymentText} ${montserratAlternates.className}`}>
+            <p className={`${styles.paymentText} ${montserratAlternatesRegular.className}`}>
               ФОП: АВДЄЄВА ДАР&apos;Я ОЛЕГІВНА
             </p>
-            <p className={`${styles.paymentText} ${montserratAlternates.className}`}>
+            <p className={`${styles.paymentText} ${montserratAlternatesRegular.className}`}>
               Згідно рахунку, який Ви отримаєте від нашого менеджера, після обробки замовлення.
             </p>
             <div className={styles.ibanContainer}>

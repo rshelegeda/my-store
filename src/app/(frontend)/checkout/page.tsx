@@ -6,7 +6,7 @@ import Image from 'next/image'
 import styles from './Checkout.module.css'
 import CopyButton from '../components/paymentDelivery/CopyButton'
 import { DeliveryIcon, PaymentIcon } from '../components/paymentDelivery/PaymentDelivery'
-import { montserratAlternates } from '../fonts'
+import { montserratAlternatesRegular } from '../fonts'
 
 interface CartItem {
   id: number
@@ -164,32 +164,32 @@ export default function CheckoutPage() {
 
   if (isSubmitted) {
     return (
-      <div className={`${styles.container} ${montserratAlternates.className}`}>
+      <div className={`${styles.container} ${montserratAlternatesRegular.className}`}>
         {' '}
         {/* ← Добавлено */}
         <div className={styles.successPage}>
-          <h1 className={`${styles.successTitle} ${montserratAlternates.className}`}>
+          <h1 className={`${styles.successTitle} ${montserratAlternatesRegular.className}`}>
             Замовлення успішно оформлено!
           </h1>
 
           <div className={styles.successMessage}>
-            <p className={`${styles.mainMessage} ${montserratAlternates.className}`}>
+            <p className={`${styles.mainMessage} ${montserratAlternatesRegular.className}`}>
               Дякуємо за ваше замовлення! Ми отримали ваш запит і обробимо його найближчим часом.
             </p>
 
             <div className={styles.textContent}>
-              <div className={`${styles.combinedCard} ${montserratAlternates.className}`}>
+              <div className={`${styles.combinedCard} ${montserratAlternatesRegular.className}`}>
                 {/* БЛОК ДОСТАВКИ */}
                 <div className={styles.sectionHeader}>
                   <DeliveryIcon />
-                  <h3 className={`${styles.sectionTitle} ${montserratAlternates.className}`}>
+                  <h3 className={`${styles.sectionTitle} ${montserratAlternatesRegular.className}`}>
                     Доставка
                   </h3>
                 </div>
-                <p className={`${styles.deliveryText} ${montserratAlternates.className}`}>
+                <p className={`${styles.deliveryText} ${montserratAlternatesRegular.className}`}>
                   Доставка здійснюється <strong>Новою поштою</strong> у будь-яке місто України.
                 </p>
-                <p className={`${styles.deliveryText} ${montserratAlternates.className}`}>
+                <p className={`${styles.deliveryText} ${montserratAlternatesRegular.className}`}>
                   Всі замовлення відправляємо упродовж <strong>2-х днів</strong>, щоб якомога швидше
                   порадувати вас.
                 </p>
@@ -197,16 +197,16 @@ export default function CheckoutPage() {
                 {/* БЛОК ОПЛАТЫ */}
                 <div className={styles.sectionHeader}>
                   <PaymentIcon />
-                  <h3 className={`${styles.sectionTitle} ${montserratAlternates.className}`}>
+                  <h3 className={`${styles.sectionTitle} ${montserratAlternatesRegular.className}`}>
                     Оплата
                   </h3>
                 </div>
-                <p className={`${styles.paymentText} ${montserratAlternates.className}`}>
+                <p className={`${styles.paymentText} ${montserratAlternatesRegular.className}`}>
                   Оплата тільки на рахунок IBAN:
                 </p>
                 <div className={styles.ibanContainer}>
                   <div className={styles.ibanBox}>
-                    <span className={`${styles.ibanText} ${montserratAlternates.className}`}>
+                    <span className={`${styles.ibanText} ${montserratAlternatesRegular.className}`}>
                       {iban}
                     </span>
                     <CopyButton iban={iban} />
@@ -215,36 +215,41 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            <div className={`${styles.nextSteps} ${montserratAlternates.className}`}>
-              <h3 className={montserratAlternates.className}>Що далі?</h3>
+            <div className={`${styles.nextSteps} ${montserratAlternatesRegular.className}`}>
+              <h3 className={montserratAlternatesRegular.className}>Що далі?</h3>
               <ul>
-                <li className={montserratAlternates.className}>
+                <li className={montserratAlternatesRegular.className}>
                   Наш менеджер зв&apos;яжеться з вами найближчим часом
                 </li>
-                <li className={montserratAlternates.className}>
+                <li className={montserratAlternatesRegular.className}>
                   Ми підтвердимо наявність товарів та деталі доставки
                 </li>
-                <li className={montserratAlternates.className}>
+                <li className={montserratAlternatesRegular.className}>
                   Товари будуть відправлені найближчим часом
                 </li>
               </ul>
             </div>
 
-            <div className={`${styles.contactInfo} ${montserratAlternates.className}`}>
-              <h3 className={montserratAlternates.className}>Контакти для зв&apos;язку</h3>
+            <div className={`${styles.contactInfo} ${montserratAlternatesRegular.className}`}>
+              <h3 className={montserratAlternatesRegular.className}>Контакти для зв&apos;язку</h3>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}>📞</span>
-                <span className={montserratAlternates.className}>+380 (99) 905-85-30</span>
+                <span className={montserratAlternatesRegular.className}>+380 (99) 905-85-30</span>
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}>✉️</span>
-                <span className={montserratAlternates.className}>applecidervinegar@ukr.net</span>
+                <span className={montserratAlternatesRegular.className}>
+                  applecidervinegar@ukr.net
+                </span>
               </div>
             </div>
           </div>
 
           <div className={styles.actionButtons}>
-            <Link href="/" className={`${styles.primaryButton} ${montserratAlternates.className}`}>
+            <Link
+              href="/"
+              className={`${styles.primaryButton} ${montserratAlternatesRegular.className}`}
+            >
               Повернутися на головну
             </Link>
           </div>
@@ -255,7 +260,7 @@ export default function CheckoutPage() {
 
   if (cartItems.length === 0) {
     return (
-      <div className={`${styles.container} ${montserratAlternates.className}`}>
+      <div className={`${styles.container} ${montserratAlternatesRegular.className}`}>
         <div className={styles.emptyCart}>
           <div className={styles.emptyCartIcon}>
             <svg
@@ -271,11 +276,14 @@ export default function CheckoutPage() {
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
           </div>
-          <h1 className={montserratAlternates.className}>Кошик порожній</h1>
-          <p className={montserratAlternates.className}>
+          <h1 className={montserratAlternatesRegular.className}>Кошик порожній</h1>
+          <p className={montserratAlternatesRegular.className}>
             Додайте товари до кошика, щоб оформити замовлення.
           </p>
-          <Link href="/" className={`${styles.backToProducts} ${montserratAlternates.className}`}>
+          <Link
+            href="/"
+            className={`${styles.backToProducts} ${montserratAlternatesRegular.className}`}
+          >
             Повернутися на головну
           </Link>
         </div>
@@ -284,17 +292,17 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className={`${styles.container} ${montserratAlternates.className}`}>
+    <div className={`${styles.container} ${montserratAlternatesRegular.className}`}>
       <div className={styles.header}>
-        <Link href="/" className={`${styles.backButton} ${montserratAlternates.className}`}>
+        <Link href="/" className={`${styles.backButton} ${montserratAlternatesRegular.className}`}>
           ← Назад до головної
         </Link>
-        <h1 className={montserratAlternates.className}>Оформлення замовлення</h1>
+        <h1 className={montserratAlternatesRegular.className}>Оформлення замовлення</h1>
       </div>
 
       <div className={styles.checkoutContent}>
-        <div className={`${styles.orderSummary} ${montserratAlternates.className}`}>
-          <h2 className={montserratAlternates.className}>Ваше замовлення</h2>
+        <div className={`${styles.orderSummary} ${montserratAlternatesRegular.className}`}>
+          <h2 className={montserratAlternatesRegular.className}>Ваше замовлення</h2>
           <div className={styles.cartItems}>
             {cartItems.map((item) => (
               <div key={item.id} className={styles.cartItem}>
@@ -306,19 +314,19 @@ export default function CheckoutPage() {
                   className={styles.itemImage}
                 />
                 <div className={styles.itemInfo}>
-                  <h3 className={montserratAlternates.className}>{item.title}</h3>
-                  <p className={montserratAlternates.className}>{item.price}</p>
+                  <h3 className={montserratAlternatesRegular.className}>{item.title}</h3>
+                  <p className={montserratAlternatesRegular.className}>{item.price}</p>
                   <div className={styles.quantityControls}>
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className={`${styles.quantityBtn} ${montserratAlternates.className}`}
+                      className={`${styles.quantityBtn} ${montserratAlternatesRegular.className}`}
                     >
                       -
                     </button>
-                    <span className={montserratAlternates.className}>{item.quantity}</span>
+                    <span className={montserratAlternatesRegular.className}>{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className={`${styles.quantityBtn} ${montserratAlternates.className}`}
+                      className={`${styles.quantityBtn} ${montserratAlternatesRegular.className}`}
                     >
                       +
                     </button>
@@ -326,27 +334,27 @@ export default function CheckoutPage() {
                 </div>
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className={`${styles.removeBtn} ${montserratAlternates.className}`}
+                  className={`${styles.removeBtn} ${montserratAlternatesRegular.className}`}
                 >
                   ×
                 </button>
               </div>
             ))}
           </div>
-          <div className={`${styles.totalPrice} ${montserratAlternates.className}`}>
+          <div className={`${styles.totalPrice} ${montserratAlternatesRegular.className}`}>
             Загалом: {getTotalPrice()} грн
           </div>
         </div>
 
         <form
-          className={`${styles.orderForm} ${montserratAlternates.className}`}
+          className={`${styles.orderForm} ${montserratAlternatesRegular.className}`}
           onSubmit={handleCheckout}
         >
-          <h2 className={montserratAlternates.className}>Контактна інформація</h2>
+          <h2 className={montserratAlternatesRegular.className}>Контактна інформація</h2>
 
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
-              <label htmlFor="firstName" className={montserratAlternates.className}>
+              <label htmlFor="firstName" className={montserratAlternatesRegular.className}>
                 Ім&apos;я *
               </label>
               <input
@@ -356,11 +364,11 @@ export default function CheckoutPage() {
                 value={formData.firstName}
                 onChange={handleInputChange}
                 required
-                className={montserratAlternates.className}
+                className={montserratAlternatesRegular.className}
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="lastName" className={montserratAlternates.className}>
+              <label htmlFor="lastName" className={montserratAlternatesRegular.className}>
                 Прізвище *
               </label>
               <input
@@ -370,13 +378,13 @@ export default function CheckoutPage() {
                 value={formData.lastName}
                 onChange={handleInputChange}
                 required
-                className={montserratAlternates.className}
+                className={montserratAlternatesRegular.className}
               />
             </div>
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="email" className={montserratAlternates.className}>
+            <label htmlFor="email" className={montserratAlternatesRegular.className}>
               Email *
             </label>
             <input
@@ -386,12 +394,12 @@ export default function CheckoutPage() {
               value={formData.email}
               onChange={handleInputChange}
               required
-              className={montserratAlternates.className}
+              className={montserratAlternatesRegular.className}
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="phone" className={montserratAlternates.className}>
+            <label htmlFor="phone" className={montserratAlternatesRegular.className}>
               Телефон *
             </label>
             <input
@@ -401,16 +409,15 @@ export default function CheckoutPage() {
               value={formData.phone}
               onChange={handleInputChange}
               required
-              className={montserratAlternates.className}
+              className={montserratAlternatesRegular.className}
             />
           </div>
 
-          <h2 className={montserratAlternates.className}>Доставка</h2>
-
+          <h2 className={montserratAlternatesRegular.className}>Доставка</h2>
           <div className={styles.formGroup}>
-            <label className={montserratAlternates.className}>Спосіб доставки</label>
+            <label className={montserratAlternatesRegular.className}>Спосіб доставки</label>
             <div className={styles.radioGroup}>
-              <label className={`${styles.radioLabel} ${montserratAlternates.className}`}>
+              <label className={`${styles.radioLabel} ${montserratAlternatesRegular.className}`}>
                 <input
                   type="radio"
                   name="deliveryMethod"
@@ -424,7 +431,7 @@ export default function CheckoutPage() {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="city" className={montserratAlternates.className}>
+            <label htmlFor="city" className={montserratAlternatesRegular.className}>
               Місто *
             </label>
             <input
@@ -434,12 +441,12 @@ export default function CheckoutPage() {
               value={formData.city}
               onChange={handleInputChange}
               required
-              className={montserratAlternates.className}
+              className={montserratAlternatesRegular.className}
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="address" className={montserratAlternates.className}>
+            <label htmlFor="address" className={montserratAlternatesRegular.className}>
               Номер відділення *
             </label>
             <input
@@ -449,16 +456,15 @@ export default function CheckoutPage() {
               value={formData.address}
               onChange={handleInputChange}
               required
-              className={montserratAlternates.className}
+              className={montserratAlternatesRegular.className}
             />
           </div>
 
-          <h2 className={montserratAlternates.className}>Оплата</h2>
-
+          <h2 className={montserratAlternatesRegular.className}>Оплата</h2>
           <div className={styles.formGroup}>
-            <label className={montserratAlternates.className}>Спосіб оплати</label>
+            <label className={montserratAlternatesRegular.className}>Спосіб оплати</label>
             <div className={styles.radioGroup}>
-              <label className={`${styles.radioLabel} ${montserratAlternates.className}`}>
+              <label className={`${styles.radioLabel} ${montserratAlternatesRegular.className}`}>
                 <input
                   type="radio"
                   name="paymentMethod"
@@ -472,7 +478,7 @@ export default function CheckoutPage() {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="comment" className={montserratAlternates.className}>
+            <label htmlFor="comment" className={montserratAlternatesRegular.className}>
               Коментар до замовлення
             </label>
             <textarea
@@ -481,13 +487,13 @@ export default function CheckoutPage() {
               value={formData.comment}
               onChange={handleInputChange}
               rows={3}
-              className={montserratAlternates.className}
+              className={montserratAlternatesRegular.className}
             />
           </div>
 
           <button
             type="submit"
-            className={`${styles.submitButton} ${montserratAlternates.className}`}
+            className={`${styles.submitButton} ${montserratAlternatesRegular.className}`}
             disabled={isSubmitting || !isFormValid}
           >
             {isSubmitting ? 'Оформляємо...' : 'Підтвердити замовлення'}

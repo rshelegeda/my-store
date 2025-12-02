@@ -239,7 +239,7 @@
 /* --- Адаптивность для мобильных (до 768px) --- */
 @media (max-width: 768px) {
     .carouselContainer {
-        margin: 20px 10px; /* Меньше отступов по бокам */
+        margin: 20px 20px; /* Меньше отступов по бокам */
     }
 
     .carouselImageWrapper {
@@ -250,6 +250,10 @@
     .navButton {
         padding: 8px 12px;
         font-size: 18px;
+    }
+
+    .pageTitle h2{
+        font-size: 28px;
     }
 }
 

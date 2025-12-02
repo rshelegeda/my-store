@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styles from './ProductBlock.module.css'
-import { montserratAlternates } from '../fonts'
+import { montserratAlternatesRegular } from '../fonts'
 
 interface ProductBlockProps {
   id: string
@@ -56,7 +56,7 @@ export default function ProductBlock({
 
   return (
     <Link href={`/products/${slug}`} className={styles.blockLink}>
-      <div className={`${styles.block} ${montserratAlternates.className}`}>
+      <div className={`${styles.block} ${montserratAlternatesRegular.className}`}>
         {/* Сначала основная бутылка */}
         <Image src={image} alt={title} width={180} height={360} className={styles.bottle} />
 
@@ -71,11 +71,11 @@ export default function ProductBlock({
         />
 
         <div
-          className={`${styles.infoBox} ${montserratAlternates.className}`}
+          className={`${styles.infoBox} ${montserratAlternatesRegular.className}`}
           style={{ backgroundColor: blockColor }}
         >
           <h2>{formattedTitle}</h2>
-          <p className={montserratAlternates.className} style={{ fontSize: 24 }}>
+          <p className={montserratAlternatesRegular.className} style={{ fontSize: 24 }}>
             {price} грн.
           </p>
 

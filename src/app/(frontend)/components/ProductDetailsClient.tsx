@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import React from 'react' // Импортируем React для <React.Fragment> и <br />
 import Image from 'next/image'
 import Link from 'next/link' // Оставляем Link, чтобы избежать ошибки сборки
-import { montserratAlternates } from '@/app/(frontend)/fonts'
+import { montserratAlternatesRegular } from '@/app/(frontend)/fonts'
 import styles from './../products/[slug]/ProductPage.module.css'
 
 import ProductSchema from '../components/ProductSchema'
@@ -183,7 +183,7 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
             />
             {/* ... */}
             <div
-              className={`${styles.infoBox} ${montserratAlternates.className}`}
+              className={`${styles.infoBox} ${montserratAlternatesRegular.className}`}
               style={{ backgroundColor: product.blockColor }}
             >
               <h2>{formattedTitle}</h2>
@@ -193,7 +193,7 @@ export default function ProductDetailsClient({ product, imageUrl, leavesUrl }: P
         </div>
         <div className={styles.infoSection}>
           {/* ... (остальная часть JSX) ... */}
-          <h1 className={`${styles.title} ${montserratAlternates.className}`}>
+          <h1 className={`${styles.title} ${montserratAlternatesRegular.className}`}>
             {product.title} купити онлайн
           </h1>
           {/* <p className={styles.subtitle}>{product.subtitle}</p> */}
