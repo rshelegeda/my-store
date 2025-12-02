@@ -1,4 +1,4 @@
-// ProductSchema.tsx - УЛУЧШЕННАЯ версия с полными данными для Google
+// ProductSchema.tsx - УЛУЧШЕННАЯ версия с полными данными для Google Merchant Center
 
 interface ProductSchemaProps {
   productData?: {
