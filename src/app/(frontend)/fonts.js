@@ -8,7 +8,7 @@ export const montserratAlternatesBold = Montserrat_Alternates({
   weight: '700', // ← ТОЛЬКО bold для LCP
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
-  preload: true, // ← ТОЛЬКО ЭТОТ
+  preload: false,
 })
 
 export const montserratAlternatesRegular = Montserrat_Alternates({

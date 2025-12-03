@@ -36,26 +36,70 @@ const socialLinks = [
 
 const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
   return (
-    <div className={styles.videoWrapper}>
-      <div className={styles.videoSection}>
+    <div
+      style={{
+        width: '100%',
+        position: 'relative',
+        contain: 'paint',
+      }}
+    >
+      <div
+        style={{
+          width: '100%',
+          height: '100vh',
+          position: 'relative',
+          overflow: 'hidden',
+          background: '#08120a',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Image
-          className={styles.mainVideo}
           src={dynamicPosterPath}
           alt="Натуральний яблучний оцет купити"
           fill
           priority
-          fetchPriority="high" // ← ЭТО ЛУЧШЕЕ РЕШЕНИЕ
           style={{ objectFit: 'cover' }}
         />
 
-        <div className={styles.contentOverlay}>
-          {/* Блок с основным текстом */}
-          <div className={styles.textBackground}>
-            <h2 className={`${styles.mainText} ${montserratAlternatesBold.className}`}>
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            paddingLeft: '2rem',
+          }}
+        >
+          <div>
+            <h2
+              className={montserratAlternatesBold.className}
+              style={{
+                color: '#ffffff',
+                fontWeight: 700,
+                fontSize: 'clamp(1.3rem, 4vw, 3rem)',
+                lineHeight: 1.12,
+                letterSpacing: '0.02em',
+                textTransform: 'uppercase',
+                margin: 0,
+              }}
+            >
               АСОРТИМЕНТ СМАКІВ
             </h2>
 
-            <h2 className={`${styles.mainText} ${montserratAlternatesBold.className}`}>
+            <h2
+              className={montserratAlternatesBold.className}
+              style={{
+                color: '#ffffff',
+                fontWeight: 700,
+                fontSize: 'clamp(1.3rem, 4vw, 3rem)',
+                lineHeight: 1.12,
+                letterSpacing: '0.02em',
+                textTransform: 'uppercase',
+                margin: 0,
+              }}
+            >
               ОБЕРИ СВІЙ СМАК
             </h2>
           </div>
