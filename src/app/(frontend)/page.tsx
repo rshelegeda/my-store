@@ -17,9 +17,9 @@ import Information from './components/Information'
 import type { Media, GalleryImage, Product } from '../../payload-types'
 
 export const metadata: Metadata = {
-  title: 'Натуральний яблучний оцет — купити крафтовий оцет ручної роботи',
+  title: 'Натуральний яблучний оцет купити онлайн',
   description:
-    'Крафтовий яблучний оцет ручного виробництва з натуральних яблук. Без консервантів. Купити оцет з доставкою по Україні.',
+    'Натуральний яблучний оцет ручного виробництва з натуральних яблук. Без консервантів. Купити онлайн оцет з доставкою по Україні.',
   alternates: {
     canonical: 'https://applecidervinegar.com.ua/',
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: 'https://applecidervinegar.com.ua/grandpa_with_ocet.jpg', // ✅ Твоя картинка
         width: 1200,
         height: 630,
-        alt: 'Натуральний яблучний оцет ручної роботи',
+        alt: 'Натуральний яблучний оцет купити онлайн',
       },
     ],
     locale: 'uk_UA',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Apple Cider Vinegar UA',
-    description: 'Натуральний яблучний оцет ручної роботи. Купити онлайн з доставкою.',
+    description: 'Натуральний яблучний оцет купити онлайн з доставкою.',
     images: ['https://applecidervinegar.com.ua/grandpa_with_ocet.jpg'], // ✅ Исправлено
   },
 }
