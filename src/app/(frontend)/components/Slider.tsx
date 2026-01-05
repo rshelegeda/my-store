@@ -60,6 +60,7 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
           alt="Натуральний яблучний оцет купити"
           fill
           priority
+          className={styles.zoomAnimation}
           style={{ objectFit: 'cover' }}
         />
 
@@ -72,8 +73,17 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
             paddingLeft: '2rem',
           }}
         >
-          <div>
-            <h2
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              paddingLeft: '2rem',
+              width: '45%',
+            }}
+          >
+            <h1
               className={montserratAlternatesBold.className}
               style={{
                 color: '#ffffff',
@@ -85,23 +95,8 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
                 margin: 0,
               }}
             >
-              АСОРТИМЕНТ СМАКІВ
-            </h2>
-
-            <h2
-              className={montserratAlternatesBold.className}
-              style={{
-                color: '#ffffff',
-                fontWeight: 700,
-                fontSize: 'clamp(1.3rem, 4vw, 3rem)',
-                lineHeight: 1.12,
-                letterSpacing: '0.02em',
-                textTransform: 'uppercase',
-                margin: 0,
-              }}
-            >
-              ОБЕРИ СВІЙ СМАК
-            </h2>
+              НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ <wbr /> КУПИТИ ОНЛАЙН
+            </h1>
           </div>
 
           {/* НОВЫЙ БЛОК: Социальные сети внизу оверлея */}

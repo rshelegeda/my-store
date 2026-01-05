@@ -129,3 +129,22 @@
   .mainText { font-size: 1.2rem; }
   .socials { bottom: 20px; }
 }
+
+/* Анимация увеличения */
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+
+.zoomAnimation {
+  /* Название анимации, длительность (10с для плавности), 
+     ease-out (замедление к концу), сохранение конечного состояния */
+  animation: slowZoom 5s ease-out forwards;
+  
+  /* Важно для производительности: говорим браузеру, что будем менять только масштаб */
+  will-change: transform;
+}

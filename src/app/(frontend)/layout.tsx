@@ -59,7 +59,7 @@ export default async function RootLayout({
         />
 
         {/* ОБНОВЛЕННЫЙ Schema.org с LocalBusiness */}
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
@@ -127,7 +127,7 @@ export default async function RootLayout({
               },
             ]),
           }}
-        />
+        /> */}
       </head>
 
       <body>

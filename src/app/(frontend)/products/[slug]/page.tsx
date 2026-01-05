@@ -60,6 +60,8 @@ export default async function ProductDetailPage({ params }: any) {
   // Payload возвращает полный URL, поэтому ручное добавление PAYLOAD_BASE_URL не требуется
   const imageUrl = product?.images?.[0]?.image?.url || null
   const leavesUrl = product?.leaves?.url || null
+  const currentYear = new Date().getFullYear()
+  const priceValidUntil = `${currentYear}-12-31`
 
   // --- УЛУЧШЕНИЕ SEO: ДОБАВЛЕНИЕ AGGREGATERATING И REVIEW ---
   const jsonLd = {
@@ -79,7 +81,7 @@ export default async function ProductDetailPage({ params }: any) {
       priceCurrency: 'UAH',
       price: product.price,
       availability: 'https://schema.org/InStock',
-      priceValidUntil: '2025-12-31',
+      priceValidUntil: priceValidUntil,
     },
     // Добавляем заглушку для агрегированного рейтинга (для Rich Snippets)
     aggregateRating: {

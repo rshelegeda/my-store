@@ -19,6 +19,9 @@ const ProductSchema = ({ productData }: ProductSchemaProps) => {
   // Если нет данных продукта - не рендерим ничего
   if (!productData) return null
 
+  const currentYear = new Date().getFullYear()
+  const priceValidUntil = `${currentYear}-12-31`
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -33,7 +36,7 @@ const ProductSchema = ({ productData }: ProductSchemaProps) => {
       priceCurrency: productData.priceCurrency || 'UAH',
       price: productData.price,
       availability: productData.availability || 'https://schema.org/InStock',
-      priceValidUntil: '2025-12-31',
+      priceValidUntil: priceValidUntil,
       itemCondition: 'https://schema.org/NewCondition', // Добавляем условие товара
 
       // ДОБАВЛЯЕМ политику возврата

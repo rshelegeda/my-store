@@ -33,7 +33,7 @@ export default function ProductsList({ products }: ProductsListProps) {
     <div className={styles.productsContainer}>
       <div className={styles.pageTitle}>
         <h1 className={`${styles.subtitle} ${montserratAlternatesRegular.className}`}>
-          НАТУРАЛЬНИЙ ЯБЛУЧНИЙ ОЦЕТ КУПИТИ ОНЛАЙН
+          ОБЕРИ СВІЙ СМАК
         </h1>
       </div>
 
