@@ -49,7 +49,7 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
           height: '100vh',
           position: 'relative',
           overflow: 'hidden',
-          background: '#08120a',
+          // background: '#08120a',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
