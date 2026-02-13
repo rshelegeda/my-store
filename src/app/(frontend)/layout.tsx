@@ -13,12 +13,14 @@ const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
   weight: ['400', '700'],
+  display: 'swap', // <--- Обязательно добавьте это! 13/02/2026
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
   weight: ['400', '700'],
+  display: 'swap', // <--- Обязательно добавьте это! 13/02/2026
 })
 
 // Метаданные
@@ -57,77 +59,6 @@ export default async function RootLayout({
           name="google-site-verification"
           content="OSV1cKj-XC82eDe2c2ilyONO4gJcurq1SD15cRj0t60"
         />
-
-        {/* ОБНОВЛЕННЫЙ Schema.org с LocalBusiness */}
-        {/* <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              // 1. WebSite (оставить как есть)
-              {
-                '@context': 'https://schema.org',
-                '@type': 'WebSite',
-                name: 'Apple Cider Vinegar UA',
-                url: 'https://applecidervinegar.com.ua/',
-                description:
-                  'Натуральний яблучний оцет ручного виробництва. Купити крафтовий оцет з доставкою по Україні.',
-                publisher: {
-                  '@type': 'Organization',
-                  name: 'Apple Cider Vinegar UA',
-                  logo: {
-                    '@type': 'ImageObject',
-                    url: 'https://applecidervinegar.com.ua/logo-new.png',
-                    width: 150,
-                    height: 150,
-                  },
-                },
-                // ДОБАВИТЬ: potentialAction для поиска по сайту
-                potentialAction: {
-                  '@type': 'SearchAction',
-                  target: {
-                    '@type': 'EntryPoint',
-                    urlTemplate: 'https://applecidervinegar.com.ua/search?q={search_term_string}',
-                  },
-                  'query-input': 'required name=search_term_string',
-                },
-              },
-              // 2. LocalBusiness (улучшить)
-              {
-                '@context': 'https://schema.org',
-                '@type': 'LocalBusiness',
-                name: 'Крафтова оцетарня',
-                image: 'https://applecidervinegar.com.ua/logo-new.png',
-                '@id': 'https://applecidervinegar.com.ua',
-                url: 'https://applecidervinegar.com.ua',
-                telephone: phone,
-                email: email,
-                address: {
-                  '@type': 'PostalAddress',
-                  addressCountry: 'UA',
-                  addressRegion: 'Київська область',
-                  addressLocality: 'Україна',
-                  // ДОБАВИТЬ: уточнить адрес если есть
-                  // streetAddress: 'вул. Прикладна, 123'
-                },
-                description: 'Виробництво натурального яблучного оцту ручної роботи',
-                priceRange: '₴',
-                openingHours: 'Mo-Su 09:00-18:00',
-                // ДОБАВИТЬ: геолокацию
-                geo: {
-                  '@type': 'GeoCoordinates',
-                  latitude: '50.4501',
-                  longitude: '30.5234',
-                },
-                // ДОБАВИТЬ: отзывы если есть
-                // aggregateRating: {
-                //   '@type': 'AggregateRating',
-                //   ratingValue: '4.8',
-                //   reviewCount: '42'
-                // }
-              },
-            ]),
-          }}
-        /> */}
       </head>
 
       <body>
@@ -141,7 +72,8 @@ export default async function RootLayout({
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
+              // strategy="afterInteractive" 13/02/2026 - изменено на lazyOnload для оптимизации загрузки
+              strategy="lazyOnload"
             />
             <Script
               id="google-analytics-init"

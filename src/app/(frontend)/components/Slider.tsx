@@ -59,9 +59,12 @@ const Slider: React.FC<SliderProps> = ({ dynamicPosterPath }) => {
           src={dynamicPosterPath}
           alt="Натуральний яблучний оцет купити"
           fill
-          priority
+          priority // Оставляем
+          fetchPriority="high" // КРИТИЧЕСКИ ВАЖНО: повышает приоритет в очереди загрузки
+          loading="eager" // Отключаем любую ленивую загрузку
           className={styles.zoomAnimation}
           style={{ objectFit: 'cover' }}
+          sizes="100vw" // Подсказывает браузеру размер, чтобы он не ждал CSS
         />
 
         <div
